@@ -1,0 +1,221 @@
+.diagnosticMenu{
+  position: absolute;
+  z-index:1000;
+  height:100%;
+  width:100%;
+  background: rgba(0,0,0,.8);
+  display:flex;
+  justify-content: center;
+  align-items:center;
+}
+
+.diagnosticMenu__container{
+  background:white;
+  max-height:540px;
+  min-height:540px;
+  max-width:806px;
+  min-width:806px;
+  position: relative;
+  padding: 3.3rem 2rem;
+}
+
+.diagnosticMenu__title{
+  position:absolute;
+  top:-43px;
+  left:0;
+  background: white;
+  padding: .9rem 2rem;
+}
+
+.diagnosticMenu__title h5{
+  font-size:.9rem;
+}
+
+.diagnosticMenu__close{
+  position: absolute;
+  top: -47px;
+  right: 0;
+  background: #666;
+  display: flex;
+  color: white;
+  padding: 9px 10px;
+  cursor:pointer;
+  transition: all .2s ease; 
+}
+
+.diagnosticMenu__close:hover{
+  background:#777 !important;
+}
+
+.diagnosticMenu__top{
+  border-bottom: 1.5px solid #ddd;
+  padding-bottom: 3rem;
+}
+
+.diagnosticMenu__top h3{
+  margin-bottom:1rem;
+}
+
+.diagnosticMenu__topContent{
+  display:flex;
+}
+
+.diagnosticMenu__topContent button{
+  outline: none;
+  border: none;
+  background: #666;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  padding: 0 2.5rem;
+  height: 3rem;
+  border-radius: 5px;
+  cursor:pointer;
+  transition:all .2s ease;
+}
+
+.diagnosticMenu__topContent button:hover{
+  background: #777 !important;
+}
+
+.diagnosticMenu__bottomTitle{
+  margin-top:1.3rem;
+  margin-bottom:1rem;
+}
+
+.diagnosticMenu__bottomSelect{
+  display:flex;
+  align-items:center;
+  margin-top: 2rem;
+  justify-content: space-between;
+}
+
+.diagnosticMenu__selectBox{
+  border:1.5px solid #666;
+  display:flex;
+  align-items:center;
+  position:relative;
+  width: 70%;
+  padding: .6rem 1.2rem;
+  border-radius: 6px;
+  cursor:pointer;
+  transition: all .2s ease;
+}
+
+.diagnosticMenu__selectBox:hover{
+  border:1.5px solid black;
+}
+
+
+.diagnosticMenu__icon{
+  display:flex;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+.diagnosticMenu__selectArrow{
+  display:flex;
+  align-items:center;
+  position: absolute;
+  right: .8rem;
+}
+
+.diagnosticMenu__bottom button{
+  outline: none;
+  border: none;
+  background: #666;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  padding: 0 2.5rem;
+  height: 3rem;
+  border-radius: 5px;
+  cursor:pointer;
+  transition:all .2s ease;
+  position: absolute;
+  right: 2rem;
+  bottom: 2rem;
+}
+
+.diagnosticMenu__bottom button:hover{
+  background: #777 !important;
+}
+
+/* ----------------- Select Printer -------------------*/
+
+.selectPrinter__container{
+  background:white;
+  max-height:614px;
+  min-height:614px;
+  max-width:806px;
+  min-width:806px;
+  position: relative;
+  padding: 2rem 1.2rem;
+}
+
+.selectPrinter__title{
+  position:absolute;
+  top:-43px;
+  left:0;
+  background: white;
+  padding: .9rem 2rem;
+}
+
+.selectPrinter__title h5{
+  font-size:.9rem;
+}
+
+.selectPrinter__close{
+  position: absolute;
+  top: -47px;
+  right: 0;
+  background: #666;
+  display: flex;
+  color: white;
+  padding: 9px 10px;
+  cursor:pointer;
+  transition: all .2s ease; 
+}
+
+.selectPrinter__close:hover{
+  background:#777 !important;
+}
+
+.selectPrinter__top{
+  display:flex;
+  align-items:center;
+  gap: 3rem;
+  margin-bottom: 1rem;
+}
+
+.selectPrinter__top h3{
+  font-size: 1.25rem;
+  letter-spacing: -.2px;
+}
+
+.selectPrinter__bottom{
+  border: 1px solid #666;
+  border-radius:3px;
+  height: 30rem;
+  margin: 0 1rem;
+}
+
+.selectPrinter__printer{
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.selectPrinter__icon{
+  flex: .075;
+  display: flex;
+  justify-content: center;
+}
+
+.selectPrinter__info{
+  flex:0.8;
+}
+
+.selectPtiner__ready{
+  flex:0.125;
+}

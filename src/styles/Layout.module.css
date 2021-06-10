@@ -1,0 +1,119 @@
+.layout__menu{
+  position:absolute;
+  z-index:5;
+  background:#666666;
+  color:white;
+  left:4rem;
+  top: 3.3rem;
+  border-radius:5px;
+  padding:1.25rem 1.5rem 1.5rem 1.5rem;
+  min-width: 17rem;
+  --button-bg:#555555;
+  --value-bg: #888888;
+}
+
+.layout__layoutOptions{
+  display:flex;
+  border:2px solid var(--value-bg);
+  border-radius:7px;
+  padding:3px;
+  margin-top: 1rem;
+}
+
+.layout__layoutOptions p{
+  flex:0.5;
+  padding:4px 0;
+  border-radius:3px;
+  text-align:center;
+  cursor:pointer;
+  font-weight: 300;
+}
+
+.layout__center{
+  margin:1.2rem 0 1.7rem;
+}
+
+.layout__button{
+  background: var(--button-bg);
+  border-radius: 3px;
+  text-align: center;
+  padding: .6rem 0;
+  font-size: .9rem;
+  font-weight: 500;
+  /* letter-spacing: .5px; */
+  color:var(--value-bg)
+}
+
+.layout__menu hr{
+  color: var(--value-bg);
+  background:var(--value-bg);
+  border:none;
+  outline:none;
+  height:1px;
+  margin:1rem 0 1.5rem;
+}
+
+.layout__duplicatesContainer{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin:0 0 1.5rem 0;
+}
+
+.layout__duplicatesContainer h3{
+  flex:0.5;
+}
+
+.layout__duplicatesValues{
+  display:flex;
+  flex:0.5;
+  gap:5px;
+}
+
+.layout__duplicatesValue{
+  background: #999;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  height: 2.3rem;
+  border-radius: 3px;
+  flex:0.70;
+  color:black;
+  justify-content: center;
+}
+
+.layout__duplicatesUpDown{
+  flex:0.3;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  gap:3px;
+}
+
+.layout__duplicatesUp, .layout__duplicatesDown{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--button-bg);
+  border-radius: 3px;
+  position: relative;
+  height: 15px;
+  width: 100%;
+  cursor:pointer;
+}
+
+.layout__duplicatesDuplicate{
+  margin-bottom:0.5rem;
+}
+
+.modelSelectedButton{
+  background:black !important;
+  color:white;
+  cursor:pointer;
+}
+
+.modelSelectedValue{
+  background:white !important;
+}
+

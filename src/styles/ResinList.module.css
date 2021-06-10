@@ -1,0 +1,17 @@
+.resinList{
+  position: absolute;
+  border: 1.5px solid #666666;
+  background: white;
+  left: -2px;
+  top: 36px;
+  width: 31.8rem;
+  z-index: 1000;
+  max-height: 10.5rem;
+  overflow-y: scroll;
+  background: white;
+}
+
+.resinList__resin{
+  padding:0;
+  padding: 1rem .75rem;
+}

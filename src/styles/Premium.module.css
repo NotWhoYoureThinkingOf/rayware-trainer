@@ -1,0 +1,43 @@
+.premium__premiumMenu{
+  position:absolute;
+  z-index:5;
+  background:#666666;
+  color:white;
+  left:4rem;
+  top: 2.6rem;
+  border-radius:5px;
+  padding:1rem 1.5rem 1.5rem 1.5rem;
+  min-width: 17rem;
+  --button-bg:#555555;
+  --value-bg: #888888;
+}
+
+.premium__premiumMenu h3{
+  margin-bottom:1rem;
+}
+
+.premium__options{
+  display:flex;
+  flex-direction:column;
+  gap:.8rem;
+}
+
+.premium__button{
+  background: var(--button-bg);
+  color:var(--value-bg);
+  border-radius: 4px;
+}
+
+.premium__button p {
+  font-size: .9rem;
+  font-weight: 600;
+  text-align: center;
+  padding:.6rem 0;
+}
+
+.modelSelectedButton{
+  background:black !important;
+  color:white;
+}
+
+

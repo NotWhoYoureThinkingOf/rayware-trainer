@@ -1,0 +1,177 @@
+.supportsMenu__menu{
+  position:absolute;
+  z-index:5;
+  background:#666666;
+  color:white;
+  left:4rem;
+  top: -0.5rem;
+  border-radius:5px;
+  padding:1rem 1.5rem 1.5rem 1.5rem;
+  min-width: 17rem;
+  --button-bg:#555555;
+  --value-bg: #888888;
+}
+
+.supportsMenu__topButtons{
+  margin: 1.1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+}
+
+.supportsMenu__raft h3{
+  font-weight:400;
+  margin-bottom: .8rem;
+}
+
+.supportsMenu__raftOptions{
+  display:flex;
+  border:2px solid var(--value-bg);
+  border-radius:7px;
+  padding:3px;
+  margin-bottom: 1rem;
+  cursor:pointer;
+}
+
+.supportsMenu__raftOptions p{
+  flex:0.5;
+  text-align: center;
+  padding:4px 0;
+  color:var(--value-bg)
+}
+
+.supportsMenu__density h3{
+  font-weight:400;
+  margin-bottom: .8rem;
+}
+
+.supportsMenu__densityOptions{
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border:2px solid var(--value-bg);
+  border-radius:7px;
+  padding:3px;
+  margin-bottom: 1rem;
+  cursor:pointer;
+}
+
+.supportsMenu__densityOptions p{
+  text-align: center;
+  padding:4px 0;
+  color:var(--value-bg)
+}
+
+.supportsMenu__strength h3{
+  font-weight:400;
+  margin-bottom: .8rem;
+}
+
+.supportsMenu__strengthOptions{
+  display:flex;
+  border:2px solid var(--value-bg);
+  border-radius:7px;
+  padding:3px;
+  margin-bottom: 1rem;
+  cursor:pointer;
+}
+
+.supportsMenu__strengthOptions p{
+  flex:0.5;
+  text-align: center;
+  padding:4px 0;
+  color:var(--value-bg)
+}
+
+.supportsMenu__offsetContainer{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin:1.5rem 0;
+}
+
+.supportsMenu__offsetContainer h3{
+  flex:0.5;
+  font-weight:400;
+}
+
+.supportsMenu__offsetValues{
+  display:flex;
+  flex:0.5;
+  gap:5px;
+}
+
+.supportsMenu__offsetValue{
+  background: #999;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  height: 2.3rem;
+  border-radius: 3px;
+  flex:0.70;
+  font-size:0.8rem;
+}
+
+.supportsMenu__offsetNumber{
+  flex: 0.6 1;
+  color: black;
+  display: flex;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+.supportsMenu__offsetMetric{
+  flex:0.4;
+  color:black;
+}
+
+.supportsMenu__offsetUpDown{
+  flex:0.3;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  gap:3px;
+}
+
+.supportsMenu__offsetUp, .supportsMenu__offsetDown{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--button-bg);
+  border-radius: 3px;
+  position: relative;
+  height: 15px;
+  width: 100%;
+  cursor:pointer;
+}
+
+.supportsMenu__offsetDuplicate{
+  margin-bottom:0.5rem;
+}
+
+.supportsMenu__button{
+  background: var(--button-bg);
+  border-radius: 3px;
+  text-align: center;
+  padding: .6rem 0;
+  font-size: .9rem;
+  font-weight: 600;
+  /* letter-spacing: .5px; */
+  color:var(--value-bg)
+}
+
+.selected__setting{
+  background:var(--button-bg);
+  border-radius:3px;
+  color:white !important;
+}
+
+.modelSelectedButton{
+  background:black !important;
+  color:white;
+  cursor:pointer;
+}
+
+.modelSelectedValue{
+  background:white !important;
+}

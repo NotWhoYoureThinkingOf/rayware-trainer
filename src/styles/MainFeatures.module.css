@@ -1,0 +1,259 @@
+.mainFeatures{
+  height:100vh;
+  background:#f2f2f2;
+  display:flex;
+  flex-direction: column;
+  overflow:hidden;
+}
+
+.mainFeatures__header{
+  z-index:100;
+}
+
+.mainFeatures__container{
+  height:100%;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding:2rem;
+  position:relative;
+}
+
+.mainFeatures__top{
+  display:flex;
+  justify-content: space-between;
+  z-index:5;
+}
+
+.mainFeatures__logo{
+  position:relative;
+}
+
+.mainFeatures__version{
+  position:absolute;
+  bottom:-15px;
+  padding:2px 4px 3px;
+  font-size:.75rem;
+  border:1.5px solid rgba(0,0,0,.5);
+  border-radius:5px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  color:rgba(0,0,0,.7)
+}
+
+.mainFeatures__printSettings{
+  background:#f2f2f2;
+  display:flex;
+  align-items: center;
+  gap:1.1rem;
+  border:1.5px solid rgba(221,221,221,1);
+  padding:.8rem 1.2rem;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.mainFeatures__printSettings:hover{
+  background: rgba(221,221,221,1);
+}
+
+.mainFeatures__printPrinter{
+  position:relative;
+  display:flex;
+  align-items: center;
+  gap:9px;
+  font-weight:500
+}
+
+.mainFeatures__printResin{
+  display:flex;
+  align-items: center;
+  gap:2px;
+  font-weight:500
+}
+
+.mainFeatures__printLayers{
+  display:flex;
+  align-items: center;
+  gap:5px;
+  font-weight:500
+}
+
+.mainFeatures__options{
+  display:flex;
+  align-items: center;
+  gap:7px;
+}
+
+.mainFeature__zoomOut, .mainFeature__zoomIn, .mainFeature__visibility{
+  background:black;
+  color:white;
+  display:flex;
+  align-items:center;
+  padding:3px 8px;
+  border-radius:5px;
+}
+
+.mainFeature__zoomOut:hover, .mainFeature__zoomIn:hover, .mainFeature__visibility:hover{
+  background:#666666;
+  cursor:pointer;
+}
+
+.mainFeature__visibility{
+  gap:3px;
+  padding:3px 5px 3px 8px;
+  position:relative;
+}
+
+
+.mainFeatures__center{
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+  z-index: 5;
+  width: fit-content;
+  position:absolute;
+  top: 34%;
+  bottom: 38%;
+}
+
+.mainFeature__tool{
+  z-index:5;
+}
+
+.mainFeature__tool:hover{
+  filter:opacity(60%);
+  cursor:pointer;
+}
+
+.mainFeatures__centerRight{
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+  z-index: 5;
+  width: fit-content;
+  position:absolute;
+  top: 34%;
+  bottom: 38%;
+  right:2rem;
+}
+
+.mainFeatures__printMenu{
+  /* background:green; */
+  width:55px;
+  height:55px;
+  border-radius:5px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  background:white;
+}
+
+.mainFeatures__printMenu:hover{
+  filter:brightness(110%);
+  cursor:pointer;
+}
+
+.mainFeatures__footer{
+  display:flex;
+  justify-content: space-between;
+  gap:.9rem;
+  z-index:5;
+}
+
+.mainFeatures__login{
+  background:#f2f2f2;
+  flex:0.19;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  gap:5px;
+  border:3px solid #3399ff;
+  border-radius:7px;
+  cursor:pointer;
+  transition: all .2s ease;
+}
+
+.mainFeatures__login p{
+  font-size:1rem;
+  font-weight:500;
+}
+
+.mainFeatures__process{
+  flex:0.62;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  background: #dddddd;
+  border-radius:7px;
+  padding:.9rem 0;
+}
+
+.mainFeatures__processLeft{
+  display:flex;
+  align-items: center;
+  flex:.5;
+  gap:10px;
+  padding:0px 1rem;
+}
+
+.mainFeatures__processLeft p{
+  font-weight:500;
+}
+
+.mainFeatures__processRight{
+  display:flex;
+  align-items: center;
+  flex:.5;
+  gap:10px;
+  padding:0px 1rem;
+}
+
+.mainFeatures__processRight p{
+  font-weight:500;
+}
+
+.mainFeatures__printable{
+  background:#f2f2f2;
+  flex:0.19;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  gap:8px;
+  border:3px solid #00ad4e;
+  border-radius:7px;
+  cursor:pointer;
+  transition: all .2s ease;
+}
+
+.mainFeatures__printable p{
+  font-size:.9rem;
+  font-weight:500;
+}
+
+.mainFeatures__printable:hover{
+  background:#ddd;
+}
+
+.mainFeatures__platform{
+  position: absolute;
+    height: 90%;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.mainFeatures__bed{
+  height:100%;
+  width:100%;
+  position:relative;
+  opacity:0;
+}
+
+.mainFeatures__canvas{
+  position:absolute;
+  height:100%;
+  width:100%;
+  left: 0;
+  top: 0;
+}

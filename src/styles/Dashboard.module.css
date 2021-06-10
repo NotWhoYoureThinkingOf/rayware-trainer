@@ -1,0 +1,97 @@
+.dashboard{
+  position: absolute;
+  z-index:1000;
+  height:100%;
+  width:100%;
+  background: rgba(0,0,0,.8);
+  display:flex;
+  justify-content: center;
+  align-items:center;
+}
+
+.dashboard__container{
+  background:white;
+  max-height:393px;
+  min-height:393px;
+  max-width:576px;
+  min-width:576px;
+  position: relative;
+  padding:2rem;
+}
+
+.dashboard__title{
+  position:absolute;
+  top:-43px;
+  left:0;
+  background: white;
+  padding: .8rem 2.5rem;
+}
+
+.dashboard__close{
+  position: absolute;
+  top: -47px;
+  right: 0;
+  background: #666;
+  display: flex;
+  color: white;
+  padding: 9px 10px;
+  cursor:pointer;
+  transition: all .2s ease; 
+}
+
+.dashboard__close:hover{
+  background:#777 !important;
+}
+
+.dashboard__manage{
+  position: absolute;
+  left:0;
+  bottom: -52px;
+  background: #666;
+  color: white;
+  padding: 1.08rem 2.7rem;
+  cursor:pointer;
+  transition: all .2s ease; 
+}
+
+.dashboard__manage:hover{
+  background:#777;
+}
+
+.dashboard__logout{
+  position: absolute;
+  right:0;
+  bottom: -52px;
+  background: #666;
+  color: white;
+  padding: 1.08rem 4.2rem;
+  cursor:pointer;
+  transition: all .2s ease; 
+}
+
+.dashboard__logout:hover{
+  background:#777;
+}
+
+.dashboard__title h5, .dashboard__manage h5, .dashboard__logout h5{
+  font-size:.9rem;
+}
+
+.dashboard__manage h5, .dashboard__logout h5{
+  font-size:.9rem;
+  letter-spacing: .1px;
+}
+
+.dashboard__user{
+  margin-bottom:1rem;
+}
+
+.dashboard__container p{
+  margin-bottom:.8rem;
+  color: #666;
+}
+
+.dashboard__container span{
+  font-weight: 700;
+  color: black;
+}

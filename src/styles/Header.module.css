@@ -1,0 +1,83 @@
+.header{
+  display:flex;
+  background:white;
+  padding:0px .7rem;
+  /* gap:.5rem; */
+}
+
+.header__file, .header__model, .header__view, .header__print, .header__help{
+  font-size:1rem;
+  padding:4px 12px;
+  border:1.5px solid rgba(215, 237, 255, 0);
+  cursor:pointer;
+  position:relative;
+}
+
+.header__file:hover, .header__model:hover, .header__view:hover, .header__print:hover, .header__help:hover{
+  background:rgb(228, 243, 255);
+  border:1.5px solid rgba(215, 237, 255, 1)
+}
+
+.header__fileTitle, .header__modelTitle, .header__viewTitle, .header__printTitle, .header__hrlpTitle{
+  user-select:none;
+  pointer-events:none;
+}
+
+.header__file ul, .header__model ul, .header__view ul, .header__print ul, .header__help ul{
+  position:absolute;
+  left:0;
+  top:29px;
+  min-width:fit-content;
+  background:#f2f2f2;
+  display:none;
+  padding:.2rem 0;
+  border:2px solid rgba(0,0,0,.1);
+  box-shadow: 4px 5px 2px -2px rgba(0,0,0,0.5);
+  flex-direction:column;
+  /* gap:.2rem; */
+}
+
+.header__file ul{
+  width:17rem;
+}
+
+.header__model ul{
+  width:20rem;
+}
+
+.header__view ul{
+  width:11rem;
+}
+
+.header__print ul{
+  width:15rem;
+}
+
+.header__help ul{
+  width:15rem;
+}
+
+.header__file:hover ul, .header__model:hover ul, .header__view:hover ul, .header__print:hover ul, .header__help:hover ul{
+  display:flex;
+}
+
+.header__file ul li, .header__model ul li, .header__view ul li, .header__print ul li, .header__help ul li{
+  list-style: none;
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+  /* padding:.2rem .2rem .2rem 2rem; */
+}
+
+.header li p{
+  padding:.4rem 1.5rem .4rem 2rem;
+}
+
+.header li:hover{
+  background:#90c8f6;
+  cursor:pointer;
+}
+
+.header hr{
+  margin: .2rem 5px .2rem 2rem;
+}

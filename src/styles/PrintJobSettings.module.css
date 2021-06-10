@@ -1,0 +1,259 @@
+.printJobSettings{
+  position: absolute;
+  z-index:1000;
+  height:100%;
+  width:100%;
+  background: rgba(0,0,0,.8);
+  display:flex;
+  justify-content: center;
+  align-items:center;
+}
+
+.printJobSettings__container{
+  background:white;
+  height: 56%;
+  max-height:697px;
+  min-height:697px;
+  width: 45%;
+  max-width:572px;
+  min-width:572px;
+  position: relative;
+}
+
+.printJobSettings__title{
+  position:absolute;
+  top: -2.6rem;
+  padding: .8rem 2.5rem;
+  background: white;
+}
+
+.printJobSettings__close{
+  position:absolute;
+  top: -2.8rem;
+  right: 0;
+  color:#f2f2f2;
+  background:#666666;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  padding: .5rem .7rem;
+  cursor:pointer;
+}
+
+.printJobSettings__cancel{
+  position: absolute;
+  bottom: -2.7rem;
+  color: #f2f2f2;
+  padding: .8rem 3rem;
+  background: #666666;
+  cursor:pointer;
+}
+
+.printJobSettings__apply{
+  position: absolute;
+  bottom: -2.7rem;
+  right: 0;
+  color: #f2f2f2;
+  padding: .8rem 3.5rem;
+  background: #00ad4e;
+  cursor:pointer;
+}
+
+.printJobSettings__title h3, .printJobSettings__cancel h3, .printJobSettings__apply h3 {
+  font-size:.9rem;
+}
+
+.printJobSettings__close:hover, .printJobSettings__cancel:hover, .printJobSettings__apply:hover {
+  filter:brightness(110%)
+}
+
+.printJobSettings__content{
+  padding: 2rem 2rem 0;
+  --button-bg:#555555;
+  --value-bg: #888888;
+}
+
+.printJobSettings__printer{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.printJobSettings__printer h2{
+  font-size:1.15rem;
+}
+
+.printJobSettings__printers{
+  border:1.5px solid #666666;
+  border-radius: 5px;
+  padding: .4rem;
+}
+
+.printJobSettings__printers, .printJobSettings__p95, .printJobSettings__s100, .printJobSettings__d75, .printJobSettings__p55{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.printJobSettings__p95, .printJobSettings__s100, .printJobSettings__d75, .printJobSettings__p55{
+  flex: 0.25;  
+  gap: .6rem;
+  border-radius:3px;
+  padding: 1.1rem 0;
+  cursor:pointer;
+  color:#666666;
+}
+
+.printJobSettings__p95:hover, .printJobSettings__s100:hover, .printJobSettings__d75:hover, .printJobSettings__p55:hover{
+  background:#dddddd;
+}
+
+.printJobSettings__p95Icon, .printJobSettings__s100Icon, .printJobSettings__d75Icon, .printJobSettings__p55Icon{
+  opacity:.6;
+}
+
+.printJobSettings__selectedPrinter{
+  background:black;
+  color:white;
+}
+
+.printJobSettings__selectedPrinter:hover{
+  background:black;
+  color:white;
+}
+
+.printJobSettings__selectedIcon{
+  opacity:1;
+  filter:invert(1)
+}
+
+.printJobSettings__material{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 2.8rem 0;
+}
+
+.printJobSettings__material h2{
+  font-size:1.15rem;
+}
+
+.printJobSettings__vendors{
+  display:flex;
+  border:1.5px solid #666666;
+  border-radius: 5px;
+  padding: .3rem .4rem;
+}
+
+.printJobSettings__vendors p{
+  font-size:.9rem;
+  padding: .3rem .6rem;
+  border-radius: 3px;
+  cursor:pointer;
+  color:#666666;
+}
+
+.printJobSettings__vendors p:hover{
+  background:#dddddd;
+}
+
+.printJobSettings__selectedVendor{
+  background:black !important;
+  color:white !important;
+}
+
+.printJobSettings__selectedVendor:hover{
+  background:black !important;
+  color:white !important;
+}
+
+.printJobSettings__resins{
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  border:1.5px solid #666666;
+  border-radius: 5px;
+  padding: .55rem .8rem;
+  position:relative;
+  cursor:pointer;
+}
+
+.printJobSettings__expand{
+  position:absolute; 
+  right:0;
+}
+
+.printJobSettings__layerThickness{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 2.8rem 0;
+}
+
+.printJobSettings__layerThickness h2{
+  font-size:1.15rem;
+}
+
+.printJobSettings__thickness{
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border:1.5px solid #666666;
+  border-radius: 5px;
+  padding: .3rem .4rem;
+}
+
+.printJobSettings__50, .printJobSettings__100, .printJobSettings__170{
+  display:flex; 
+  flex-direction:column;
+  align-items:center;
+  border-radius:3px;
+  padding: .6rem 0;
+  color:#666666;
+  cursor:pointer;
+}
+
+.printJobSettings__50:hover, .printJobSettings__100:hover, .printJobSettings__170:hover{
+  background:#dddddd;
+}
+
+.printJobSettings__selectedThickness{
+  background:black;
+  color:white;
+}
+
+.printJobSettings__selectedThickness:hover{
+  background:black;
+  color:white;
+}
+
+.printJobSettings__info{
+  margin-top: .8rem;
+  color:#666666;
+}
+
+.printJobSettings__content hr{
+  color: var(--value-bg);
+  background:var(--value-bg);
+  border:none;
+  outline:none;
+  height:1.5px;
+  /* margin:1rem 0; */
+  opacity:.3;
+}
+
+.printJobSettings__account{
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.6rem;
+}
+
+.printJobSettings__account h2{
+  font-size:1.15rem;
+}
+
+.printJobSettings__email{
+  display:flex;
+  align-items: center;
+    color: #666666;
+}
