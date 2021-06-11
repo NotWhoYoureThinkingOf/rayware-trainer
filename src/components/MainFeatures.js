@@ -16,6 +16,7 @@ import {
 import Header from "./Header";
 import Platform from "./Platform";
 import Tools from "./Tools";
+import { selectAddModel } from "../features/addModelSlice";
 import { grabViews, selectViewsMenu } from "../features/viewsSlice";
 import { grabPrintMenu, selectPrintMenu } from "../features/printMenuSlice";
 import {
@@ -42,6 +43,7 @@ import PrintMenu from "./PrintMenu";
 import PrintableMenu from "./PrintableMenu";
 import Dashboard from "./Dashboard";
 import DiagnosticMenu from "./DiagnosticMenu";
+import AddModel from "./AddModel";
 // import { selectPrintJobMenu } from "../features/printJobSlice";
 
 const MainFeatures = ({ children }) => {
@@ -49,6 +51,7 @@ const MainFeatures = ({ children }) => {
   const [printPrinter, setPrintPrinter] = useState("Pro95");
   const [printVendor, setPrintVendor] = useState("SprintRay");
   const dispatch = useDispatch();
+  const addModelOpen = useSelector(selectAddModel);
   const viewsMenuOpen = useSelector(selectViewsMenu);
   const printJobOpen = useSelector(selectPrintJobMenu);
   const printer = useSelector(selectPrintJobPrinter);
@@ -126,10 +129,9 @@ const MainFeatures = ({ children }) => {
     dispatch(grabDashboardMenu());
   };
 
-  // console.log("print job", printJobOpen);
-
   return (
     <div className={styles.mainFeatures}>
+      {addModelOpen && <AddModel />}
       {printJobOpen && <PrintJobSettings />}
       {printMenuOpen && <PrintMenu />}
       {printableMenuOpen && <PrintableMenu />}

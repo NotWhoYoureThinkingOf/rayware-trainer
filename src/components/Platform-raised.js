@@ -17,6 +17,8 @@ export default function Model(props) {
         scale={[18.68 / 4.7, 4.12 / 4.7, 34.62 / 4.7]}
         rotation={[0, 0, 0]}
       />
+      <pointLight position={[-5, 5, 0]} intensity={1.5} />
+      <pointLight position={[15, 10, -5]} intensity={1} />
     </group>
   );
 }

@@ -16,6 +16,8 @@ import printableMenuReducer from "../features/printableMenuSlice";
 import dashboardReducer from "../features/dashboardSlice";
 import diagnosticReducer from "../features/diagnosticSlice";
 import modelSelectedReducer from "../features/modelSelectedSlice";
+import addModelReducer from "../features/addModelSlice";
+import modelImportedReducer from "../features/modelImportedSlice";
 
 export const store = configureStore({
   reducer: {
@@ -36,5 +38,7 @@ export const store = configureStore({
     dashboard: dashboardReducer,
     diagnosticMenu: diagnosticReducer,
     modelSelected: modelSelectedReducer,
+    addModel: addModelReducer,
+    modelImported: modelImportedReducer,
   },
 });

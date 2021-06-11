@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "../styles/Tools.module.css";
 import Image from "next/image";
+import { grabAddModel, selectAddModel } from "../features/addModelSlice";
 import { grab, selectSizingMenu } from "../features/sizingSlice";
 import { grabPremium, selectPremiumMenu } from "../features/premiumSlice";
 import { grabLayout, selectLayoutMenu } from "../features/layoutSlice";
@@ -16,10 +17,15 @@ import SupportsMenu from "./SupportsMenu";
 
 const Tools = () => {
   const dispatch = useDispatch();
+  const addModelOpen = useSelector(selectAddModel);
   const sizingMenuOpen = useSelector(selectSizingMenu);
   const premiumMenuOpen = useSelector(selectPremiumMenu);
   const layoutMenuOpen = useSelector(selectLayoutMenu);
   const supportsMenuOpen = useSelector(selectSupportsMenu);
+
+  const openAddModel = () => {
+    dispatch(grabAddModel());
+  };
 
   const openSizingMenu = () => {
     dispatch(grab());
@@ -37,9 +43,11 @@ const Tools = () => {
     dispatch(grabSupportsMenu());
   };
 
+  console.log("add model window", addModelOpen);
+
   return (
     <div className={styles.tools}>
-      <div className={styles.tools__tool}>
+      <div className={styles.tools__tool} onClick={openAddModel}>
         <Image src="/add-icon.png" height={55} width={55} alt="add icon" />
       </div>
       <div className={styles.tools__tool} onClick={openSizingMenu}>

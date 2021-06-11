@@ -13,11 +13,17 @@ import {
   grabModelSelected,
   selectModelSelected,
 } from "../features/modelSelectedSlice";
+import {
+  releaseModelImported,
+  selectModelImported,
+} from "../features/modelImportedSlice";
+import KeyboardEventHandler from "react-keyboard-event-handler";
 
 export default function Model(props) {
   const [selected, setSelected] = useState(false);
   const dispatch = useDispatch();
   const selectedModel = useSelector(selectModelSelected);
+  const importedModel = useSelector(selectModelImported);
   const orbit = useRef();
   const group = useRef();
   const badModel = useRef();
@@ -49,8 +55,16 @@ export default function Model(props) {
     dispatch(grabModelSelected());
   };
 
+  const deleteModel = () => {
+    if (selected) {
+      setSelected(false);
+      dispatch(releaseModelImported());
+    }
+  };
+
   console.log("selected", selected);
   console.log("redux selected", selectedModel);
+  console.log("imported", importedModel);
 
   useEffect(() => {
     if (transform.current) {
@@ -80,12 +94,16 @@ export default function Model(props) {
           scale={[1 / 4, 1 / 4, 1 / 4]}
           // onClick={() => setOrbital(false)}
         />
-        <pointLight position={[-5, 5, 0]} intensity={1.5} />
-        <pointLight position={[15, 10, -5]} intensity={1} />
+
         {/* <ambientLight /> */}
         {/* {orbital && <OrbitControls />} */}
       </TransformControls>
       <OrbitControls ref={orbit} />
+      <KeyboardEventHandler
+        handleKeys={["del"]}
+        onKeyEvent={(key, e) => deleteModel()}
+        handleEventType={"keydown"}
+      />
     </group>
   );
 }

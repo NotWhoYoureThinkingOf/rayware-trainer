@@ -5,10 +5,18 @@ import { grab } from "../features/sizingSlice";
 import { grabLayout } from "../features/layoutSlice";
 import { grabSupportsMenu } from "../features/supportsMenuSlice";
 import { grabDiagnosticMenu } from "../features/diagnosticSlice";
-import { useDispatch } from "react-redux";
+import { releaseModelImported } from "../features/modelImportedSlice";
+import {
+  releaseModelSelected,
+  selectModelSelected,
+} from "../features/modelSelectedSlice";
+import { grabAddModel, selectAddModel } from "../features/addModelSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const Header = () => {
   const dispatch = useDispatch();
+  const addModelWindow = useSelector(selectAddModel);
+  const modelIsSelected = useSelector(selectModelSelected);
 
   const openDiagnosticMenu = () => {
     dispatch(grabDiagnosticMenu());
@@ -24,6 +32,16 @@ const Header = () => {
 
   const openSupportsMenu = () => {
     dispatch(grabSupportsMenu());
+  };
+
+  const openAddModel = () => {
+    dispatch(grabAddModel());
+  };
+
+  const deleteModel = () => {
+    if (modelIsSelected) {
+      dispatch(releaseModelImported());
+    }
   };
 
   return (
@@ -48,11 +66,11 @@ const Header = () => {
       <div className={styles.header__model}>
         <p className={styles.header__modelTitle}>Model</p>
         <ul>
-          <li>
+          <li onClick={openAddModel}>
             <p>Add Model</p>
             <p>Ctrl+O</p>
           </li>
-          <li>
+          <li onClick={deleteModel}>
             <p>Remove Selected</p>
             <p>Del</p>
           </li>

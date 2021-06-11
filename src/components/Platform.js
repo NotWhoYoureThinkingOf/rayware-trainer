@@ -1,16 +1,30 @@
 import { OrbitControls, useGLTF } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 
-import React, { Suspense, useRef } from "react";
-import { Provider } from "react-redux";
+import React, { Suspense, useEffect, useRef, useState } from "react";
+import { Provider, useSelector } from "react-redux";
 import { store } from "../app/store";
 import PlatformRaised from "./Platform-raised";
 import BadModel from "./Training-model-bad";
+import {
+  grabModelImported,
+  selectModelImported,
+} from "../features/modelImportedSlice";
 
 useGLTF.preload("/platform.gltf");
 useGLTF.preload("/platform-raised.gltf");
 
 const Platform = () => {
+  const [modelLoaded, setModelLoaded] = useState(false);
+
+  const modelIsImported = useSelector(selectModelImported);
+
+  useEffect(() => {
+    modelIsImported ? setModelLoaded(true) : setModelLoaded(false);
+  }, [modelIsImported]);
+
+  console.log("model imported", modelIsImported);
+
   return (
     <>
       <Canvas
@@ -34,7 +48,8 @@ const Platform = () => {
         <Suspense fallback={null}>
           <Provider store={store}>
             <PlatformRaised />
-            <BadModel />
+            {modelLoaded && <BadModel />}
+            {!modelLoaded && <OrbitControls />}
           </Provider>
         </Suspense>
       </Canvas>
