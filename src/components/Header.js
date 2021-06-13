@@ -41,6 +41,7 @@ const Header = () => {
   const deleteModel = () => {
     if (modelIsSelected) {
       dispatch(releaseModelImported());
+      dispatch(releaseModelSelected());
     }
   };
 

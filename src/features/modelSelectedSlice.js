@@ -7,12 +7,16 @@ export const modelSelectedSlice = createSlice({
   },
   reducers: {
     grabModelSelected: (state) => {
-      state.modelSelected = !state.modelSelected;
+      state.modelSelected = true;
+    },
+    releaseModelSelected: (state) => {
+      state.modelSelected = false;
     },
   },
 });
 
-export const { grabModelSelected } = modelSelectedSlice.actions;
+export const { grabModelSelected, releaseModelSelected } =
+  modelSelectedSlice.actions;
 
 export const selectModelSelected = (state) => state.modelSelected.modelSelected;
 

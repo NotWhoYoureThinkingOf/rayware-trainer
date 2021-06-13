@@ -13,6 +13,8 @@ export default function Model(props) {
       <mesh
         geometry={nodes.Plane.geometry}
         material={nodes.Plane.material}
+        material-color={"#cccccc"}
+        material-roughness={0.75}
         position={[0, -1.3, 0]}
         scale={[18.68 / 4.7, 4.12 / 4.7, 34.62 / 4.7]}
         rotation={[0, 0, 0]}
