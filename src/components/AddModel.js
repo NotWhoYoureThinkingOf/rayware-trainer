@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../styles/AddModel.module.css";
 import Image from "next/image";
 import { releaseAddModel, selectAddModel } from "../features/addModelSlice";
@@ -6,7 +6,11 @@ import {
   grabModelImported,
   selectModelImported,
 } from "../features/modelImportedSlice";
-import { useDispatch } from "react-redux";
+import {
+  releaseImportTraining,
+  selectImportTraining,
+} from "../features/importTrainingSlice";
+import { useDispatch, useSelector } from "react-redux";
 import {
   ChevronRight,
   Close,
@@ -17,6 +21,8 @@ import {
 } from "@material-ui/icons";
 
 const AddModel = () => {
+  const importTrainingOpen = useSelector(selectImportTraining);
+  const [stlSelected, setStlSelected] = useState(false);
   const dispatch = useDispatch();
 
   const closeAddModel = () => {
@@ -24,6 +30,7 @@ const AddModel = () => {
   };
 
   const importModel = () => {
+    dispatch(releaseImportTraining());
     dispatch(grabModelImported());
     closeAddModel();
   };
@@ -31,6 +38,24 @@ const AddModel = () => {
   return (
     <div className={styles.addModel}>
       <div className={styles.addModel__container}>
+        {importTrainingOpen && (
+          <div className={styles.addModel__import}>
+            You can select your STL file from here or from another folder in the
+            directory on the
+            <br />
+            left hand side. Click on 'Test Upper 10.stl' to select it.
+            <br />
+            {""}
+            <br />
+            After you're selected the file, you can press the Open button at the
+            bottom of the window to load the STL file.
+            <br />
+            {""}
+            <br />
+            In the desktop application of RayWare, you can also drag and drop
+            STL files into the program.
+          </div>
+        )}
         <div className={styles.addModel__header}>
           <div className={styles.addModel__icon}>
             <Image src="/sprintray-icon.png" height={15} width={15} />
@@ -78,7 +103,12 @@ const AddModel = () => {
               <p className={styles.addModel__bodyRightType}>Type</p>
               <p className={styles.addModel__bodyRightSize}>Size</p>
             </div>
-            <div className={styles.addModel__bodyRightContent}>
+            <div
+              className={`${styles.addModel__bodyRightContent} ${
+                stlSelected && styles.addModel__stlSelected
+              }`}
+              onClick={() => setStlSelected(!stlSelected)}
+            >
               <InsertPhoto />
               <p>Test Upper 10.stl</p>
             </div>

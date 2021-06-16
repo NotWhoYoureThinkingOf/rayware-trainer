@@ -16,6 +16,11 @@ import {
 import Header from "./Header";
 import Platform from "./Platform";
 import Tools from "./Tools";
+import { grabWelcome, selectWelcome } from "../features/welcomeSlice";
+import {
+  releaseImportTraining,
+  selectImportTraining,
+} from "../features/importTrainingSlice";
 import { selectAddModel } from "../features/addModelSlice";
 import { grabViews, selectViewsMenu } from "../features/viewsSlice";
 import { grabPrintMenu, selectPrintMenu } from "../features/printMenuSlice";
@@ -44,6 +49,7 @@ import PrintableMenu from "./PrintableMenu";
 import Dashboard from "./Dashboard";
 import DiagnosticMenu from "./DiagnosticMenu";
 import AddModel from "./AddModel";
+import Welcome from "./Welcome";
 // import { selectPrintJobMenu } from "../features/printJobSlice";
 
 const MainFeatures = ({ children }) => {
@@ -51,6 +57,8 @@ const MainFeatures = ({ children }) => {
   const [printPrinter, setPrintPrinter] = useState("Pro95");
   const [printVendor, setPrintVendor] = useState("SprintRay");
   const dispatch = useDispatch();
+  const welcomeOpen = useSelector(selectWelcome);
+  const importTrainingOpen = useSelector(selectImportTraining);
   const addModelOpen = useSelector(selectAddModel);
   const viewsMenuOpen = useSelector(selectViewsMenu);
   const printJobOpen = useSelector(selectPrintJobMenu);
@@ -109,6 +117,10 @@ const MainFeatures = ({ children }) => {
     }
   }, [vendor]);
 
+  const openWelcome = () => {
+    dispatch(grabWelcome());
+  };
+
   const openViewsMenu = () => {
     dispatch(grabViews());
   };
@@ -129,8 +141,11 @@ const MainFeatures = ({ children }) => {
     dispatch(grabDashboardMenu());
   };
 
+  console.log("import training", importTrainingOpen);
+
   return (
     <div className={styles.mainFeatures}>
+      {welcomeOpen && <Welcome />}
       {addModelOpen && <AddModel />}
       {printJobOpen && <PrintJobSettings />}
       {printMenuOpen && <PrintMenu />}
@@ -142,7 +157,7 @@ const MainFeatures = ({ children }) => {
       </header>
       <div className={styles.mainFeatures__container}>
         <div className={styles.mainFeatures__top}>
-          <div className={styles.mainFeatures__logo}>
+          <div className={styles.mainFeatures__logo} onClick={openWelcome}>
             <Image
               src="/sprintray-logo.PNG"
               height={40.56}

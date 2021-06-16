@@ -10,6 +10,8 @@
   background: white;
   display: flex;
   border-radius: 5px;
+  transition: all .2s ease;
+  position: relative;
 }
 
 .tools__tool:hover{

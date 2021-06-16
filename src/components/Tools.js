@@ -9,11 +9,13 @@ import {
   grabSupportsMenu,
   selectSupportsMenu,
 } from "../features/supportsMenuSlice";
+import { selectImportTraining } from "../features/importTrainingSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Sizing from "./Sizing";
 import Premium from "./Premium";
 import Layout from "./Layout";
 import SupportsMenu from "./SupportsMenu";
+import ImportTraining from "./ImportTraining";
 
 const Tools = () => {
   const dispatch = useDispatch();
@@ -22,6 +24,7 @@ const Tools = () => {
   const premiumMenuOpen = useSelector(selectPremiumMenu);
   const layoutMenuOpen = useSelector(selectLayoutMenu);
   const supportsMenuOpen = useSelector(selectSupportsMenu);
+  const importTrainingOpen = useSelector(selectImportTraining);
 
   const openAddModel = () => {
     dispatch(grabAddModel());
@@ -50,6 +53,7 @@ const Tools = () => {
       <div className={styles.tools__tool} onClick={openAddModel}>
         <Image src="/add-icon.png" height={55} width={55} alt="add icon" />
       </div>
+      {importTrainingOpen && <ImportTraining />}
       <div className={styles.tools__tool} onClick={openSizingMenu}>
         <Image src="/sizing-icon.png" height={55} width={55} alt="add icon" />
       </div>

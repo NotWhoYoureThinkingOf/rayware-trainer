@@ -1,0 +1,28 @@
+.importTraining{
+  position: absolute;
+  top: -34px;
+  left: 10rem;
+  width: 16rem;
+  padding: 1rem;
+  border: 5px solid black;
+  border-radius: 10px;
+  background: white;
+}
+
+.importTraining p{
+  margin-top:.5rem;
+}
+
+.importTraining__close{
+  position:absolute;
+  right: .5rem;
+    top: .5rem;
+    cursor:pointer;
+}
+
+.importTraining__arrow{
+  position:absolute;
+  left: -5rem;
+  top: 2rem;
+  display:flex;
+}

@@ -27,6 +27,7 @@
 
 .mainFeatures__logo{
   position:relative;
+  cursor:pointer;
 }
 
 .mainFeatures__version{

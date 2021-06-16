@@ -18,6 +18,8 @@ import diagnosticReducer from "../features/diagnosticSlice";
 import modelSelectedReducer from "../features/modelSelectedSlice";
 import addModelReducer from "../features/addModelSlice";
 import modelImportedReducer from "../features/modelImportedSlice";
+import welcomeReducer from "../features/welcomeSlice";
+import importTrainingReducer from "../features/importTrainingSlice";
 
 export const store = configureStore({
   reducer: {
@@ -40,5 +42,7 @@ export const store = configureStore({
     modelSelected: modelSelectedReducer,
     addModel: addModelReducer,
     modelImported: modelImportedReducer,
+    welcome: welcomeReducer,
+    importTraining: importTrainingReducer,
   },
 });

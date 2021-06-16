@@ -18,6 +18,17 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  box-shadow: 3px 4px 7px 0px rgb(0,0,0,.5);
+}
+
+.addModel__import{
+  position:absolute;
+  padding: 1rem;
+  border: 5px solid black;
+  border-radius: 10px;
+  background: white;
+  top: 25%;
+  left: 25%;
 }
 
 .addModel__header{
@@ -152,11 +163,16 @@
   align-items:center;
   font-size:.85rem;
   margin-top:.5rem;
-  background: #666;
+  cursor:pointer;
+  /* background: #666; */
 }
 
 .addModel__bodyRightContent p{
   margin-left:5px;
+}
+
+.addModel__stlSelected{
+  background:#666;
 }
 
 .addModel__bottom{
