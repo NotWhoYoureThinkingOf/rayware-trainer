@@ -6,6 +6,7 @@ import { Provider, useSelector } from "react-redux";
 import { store } from "../app/store";
 import PlatformRaised from "./Platform-raised";
 import BadModel from "./Training-model-bad";
+import FixedModel from "./Fixedmodel";
 import {
   grabModelImported,
   selectModelImported,
@@ -49,6 +50,7 @@ const Platform = () => {
           <Provider store={store}>
             <PlatformRaised />
             {modelLoaded && <BadModel />}
+            {/* {modelLoaded && <FixedModel />} */}
             {!modelLoaded && <OrbitControls />}
           </Provider>
         </Suspense>

@@ -41,6 +41,7 @@ import { selectPrintJobPrinter } from "../features/printJobPrinterSlice";
 import { selectPrintJobVendor } from "../features/printJobVendorSlice";
 import { selectPrintJobThickness } from "../features/printJobThicknessSlice";
 import { selectPrintJobResin } from "../features/printJobResinSlice";
+import { selectModelImported } from "../features/modelImportedSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Views from "./Views";
 import PrintJobSettings from "./PrintJobSettings";
@@ -70,6 +71,7 @@ const MainFeatures = ({ children }) => {
   const printableMenuOpen = useSelector(selectPrintableMenu);
   const dashboardMenuOpen = useSelector(selectDashboardMenu);
   const diagnosticMenuOpen = useSelector(selectDiagnosticMenu);
+  const modelIsImported = useSelector(selectModelImported);
 
   useEffect(() => {
     switch (printer) {
@@ -238,11 +240,11 @@ const MainFeatures = ({ children }) => {
           <div className={styles.mainFeatures__process}>
             <div className={styles.mainFeatures__processLeft}>
               <Timer />
-              <p>-</p>
+              <p>{modelIsImported ? "1 hr 11 min" : "-"}</p>
             </div>
             <div className={styles.mainFeatures__processRight}>
               <LocalDrink />
-              <p>- mL</p>
+              <p>{modelIsImported ? "8" : "-"} mL</p>
             </div>
           </div>
           <div

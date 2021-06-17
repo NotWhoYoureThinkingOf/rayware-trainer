@@ -20,7 +20,6 @@ import {
   selectModelImported,
 } from "../features/modelImportedSlice";
 import { Html } from "@react-three/drei";
-// import KeyboardEventHandler from "react-keyboard-event-handler";
 
 export default function Model(props) {
   const [selected, setSelected] = useState(false);
@@ -85,21 +84,20 @@ export default function Model(props) {
     }
   }, [pointerOver]);
 
-  // can find a way to change controls.setMode("rotate") or ("translate"). refer to https://reactjs.org/docs/events.html#mouse-events onMouseDown and onMouseUp most likely
+  // console.log("pointerOver", pointerOver);
 
-  console.log("pointerOver", pointerOver);
+  // can now add fix button to switch to fixed model. still need to figure out the sluggishness of hovering over the fixed model
 
   return (
     <group ref={group} {...props} dispose={null}>
-      <TransformControls
-        ref={transform}
-        // onPointerOver={() => console.log("controls")}
-        // onPointerDown={() => console.log("pointer down")}
-      >
+      <TransformControls ref={transform} position={[0, -0.4, -1]}>
         <a.mesh
           onClick={chooseModel}
           onPointerEnter={() => setPointerOver(true)}
           onPointerLeave={() => setPointerOver(false)}
+          onPointerDown={() =>
+            setPointerOver(transform.current.mode === "rotate" ? false : true)
+          }
           position={position}
           {...bind()}
           ref={badModel}
@@ -107,30 +105,21 @@ export default function Model(props) {
           material={nodes["Training-Model-Bad"].material}
           material-color={modelProps.color}
           material-roughness={0.75}
-          // position={[0, 1.3, -1]}
+          position={[0, 0.8, -1]}
           rotation={[-1.51, 0, -4]}
           scale={[1 / 3, 1 / 3, 1 / 3]}
-          // onClick={() => setOrbital(false)}
-        >
-          {selected && (
-            <Html>
-              <div className={styles.modelOptions}>
-                <p>BASE</p>
-                <p>COPY</p>
-                <p>RESET</p>
-              </div>
-            </Html>
-          )}
-        </a.mesh>
-        {/* <ambientLight /> */}
-        {/* {orbital && <OrbitControls />} */}
+        ></a.mesh>
+        {selected && (
+          <Html>
+            <div className={styles.modelOptions}>
+              <p>BASE</p>
+              <p>COPY</p>
+              <p>RESET</p>
+            </div>
+          </Html>
+        )}
       </TransformControls>
       <OrbitControls ref={orbit} />
-      {/* <KeyboardEventHandler
-        handleKeys={["del"]}
-        onKeyEvent={(key, e) => deleteModel()}
-        handleEventType={"keydown"}
-      /> */}
     </group>
   );
 }
