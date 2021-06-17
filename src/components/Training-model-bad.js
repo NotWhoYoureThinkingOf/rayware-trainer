@@ -24,6 +24,7 @@ import { Html } from "@react-three/drei";
 
 export default function Model(props) {
   const [selected, setSelected] = useState(false);
+  const [mouseDown, setMouseDown] = useState(false);
   const dispatch = useDispatch();
   const selectedModel = useSelector(selectModelSelected);
   const importedModel = useSelector(selectModelImported);
@@ -77,16 +78,19 @@ export default function Model(props) {
   console.log("selected", selected);
   console.log("redux selected", selectedModel);
   console.log("imported", importedModel);
+  console.log("mousedown", mouseDown);
 
   useEffect(() => {
     if (transform.current) {
       const controls = transform.current;
-      controls.setMode(mode);
+      controls.setMode("rotate");
       const callback = (event) => (orbit.current.enabled = !event.value);
       controls.addEventListener("dragging-changed", callback);
       return () => controls.removeEventListener("dragging-changed", callback);
     }
   });
+
+  // can find a way to change controls.setMode("rotate") or ("translate"). refer to https://reactjs.org/docs/events.html#mouse-events onMouseDown and onMouseUp most likely
 
   // console.log(orbital);
 
