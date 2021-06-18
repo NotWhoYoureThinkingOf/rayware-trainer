@@ -11,12 +11,14 @@ import {
   grabModelImported,
   selectModelImported,
 } from "../features/modelImportedSlice";
+import { grabModelFixed, selectModelFixed } from "../features/modelFixedSlice";
 
 useGLTF.preload("/platform.gltf");
 useGLTF.preload("/platform-raised.gltf");
 
 const Platform = () => {
   const [modelLoaded, setModelLoaded] = useState(false);
+  const modelIsFixed = useSelector(selectModelFixed);
 
   const modelIsImported = useSelector(selectModelImported);
 
@@ -24,7 +26,7 @@ const Platform = () => {
     modelIsImported ? setModelLoaded(true) : setModelLoaded(false);
   }, [modelIsImported]);
 
-  console.log("model imported", modelIsImported);
+  // console.log("model imported", modelIsImported);
 
   return (
     <>
@@ -50,7 +52,7 @@ const Platform = () => {
           <Provider store={store}>
             <PlatformRaised />
             {modelLoaded && <BadModel />}
-            {/* {modelLoaded && <FixedModel />} */}
+            {modelIsFixed && <FixedModel />}
             {!modelLoaded && <OrbitControls />}
           </Provider>
         </Suspense>

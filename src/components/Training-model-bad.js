@@ -19,7 +19,9 @@ import {
   releaseModelImported,
   selectModelImported,
 } from "../features/modelImportedSlice";
+import { grabModelFixed, selectModelFixed } from "../features/modelFixedSlice";
 import { Html } from "@react-three/drei";
+import { ThumbDown } from "@material-ui/icons";
 
 export default function Model(props) {
   const [selected, setSelected] = useState(false);
@@ -74,6 +76,11 @@ export default function Model(props) {
     }
   };
 
+  const fixModel = () => {
+    dispatch(releaseModelImported());
+    dispatch(grabModelFixed());
+  };
+
   useEffect(() => {
     if (transform.current) {
       const controls = transform.current;
@@ -115,6 +122,18 @@ export default function Model(props) {
               <p>BASE</p>
               <p>COPY</p>
               <p>RESET</p>
+            </div>
+            <div className={styles.modelRepair}>
+              <ThumbDown style={{ color: "#cf142b", fontSize: "1rem" }} />
+              <p className={styles.modelRepair__text}>
+                Unrepaired intraoral scan detected. Scan repair required.
+              </p>
+              <div className={styles.modelRepair__buttons}>
+                <p className={styles.modelRepair__help}>HELP</p>
+                <p className={styles.modelRepair__fix} onClick={fixModel}>
+                  FIX
+                </p>
+              </div>
             </div>
           </Html>
         )}

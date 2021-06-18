@@ -7,6 +7,7 @@ import {
   KeyboardArrowDown,
   Layers,
   LocalDrink,
+  ThumbDown,
   ThumbUp,
   Timer,
   Visibility,
@@ -143,7 +144,7 @@ const MainFeatures = ({ children }) => {
     dispatch(grabDashboardMenu());
   };
 
-  console.log("import training", importTrainingOpen);
+  // console.log("import training", importTrainingOpen);
 
   return (
     <div className={styles.mainFeatures}>
@@ -248,11 +249,24 @@ const MainFeatures = ({ children }) => {
             </div>
           </div>
           <div
-            className={styles.mainFeatures__printable}
+            className={
+              modelIsImported
+                ? styles.mainFeatures__failure
+                : styles.mainFeatures__printable
+            }
             onClick={openPrintableMenu}
           >
-            <ThumbUp style={{ color: "#00ad4e" }} />
-            <p>Printable</p>
+            {modelIsImported ? (
+              <>
+                <ThumbDown style={{ color: "#cf142b", fontSize: "1.45rem" }} />
+                <p>High Chance of Print Failure</p>
+              </>
+            ) : (
+              <>
+                <ThumbUp style={{ color: "#00ad4e", fontSize: "1.45rem" }} />
+                <p>Printable</p>
+              </>
+            )}
           </div>
         </footer>
         <div className={styles.mainFeatures__platform}>

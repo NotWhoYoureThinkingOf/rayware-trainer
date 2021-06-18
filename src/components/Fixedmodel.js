@@ -53,6 +53,7 @@ export default function Model(props) {
 
   useEffect(() => {
     dispatch(releaseModelSelected());
+    setSelected(false);
   }, []);
 
   const chooseModel = () => {
@@ -106,7 +107,7 @@ export default function Model(props) {
           material-roughness={0.75}
           position={[2.5, -0.8, 3.3]}
           rotation={[-1.6, 3.15, 3.8]}
-          scale={[1 / 18.5, 1 / 18.5, 1 / 18.5]}
+          scale={[1 / 17, 1 / 17, 1 / 17]}
         ></a.mesh>
         {selected && (
           <Html>

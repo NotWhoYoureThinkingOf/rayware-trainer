@@ -12,6 +12,7 @@ import {
 } from "../features/modelSelectedSlice";
 import { grabAddModel, selectAddModel } from "../features/addModelSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { releaseModelFixed } from "../features/modelFixedSlice";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -42,6 +43,7 @@ const Header = () => {
     if (modelIsSelected) {
       dispatch(releaseModelImported());
       dispatch(releaseModelSelected());
+      dispatch(releaseModelFixed());
     }
   };
 

@@ -2,7 +2,7 @@
   display: flex;
   gap: 7px;
   position: relative;
-  transform: translateY(-300%);
+  transform: translateY(-650%);
   left: -50%;
   z-index: 5,
 }
@@ -23,3 +23,63 @@
   background:black;
   color:white;
 }
+
+.modelRepair{
+  display:flex;
+  align-items:center;
+  position: absolute;
+  left: -135%;
+  top: 430%;
+  background:black;
+  border:3px solid white;
+  border-radius:5px;
+  color:white;
+  min-width: 26.2rem;
+  gap: 6px;
+  padding: 3px 4px;
+}
+
+.modelRepair__text{
+  font-size: .75rem;
+  font-weight: 300;
+}
+
+.modelRepair__buttons{
+  display:flex;
+  align-items:center;
+  gap:5px;
+  
+}
+
+.modelRepair__help{
+  background: #3399ff;
+  color:white;
+  font-weight:500;
+  font-size:.75rem;
+  padding: 5px 7px;
+  border-radius: 5px;
+  cursor:pointer;
+  transition: all .2s ease;
+}
+
+.modelRepair__help:hover{
+  background: #5daeff;
+}
+
+.modelRepair__fix{
+  background: #666666;
+  color:white;
+  font-weight:500;
+  font-size:.75rem;
+  padding: 5px 8px;
+  border-radius: 5px;
+  cursor:pointer;
+  transition: all .2s ease;
+}
+
+.modelRepair__fix:hover{
+  background: #00ad4e;
+}
+
+
+

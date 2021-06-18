@@ -46,7 +46,7 @@ const Tools = () => {
     dispatch(grabSupportsMenu());
   };
 
-  console.log("add model window", addModelOpen);
+  // console.log("add model window", addModelOpen);
 
   return (
     <div className={styles.tools}>
