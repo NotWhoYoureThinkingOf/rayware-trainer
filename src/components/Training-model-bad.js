@@ -111,7 +111,7 @@ export default function Model(props) {
           geometry={nodes["Training-Model-Bad"].geometry}
           material={nodes["Training-Model-Bad"].material}
           material-color={modelProps.color}
-          material-roughness={0.75}
+          material-roughness={0.65}
           position={[0, 0.8, -1]}
           rotation={[-1.51, 0, -4]}
           scale={[1 / 3, 1 / 3, 1 / 3]}

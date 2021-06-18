@@ -1,0 +1,118 @@
+.checkSpecs{
+  /* transform: translateX(100vw); */
+}
+
+.checkSpecs h2{
+  font-weight:500;
+  margin-bottom:2rem;
+}
+
+.checkSpecs__minimum{
+  display:flex;
+  flex-direction: column;
+  position:relative;  
+}
+
+.checkSpecs__requirements{
+  display:flex;
+  flex-direction: column;
+  
+}
+
+.checkSpecs__warning{
+  margin-top:1rem;
+}
+
+.checkSpecs__systems{
+  margin-top:4rem;
+  position:relative;
+}
+
+.checkSpecs__systemsTitle{
+  margin-bottom:2rem;
+}
+
+.checkSpecs__OS{
+  display:flex;
+  align-items: baseline;
+  gap: 5rem;
+}
+
+.checkSpecs__windows{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.checkSpecs__windows h3{
+  margin-top:1rem;
+}
+
+.checkSpecs__mac{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.checkSpecs__mac h3{
+  margin-top:1rem;
+}
+
+.checkSpecs__windowsModal{
+  position: absolute;
+  top: 0;
+  background: #111;
+  width: 100%;
+  min-height: 100%;
+  /* opacity:0; put back on when gsap is set up */
+}
+
+.checkSpecs__windowsModalContainer{
+  position:absolute;
+  height:100%;
+  width:100%;
+}
+
+.checkSpecs__windowsTaskbar{
+  position:absolute;
+  bottom:0;
+  display:flex;
+  width: 100%;
+}
+
+.checkSpecs__windowsIcon{
+  border-top: 1px solid white;
+    border-right: 1px solid white;
+    padding: .45rem 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.checkSpecs__windowsSearch{
+  position:relative;
+  display:flex;
+  align-items:center;
+}
+
+.checkSpecs__windowsSearch input{
+  background: #444;
+    color: #ccc;
+    width: 100%;
+    border-top: 1px solid #eee;
+    border-right: 1px solid #eee;
+    padding: 0.8rem 4rem 0.8rem 3rem;
+}
+
+.checkSpecs__windowsPrograms{
+  border-top: 1px solid white;
+  width: 100%;
+}
+
+.checkSpecs__macModal{
+  position:absolute;
+  /* opacity:0; put back on when gsap is set up */
+}

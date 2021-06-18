@@ -2,7 +2,8 @@
   position:absolute;
   width:100%;
   height:100%;
-  z-index:999999
+  z-index:99999999;
+  overflow-x:hidden;
 }
 
 .welcome__container{
@@ -13,6 +14,7 @@
   flex-direction:column;
   align-items: center;
   gap: 4rem;
+  position: relative;
 }
 
 .welcome__header{
@@ -40,14 +42,30 @@
   flex:0.8;
 }
 
+.welcome__checkSpecs{
+  width: 80%;
+  position: absolute;
+  top: 20%;
+  transform:translateX(100vw)
+}
+
+.welcome__checkSpecsBack{
+  position: absolute;
+  top: -9rem;
+  display:flex;
+  align-items:center;
+  gap:1rem;
+  cursor:pointer;
+}
+
 .welcome__bodyTitle{
-  margin-bottom:1rem;
+  margin-bottom:2rem;
 }
 
 .welcome__content{
   display:grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
 .welcome__tutorial{
@@ -57,4 +75,3 @@
 .welcome__import{
   position: relative;
 }
-
