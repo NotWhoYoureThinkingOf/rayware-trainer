@@ -1,13 +1,12 @@
 Fix:
   - sluggishness on hover for fixed model
-  - images on compatibility screen
-  - rotation/translate
+  - rotation/translate (may be fixed now because of being separated)
   - make values change in tool menues
 
 
 Add:
   - delete model guide
-  - windows/mac compatibility guides
+  - windows/mac compatability guides
   - printing guide
   - print job settings guide
   - tools guide (sizing, premium, layout, duplicates, supports if possible)
@@ -17,3 +16,7 @@ Add:
   - menues at top
   - diagnostic logs guide
   - rotation and translate model guide (after the issues are sorted out)
+
+  Laptop screen size:
+    width: 1507.330
+    height: 851.333

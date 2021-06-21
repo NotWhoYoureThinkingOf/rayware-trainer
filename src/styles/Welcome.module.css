@@ -46,12 +46,17 @@
   width: 80%;
   position: absolute;
   top: 20%;
-  transform:translateX(100vw)
+  transform:translateX(100vw);
+  width: 80%;
+  position: absolute;
+  height: 79.5%;
+  top: 20%;
+  overflow:hidden;
 }
 
 .welcome__checkSpecsBack{
   position: absolute;
-  top: -9rem;
+  right: 1rem;
   display:flex;
   align-items:center;
   gap:1rem;

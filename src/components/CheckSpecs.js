@@ -1,13 +1,46 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import styles from "../styles/CheckSpecs.module.css";
 import { useState } from "react";
-import { Search } from "@material-ui/icons";
+import { Close, Search } from "@material-ui/icons";
+import gsap, { Power4 } from "gsap";
 
 const CheckSpecs = () => {
   const [windowsModal, setWindowsModal] = useState(false);
   const [macModal, setMacModal] = useState(false);
+  const [dxDiagWindow, setDxDiagWindow] = useState(false);
   const [input, setInput] = useState("");
+  const windowsMockup = useRef(null);
+  const tl = gsap.timeline();
+
+  useEffect(() => {
+    if (windowsModal) {
+      tl.to(windowsMockup.current, 0.9, {
+        y: "-100%",
+        opacity: 1,
+        ease: Power4.easeInOut,
+      });
+      // gsap.from(windowsModal.current, {
+      //   y: "100%",
+      //   duration: 0.9,
+      //   ease: Power4.easeInOut,
+      //   opacity: 0,
+      // });
+    } else {
+      tl.to(windowsMockup.current, 0.9, {
+        y: "0%",
+        opacity: 0,
+        ease: Power4.easeInOut,
+      });
+    }
+  }, [windowsModal]);
+
+  const openDxdiag = () => {
+    setInput("");
+    setDxDiagWindow(true);
+  };
+
+  console.log("windowsModal", windowsModal);
 
   return (
     <div className={styles.checkSpecs}>
@@ -54,36 +87,65 @@ const CheckSpecs = () => {
             <h3>Mac</h3>
           </div>
         </div>
-        {windowsModal && (
-          <div className={styles.checkSpecs__windowsModal}>
-            <div className={styles.checkSpecs__windowsModalContainer}>
-              <div className={styles.checkSpecs__windowsTaskbar}>
-                <div className={styles.checkSpecs__windowsIcon}>
-                  <Image
-                    src="/windows-icon.png"
-                    width={20.875}
-                    height={22.475}
-                  />
-                </div>
-                <div className={styles.checkSpecs__windowsSearch}>
-                  <Search
-                    style={{
-                      position: "absolute",
-                      left: "1rem",
-                      color: "#ccc",
-                    }}
-                  />
-                  <input
-                    value={input}
-                    onChange={(e) => setInput(e.target.value)}
-                    placeholder="Type here to search"
-                  />
-                </div>
-                <div className={styles.checkSpecs__windowsPrograms}></div>
-              </div>
+        <div ref={windowsMockup} className={styles.checkSpecs__windowsModal}>
+          <div className={styles.checkSpecs__windowsModalContainer}>
+            <div
+              className={styles.checkSpecs__windowsModalClose}
+              onClick={() => setWindowsModal(false)}
+            >
+              <p>close</p>
             </div>
+            <div className={styles.checkSpecs__windowsTaskbar}>
+              <div className={styles.checkSpecs__windowsIcon}>
+                <Image src="/windows-icon.png" width={20.875} height={22.475} />
+              </div>
+              <div className={styles.checkSpecs__windowsSearch}>
+                <Search
+                  style={{
+                    position: "absolute",
+                    left: "1rem",
+                    color: "#ccc",
+                  }}
+                />
+                <input
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  placeholder="Type here to search"
+                />
+                {input === "dxdiag" && (
+                  <div className={styles.checkSpecs__searchDxdiag}>
+                    <h4>Best Match</h4>
+                    <div
+                      className={styles.checkSpecs__searchDxContainer}
+                      onClick={openDxdiag}
+                    >
+                      <div className={styles.checkSpecs__searchDxIcon}>
+                        <Image src="/dxdiag-icon.png" width={40} height={40} />
+                      </div>
+                      <div className={styles.checkSpecs__searchDxText}>
+                        <h4>dxdiag</h4>
+                        <p>Run Command</p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+              <div className={styles.checkSpecs__windowsPrograms}></div>
+            </div>
+            {dxDiagWindow && (
+              <div className={styles.checkSpecs__dxDiagWindow}>
+                <div className={styles.checkSpecs__dxDiagHeader}>
+                  <Image src="/dxdiag-icon.png" width={20} height={20} />
+                  <p>DirectX Diagnostic Tool</p>
+                  <Close
+                    onClick={() => setDxDiagWindow(false)}
+                    style={{ cursor: "pointer" }}
+                  />
+                </div>
+              </div>
+            )}
           </div>
-        )}
+        </div>
         {macModal && <div className={styles.checkSpecs__macModal}></div>}
       </div>
     </div>

@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { grabModelImported } from "../features/modelImportedSlice";
 import gsap, { Power4 } from "gsap";
 import CheckSpecs from "./CheckSpecs";
-import { ArrowBack } from "@material-ui/icons";
+import { ArrowBack, Close } from "@material-ui/icons";
 
 const Welcome = () => {
   const [checkCompat, setCheckCompat] = useState(false);
@@ -84,8 +84,7 @@ const Welcome = () => {
             className={styles.welcome__checkSpecsBack}
             onClick={returnToWelcome}
           >
-            <ArrowBack style={{ fontSize: "1.8rem", display: "flex" }} />
-            <h3>Back</h3>
+            <Close style={{ fontSize: "2.8rem", display: "flex" }} />
           </div>
 
           <CheckSpecs />
