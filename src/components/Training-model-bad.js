@@ -89,7 +89,7 @@ export default function Model(props) {
       controls.addEventListener("dragging-changed", callback);
       return () => controls.removeEventListener("dragging-changed", callback);
     }
-  }, []);
+  }, [pointerOver]);
 
   // can now add fix button to switch to fixed model. still need to figure out the sluggishness of hovering over the fixed model
 

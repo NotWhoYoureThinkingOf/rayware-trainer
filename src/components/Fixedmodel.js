@@ -81,7 +81,7 @@ export default function Model(props) {
       controls.addEventListener("dragging-changed", callback);
       return () => controls.removeEventListener("dragging-changed", callback);
     }
-  }, []);
+  }, [pointerOver]);
 
   console.log("pointerOver", pointerOver);
   console.log("position", position);
