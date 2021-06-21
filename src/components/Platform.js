@@ -53,7 +53,7 @@ const Platform = () => {
             <PlatformRaised />
             {modelLoaded && <BadModel />}
             {modelIsFixed && <FixedModel />}
-            {!modelLoaded && <OrbitControls />}
+            {!modelLoaded && !modelIsFixed && <OrbitControls />}
           </Provider>
         </Suspense>
       </Canvas>

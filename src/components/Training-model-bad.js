@@ -84,14 +84,12 @@ export default function Model(props) {
   useEffect(() => {
     if (transform.current) {
       const controls = transform.current;
-      controls.setMode(pointerOver ? "translate" : "rotate");
+      controls.setMode(!pointerOver ? "translate" : "rotate");
       const callback = (event) => (orbit.current.enabled = !event.value);
       controls.addEventListener("dragging-changed", callback);
       return () => controls.removeEventListener("dragging-changed", callback);
     }
-  }, [pointerOver]);
-
-  // console.log("pointerOver", pointerOver);
+  }, []);
 
   // can now add fix button to switch to fixed model. still need to figure out the sluggishness of hovering over the fixed model
 
@@ -100,11 +98,11 @@ export default function Model(props) {
       <TransformControls ref={transform} position={[0, -0.4, -1]}>
         <a.mesh
           onClick={chooseModel}
-          onPointerEnter={() => setPointerOver(true)}
-          onPointerLeave={() => setPointerOver(false)}
-          onPointerDown={() =>
-            setPointerOver(transform.current.mode === "rotate" ? false : true)
-          }
+          // onPointerEnter={() => setPointerOver(true)}
+          // onPointerLeave={() => setPointerOver(false)}
+          // onPointerDown={() =>
+          //   setPointerOver(transform.current.mode === "rotate" ? false : true)
+          // }
           position={position}
           {...bind()}
           ref={badModel}
@@ -122,6 +120,8 @@ export default function Model(props) {
               <p>BASE</p>
               <p>COPY</p>
               <p>RESET</p>
+              <p onClick={() => setPointerOver(false)}>MOVE</p>
+              <p onClick={() => setPointerOver(true)}>ROTATE</p>
             </div>
             <div className={styles.modelRepair}>
               <ThumbDown style={{ color: "#cf142b", fontSize: "1rem" }} />

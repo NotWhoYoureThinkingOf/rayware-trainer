@@ -27,7 +27,7 @@ export default function Model(props) {
   const dispatch = useDispatch();
   const orbit = useRef();
   const group = useRef();
-  const badModel = useRef();
+  const fixedModel = useRef();
   const transform = useRef();
   const { nodes, materials } = useGLTF("/fixedmodel.gltf");
   const [orbital, setOrbital] = useState(true);
@@ -76,12 +76,15 @@ export default function Model(props) {
   useEffect(() => {
     if (transform.current) {
       const controls = transform.current;
-      controls.setMode(pointerOver ? "translate" : "rotate");
+      controls.setMode(!pointerOver ? "translate" : "rotate");
       const callback = (event) => (orbit.current.enabled = !event.value);
       controls.addEventListener("dragging-changed", callback);
       return () => controls.removeEventListener("dragging-changed", callback);
     }
-  }, [pointerOver]);
+  }, []);
+
+  console.log("pointerOver", pointerOver);
+  console.log("position", position);
 
   return (
     <group ref={group} {...props} dispose={null}>
@@ -93,14 +96,14 @@ export default function Model(props) {
       >
         <a.mesh
           onClick={chooseModel}
-          onPointerEnter={() => setPointerOver(true)}
-          onPointerLeave={() => setPointerOver(false)}
-          onPointerDown={() =>
-            setPointerOver(transform.current.mode === "rotate" ? false : true)
-          }
+          // onPointerEnter={() => setPointerOver(true)}
+          // onPointerLeave={() => setPointerOver(false)}
+          // onPointerDown={() =>
+          //   setPointerOver(transform.current.mode === "rotate" ? false : true)
+          // }
           position={position}
           {...bind()}
-          ref={badModel}
+          ref={fixedModel}
           geometry={nodes["Training-Model-Fixed"].geometry}
           material={nodes["Training-Model-Fixed"].material}
           material-color={modelProps.color}
@@ -115,6 +118,8 @@ export default function Model(props) {
               <p>BASE</p>
               <p>COPY</p>
               <p>RESET</p>
+              <p onClick={() => setPointerOver(false)}>MOVE</p>
+              <p onClick={() => setPointerOver(true)}>ROTATE</p>
             </div>
           </Html>
         )}

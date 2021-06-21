@@ -1,0 +1,18 @@
+Fix:
+  - sluggishness on hover for fixed model
+  - images on compatibility screen
+  - rotation/translate
+
+
+Add:
+  - delete model guide
+  - windows/mac compatibility guides
+  - printing guide
+  - print job settings guide
+  - tools guide (sizing, premium, layout, duplicates, supports if possible)
+  - printability menu guide
+  - dashboard sign in guide
+  - notification or some kind of awareness to sprintray logo going back to welcome screen
+  - menues at top
+  - diagnostic logs guide
+  - rotation and translate model guide (after the issues are sorted out)
