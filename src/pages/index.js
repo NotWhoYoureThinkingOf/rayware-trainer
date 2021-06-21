@@ -7,7 +7,7 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <title>RayWare Trainer</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/sprintray-icon.png" />
       </Head>
       {/* make an intro page here asking "what do you want to learn?" and then branch out to pages from there */}
     </div>

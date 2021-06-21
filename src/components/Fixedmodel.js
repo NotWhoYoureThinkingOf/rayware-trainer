@@ -113,7 +113,7 @@ export default function Model(props) {
           scale={[1 / 17, 1 / 17, 1 / 17]}
         ></a.mesh>
         {selected && (
-          <Html>
+          <Html style={{ pointerEvents: "none" }}>
             <div className={styles.modelOptions}>
               <p>BASE</p>
               <p>COPY</p>
