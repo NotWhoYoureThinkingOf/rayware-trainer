@@ -42,7 +42,8 @@ const CheckSpecs = () => {
             className={styles.checkSpecs__windows}
             onClick={() => setWindowsModal(true)}
           >
-            <Image src="/windows-icon.JPG" width={208.75} height={224.75} />
+            {/* <Image src="/windows-icon.JPG" width={208.75} height={224.75} /> */}
+            <img src="/windows-icon.JPG" alt="" />
             <h3>Windows</h3>
           </div>
           <div
