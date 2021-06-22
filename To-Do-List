@@ -16,6 +16,7 @@ Add:
   - menues at top
   - diagnostic logs guide
   - rotation and translate model guide (after the issues are sorted out)
+  - save information button on dxdiag window
 
   Regular screen size:
     width: 1920
