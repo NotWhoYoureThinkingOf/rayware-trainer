@@ -99,7 +99,7 @@ const Welcome = () => {
               onClick={checkSpecs}
             >
               <Image
-                src="/rayware-trainer-just-looking.JPG"
+                src="/compat.png"
                 width={376.4}
                 height={198.5}
               />
