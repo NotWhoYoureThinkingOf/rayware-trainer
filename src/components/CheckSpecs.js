@@ -228,7 +228,53 @@ const CheckSpecs = () => {
                       </div>
                     </div>
                   )}
-
+                  {activeTab === 'display' && (
+                    <div className={styles.checkSpecs__dxDisplayInfo}>
+                      <div className={styles.checkSpecs__dxDisplayTop}>
+                      <div className={styles.checkSpecs__dxDisplayDevice}>
+                      <div className={styles.checkSpecs__dxDisplayLeft}>
+                        <p className={styles.checkSpecs__dxDeviceTitle}> Device</p>
+                        <ul>
+                          <li>Name:</li>
+                          <li>Manufacturer:</li>
+                          <li>Chip Type:</li>
+                          <li>DAC Type:</li>
+                          <li>Device Type:</li>
+                          <li>Approx. Total Memory:</li>
+                          <li>Display Memory (VRAM):</li>
+                          <li>Shared Memory:</li>
+                        </ul>
+                      </div>
+                      <div className={styles.checkSpecs__dxDisplayRight}>
+                      <ul>
+                          <li>NVIDIA GeForce GTX 1060</li>
+                          <li>NVIDIA</li>
+                          <li>NVIDIA GeForce GTX 1060</li>
+                          <li>Integrated RAMDAC</li>
+                          <li>Full Display Device</li>
+                          <li>22339 MB</li>
+                          <li>5980 MB</li>
+                          <li>16359 MB</li>
+                        </ul>
+                      </div>
+                      </div>
+                      <div className={styles.checkSpecs__dxDisplayDrivers}>
+                        <p className={styles.checkSpecs__dxDriverTitle}>Drivers</p>
+                        <p className={styles.checkSpecs__dxDriverInfo}>Driver Information</p>
+                      </div>
+                      </div>
+                      <div className={styles.checkSpecs__dxDisplayCenter}>
+                        <p className={styles.checkSpecs__dxFeaturesTitle}>
+                          DirectX Features
+                        </p>
+                        <p>DirectX Features Information</p>
+                      </div>
+                      <div className={styles.checkSpecs__dxDisplayBottom}>
+                        <p className={styles.checkSpecs__dxNotesTitle}>Notes</p>
+                        <p className={styles.checkSpecs__dxNote}>No problems found.</p>
+                      </div>
+                    </div>
+                  )}
                   <div className={styles.checkSpecs__dxDiagButtons}>
                     <button onClick={() => setDxDiagWindow(false)}>Exit</button>
                   </div>

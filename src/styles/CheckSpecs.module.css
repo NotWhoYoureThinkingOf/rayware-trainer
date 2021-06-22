@@ -1,44 +1,44 @@
-.checkSpecs{
+.checkSpecs {
   /* overflow:hidden; */
 }
 
-.checkSpecs h2{
-  font-weight:500;
-  margin-bottom:2rem;
+.checkSpecs h2 {
+  font-weight: 500;
+  margin-bottom: 2rem;
 }
 
-.checkSpecs__minimum{
-  display:flex;
+.checkSpecs__minimum {
+  display: flex;
   flex-direction: column;
-  position:relative;  
+  position: relative;
 }
 
-.checkSpecs__requirements{
-  display:flex;
+.checkSpecs__requirements {
+  display: flex;
   flex-direction: column;
-  
+
 }
 
-.checkSpecs__warning{
-  margin-top:1rem;
+.checkSpecs__warning {
+  margin-top: 1rem;
 }
 
-.checkSpecs__systems{
-  margin-top:4rem;
+.checkSpecs__systems {
+  margin-top: 4rem;
   /* position:relative; */
 }
 
-.checkSpecs__systemsTitle{
-  margin-bottom:2rem;
+.checkSpecs__systemsTitle {
+  margin-bottom: 2rem;
 }
 
-.checkSpecs__OS{
-  display:flex;
+.checkSpecs__OS {
+  display: flex;
   align-items: baseline;
   gap: 5rem;
 }
 
-.checkSpecs__windows{
+.checkSpecs__windows {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -46,11 +46,11 @@
   cursor: pointer;
 }
 
-.checkSpecs__windows h3{
-  margin-top:1rem;
+.checkSpecs__windows h3 {
+  margin-top: 1rem;
 }
 
-.checkSpecs__mac{
+.checkSpecs__mac {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -58,78 +58,78 @@
   cursor: pointer;
 }
 
-.checkSpecs__mac h3{
-  margin-top:1rem;
+.checkSpecs__mac h3 {
+  margin-top: 1rem;
 }
 
-.checkSpecs__windowsModal{
+.checkSpecs__windowsModal {
   position: absolute;
   top: 88%;
-  transform:translateY(0%);
+  transform: translateY(0%);
   background: #111;
   width: 100%;
   min-height: 83%;
-  opacity:0;
+  opacity: 0;
 }
 
-.checkSpecs__windowsModalContainer{
-  position:absolute;
-  height:100%;
-  width:100%;
+.checkSpecs__windowsModalContainer {
+  position: absolute;
+  height: 100%;
+  width: 100%;
 }
 
-.checkSpecs__windowsModalClose{
-  position:absolute;
+.checkSpecs__windowsModalClose {
+  position: absolute;
   top: -2.7rem;
-  right:0;
-  cursor:pointer;
+  right: 0;
+  cursor: pointer;
 }
 
-.checkSpecs__windowsModalClose p{
+.checkSpecs__windowsModalClose p {
   background: #111;
-  color:white;
+  color: white;
   padding: .8rem;
 }
 
-.checkSpecs__searchDxdiag{
-  position:absolute;
-  background:white;
+.checkSpecs__searchDxdiag {
+  position: absolute;
+  background: white;
   bottom: 100%;
   width: 100%;
   height: 17rem;
   padding: 0.5rem;
 }
 
-.checkSpecs__searchDxContainer{
-  height:40px;
-  display:flex;
-  align-items:center;
+.checkSpecs__searchDxContainer {
+  height: 40px;
+  display: flex;
+  align-items: center;
   gap: .5rem;
   margin-top: 1rem;
-  background:#c1f0ff;
-  cursor:pointer;
+  background: #c1f0ff;
+  cursor: pointer;
   padding: 1.7rem .5rem;
 }
 
-.checkSpecs__searchDxIcon{
-  position:relative;
-  display:flex;
+.checkSpecs__searchDxIcon {
+  position: relative;
+  display: flex;
 }
 
-.checkSpecs__searchDxText{
-  display:flex;
-  flex-direction:column;
+.checkSpecs__searchDxText {
+  display: flex;
+  flex-direction: column;
   gap: .2rem;
 }
 
 .checkSpecs__searchDxText p {
-  font-size:.8rem;
+  font-size: .8rem;
 }
 
-.checkSpecs__dxDiagWindow{
-  background:white;
+.checkSpecs__dxDiagWindow {
+  background: white;
   position: absolute;
-  right: 10%;
+  right: 5%;
   top: 15%;
   width: 45.4rem;
   display: flex;
@@ -137,92 +137,92 @@
   font-size: .75rem;
 }
 
-.checkSpecs__dxDiagHeader{
-  display:flex;
-  position:relative;
+.checkSpecs__dxDiagHeader {
+  display: flex;
+  position: relative;
   align-items: center;
   padding: .2rem .5rem;
   gap: .3rem;
 }
 
-.checkSpecs__dxDiagHeader p{
-  flex:1;
+.checkSpecs__dxDiagHeader p {
+  flex: 1;
   font-size: .75rem;
 }
 
-.checkSpecs__dxDiagBody{
-  font-size:.68rem;
+.checkSpecs__dxDiagBody {
+  font-size: .68rem;
   padding: .7rem;
-  background:#f0f0f0;
+  background: #f0f0f0;
 }
 
-.checkSpecs__dxDiagTabs{
-  display:flex;
+.checkSpecs__dxDiagTabs {
+  display: flex;
 }
 
-.checkSpecs__dxDiagTabs p{
+.checkSpecs__dxDiagTabs p {
   padding: .15rem .3rem;
   border-left: 1px solid #ddd;
   border-top: 1px solid #ddd;
   border-right: 1px solid #ddd;
-  cursor:pointer;
+  cursor: pointer;
 }
 
-.checkSpecs__dxDiagActive{
-  background:white;
+.checkSpecs__dxDiagActive {
+  background: white;
 }
 
-.checkSpecs__dxDiagInfo{
+.checkSpecs__dxDiagInfo {
   border: 1px solid #ddd;
   padding: .8rem;
 }
 
-.checkSpecs__dxDiagInfo p{
-  margin-bottom:1.5rem;
+.checkSpecs__dxDiagInfo p {
+  margin-bottom: 1.5rem;
 }
 
-.checkSpecs__dxDiagSystem{
+.checkSpecs__dxDiagSystem {
   position: relative;
   border: 1px solid #ddd;
   padding: 1rem;
 
 }
 
-.checkSpecs__dxDiagSystemTitle{
-  position:absolute;
+.checkSpecs__dxDiagSystemTitle {
+  position: absolute;
   top: -.5rem;
 }
 
-.checkSpecs__dxDiagSpecs{
+.checkSpecs__dxDiagSpecs {
   display: flex;
-  gap:.5rem;
+  gap: .5rem;
 }
 
-.checkSpecs__dxDiagLeft{
-  flex:0.4;
+.checkSpecs__dxDiagLeft {
+  flex: 0.4;
 }
 
-.checkSpecs__dxDiagLeft ul li{
-  list-style:none;
-  text-align:right;
+.checkSpecs__dxDiagLeft ul li {
+  list-style: none;
+  text-align: right;
   margin: .35rem 0;
 }
 
-.checkSpecs__dxDiagRight{
-  flex:0.6;
+.checkSpecs__dxDiagRight {
+  flex: 0.6;
 }
 
-.checkSpecs__dxDiagRight ul li{
-  list-style:none;
+.checkSpecs__dxDiagRight ul li {
+  list-style: none;
   margin: .35rem 0;
 }
 
-.checkSpecs__dxDiagButtons{
+.checkSpecs__dxDiagButtons {
   display: flex;
   justify-content: flex-end;
 }
 
-.checkSpecs__dxDiagButtons button{
+.checkSpecs__dxDiagButtons button {
   font-size: .65rem;
   padding: .25rem 3.5rem;
   margin: 1rem 0 0;
@@ -233,48 +233,135 @@
   transition: all .2s ease;
 }
 
-.checkSpecs__dxDiagButtons button:hover{
-  background:#e7f0ff !important;
-  border:1px solid #26beea !important;
+.checkSpecs__dxDiagButtons button:hover {
+  background: #e7f0ff !important;
+  border: 1px solid #26beea !important;
 }
 
-.checkSpecs__windowsTaskbar{
-  position:absolute;
-  bottom:0;
-  display:flex;
+.checkSpecs__dxDisplayInfo {
+  border: 1px solid #ddd;
+  padding: .8rem;
+}
+
+.checkSpecs__dxDisplayTop {
+  display: flex;
+  gap: .8rem;
+}
+
+.checkSpecs__dxDisplayDevice {
+  display: flex;
+  position: relative;
+  border: 1px solid #ddd;
+  padding: 1.25rem 0 .8rem;
+  flex: 0.6;
+  gap: .5rem;
+}
+
+.checkSpecs__dxDeviceTitle {
+  position: absolute;
+  top: -.5rem;
+}
+
+.checkSpecs__dxDisplayLeft {
+  flex: 0.35;
+}
+
+.checkSpecs__dxDisplayLeft ul li {
+  list-style: none;
+  text-align: right;
+  margin: .25rem 0;
+}
+
+.checkSpecs__dxDisplayRight {
+  flex: 0.65;
+}
+
+.checkSpecs__dxDisplayRight ul li {
+  list-style: none;
+  margin: .25rem 0;
+}
+
+.checkSpecs__dxDisplayDrivers {
+  position: relative;
+  border: 1px solid #ddd;
+  padding: 1.5rem 0 .8rem;
+  flex: 0.4;
+}
+
+.checkSpecs__dxDriverTitle {
+  position: absolute;
+  top: -.5rem;
+}
+
+.checkSpecs__dxDriverInfo {
+  padding-left: 1rem;
+}
+
+.checkSpecs__dxDisplayCenter {
+  position: relative;
+  border: 1px solid #ddd;
+  margin: 1rem 0;
+  padding: 2rem;
+}
+
+.checkSpecs__dxFeaturesTitle {
+  position: absolute;
+  top: -.5rem;
+}
+
+.checkSpecs__dxDisplayBottom {
+  position: relative;
+  border: 1px solid #ddd;
+  padding: .5rem;
+}
+
+.checkSpecs__dxNotesTitle {
+  position: absolute;
+  top: -.5rem;
+}
+
+.checkSpecs__dxNote {
+  border: 1px solid #ddd;
+  background: white;
+  padding: .2rem 0rem 2.5rem 1rem;
+}
+
+.checkSpecs__windowsTaskbar {
+  position: absolute;
+  bottom: 0;
+  display: flex;
   width: 100%;
 }
 
-.checkSpecs__windowsIcon{
+.checkSpecs__windowsIcon {
   border-top: 1px solid white;
-    border-right: 1px solid white;
-    padding: .45rem 1rem;
-    display: flex;
-    align-items: center;
+  border-right: 1px solid white;
+  padding: .45rem 1rem;
+  display: flex;
+  align-items: center;
 }
 
-.checkSpecs__windowsSearch{
-  position:relative;
-  display:flex;
-  align-items:center;
+.checkSpecs__windowsSearch {
+  position: relative;
+  display: flex;
+  align-items: center;
 }
 
-.checkSpecs__windowsSearch input{
+.checkSpecs__windowsSearch input {
   background: #444;
-    color: #ccc;
-    width: 100%;
-    border-top: 1px solid #eee;
-    border-right: 1px solid #eee;
-    padding: 0.8rem 4rem 0.8rem 3rem;
+  color: #ccc;
+  width: 100%;
+  border-top: 1px solid #eee;
+  border-right: 1px solid #eee;
+  padding: 0.8rem 4rem 0.8rem 3rem;
 }
 
-.checkSpecs__windowsPrograms{
+.checkSpecs__windowsPrograms {
   border-top: 1px solid white;
   width: 100%;
 }
 
-.checkSpecs__macModal{
-  position:absolute;
+.checkSpecs__macModal {
+  position: absolute;
   /* opacity:0; put back on when gsap is set up */
 }
-
