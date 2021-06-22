@@ -129,13 +129,113 @@
 .checkSpecs__dxDiagWindow{
   background:white;
   position: absolute;
-  right: 40%;
+  right: 10%;
   top: 15%;
+  width: 45.4rem;
+  display: flex;
+  flex-direction: column;
+  font-size: .75rem;
 }
 
 .checkSpecs__dxDiagHeader{
   display:flex;
   position:relative;
+  align-items: center;
+  padding: .2rem .5rem;
+  gap: .3rem;
+}
+
+.checkSpecs__dxDiagHeader p{
+  flex:1;
+  font-size: .75rem;
+}
+
+.checkSpecs__dxDiagBody{
+  font-size:.68rem;
+  padding: .7rem;
+  background:#f0f0f0;
+}
+
+.checkSpecs__dxDiagTabs{
+  display:flex;
+}
+
+.checkSpecs__dxDiagTabs p{
+  padding: .15rem .3rem;
+  border-left: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  cursor:pointer;
+}
+
+.checkSpecs__dxDiagActive{
+  background:white;
+}
+
+.checkSpecs__dxDiagInfo{
+  border: 1px solid #ddd;
+  padding: .8rem;
+}
+
+.checkSpecs__dxDiagInfo p{
+  margin-bottom:1.5rem;
+}
+
+.checkSpecs__dxDiagSystem{
+  position: relative;
+  border: 1px solid #ddd;
+  padding: 1rem;
+
+}
+
+.checkSpecs__dxDiagSystemTitle{
+  position:absolute;
+  top: -.5rem;
+}
+
+.checkSpecs__dxDiagSpecs{
+  display: flex;
+  gap:.5rem;
+}
+
+.checkSpecs__dxDiagLeft{
+  flex:0.4;
+}
+
+.checkSpecs__dxDiagLeft ul li{
+  list-style:none;
+  text-align:right;
+  margin: .35rem 0;
+}
+
+.checkSpecs__dxDiagRight{
+  flex:0.6;
+}
+
+.checkSpecs__dxDiagRight ul li{
+  list-style:none;
+  margin: .35rem 0;
+}
+
+.checkSpecs__dxDiagButtons{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.checkSpecs__dxDiagButtons button{
+  font-size: .65rem;
+  padding: .25rem 3.5rem;
+  margin: 1rem 0 0;
+  cursor: pointer;
+  background: #ddd;
+  outline: none;
+  border: 1px solid #aaa;
+  transition: all .2s ease;
+}
+
+.checkSpecs__dxDiagButtons button:hover{
+  background:#e7f0ff !important;
+  border:1px solid #26beea !important;
 }
 
 .checkSpecs__windowsTaskbar{

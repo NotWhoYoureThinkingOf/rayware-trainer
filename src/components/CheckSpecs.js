@@ -9,6 +9,7 @@ const CheckSpecs = () => {
   const [windowsModal, setWindowsModal] = useState(false);
   const [macModal, setMacModal] = useState(false);
   const [dxDiagWindow, setDxDiagWindow] = useState(false);
+  const [activeTab, setActiveTab] = useState("system");
   const [input, setInput] = useState("");
   const windowsMockup = useRef(null);
   const tl = gsap.timeline();
@@ -139,8 +140,98 @@ const CheckSpecs = () => {
                   <p>DirectX Diagnostic Tool</p>
                   <Close
                     onClick={() => setDxDiagWindow(false)}
-                    style={{ cursor: "pointer" }}
+                    style={{ cursor: "pointer", fontSize: "1.2rem" }}
                   />
+                </div>
+                <div className={styles.checkSpecs__dxDiagBody}>
+                  <div className={styles.checkSpecs__dxDiagTabs}>
+                    <p
+                      onClick={() => setActiveTab("system")}
+                      className={
+                        activeTab === "system"
+                          ? styles.checkSpecs__dxDiagActive
+                          : "false"
+                      }
+                    >
+                      System
+                    </p>
+                    <p
+                      onClick={() => setActiveTab("display")}
+                      className={
+                        activeTab === "display"
+                          ? styles.checkSpecs__dxDiagActive
+                          : "false"
+                      }
+                    >
+                      Display 1
+                    </p>
+                    <p>Display 2</p>
+                    <p>Sound 1</p>
+                    <p>Sound 2</p>
+                    <p>Sound 3</p>
+                    <p>Sound 4</p>
+                    <p>Sound 5</p>
+                    <p>Input</p>
+                  </div>
+                  {activeTab === "system" && (
+                    <div className={styles.checkSpecs__dxDiagInfo}>
+                      <p>
+                        This tool reports detailed information about the DirectX
+                        components and drivers installed on your system.
+                      </p>
+                      <p>
+                        If you know what area is causing the problem, click the
+                        appropriate tab above. Otherwise, you can use the "Next
+                        Page" button below to visit each page in sequence.
+                      </p>
+                      <div className={styles.checkSpecs__dxDiagSystem}>
+                        <p className={styles.checkSpecs__dxDiagSystemTitle}>
+                          System Information
+                        </p>
+                        <div className={styles.checkSpecs__dxDiagSpecs}>
+                          <div className={styles.checkSpecs__dxDiagLeft}>
+                            <ul>
+                              <li>Current Date/Time:</li>
+                              <li>Computer Name:</li>
+                              <li>Operating System:</li>
+                              <li>Language:</li>
+                              <li>System Manufacturer:</li>
+                              <li>System Model:</li>
+                              <li>BIOS:</li>
+                              <li>Processor:</li>
+                              <li>Memory:</li>
+                              <li>Page File:</li>
+                              <li>DirectX Version:</li>
+                            </ul>
+                          </div>
+                          <div className={styles.checkSpecs__dxDiagRight}>
+                            <ul>
+                              <li>Monday, June 21, 2021, 12:00:00 PM</li>
+                              <li>DEKTOP-A1B23CD</li>
+                              <li>
+                                Windows 10 Home 64-bit (10.0, Build 19041)
+                              </li>
+                              <li>English (Regional Setting: English)</li>
+                              <li>Dell Technology Co., Ltd.</li>
+                              <li>Z370P D3</li>
+                              <li>F3</li>
+                              <li>
+                                Intel(R) Core(TM) i5-8600K CPU @ 3.60 GHz (6
+                                CPUs), ~3.6GHz
+                              </li>
+                              <li>32768MB RAM</li>
+                              <li>18414MB used, 24031MB available</li>
+                              <li>DirectX 12</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  <div className={styles.checkSpecs__dxDiagButtons}>
+                    <button onClick={() => setDxDiagWindow(false)}>Exit</button>
+                  </div>
                 </div>
               </div>
             )}
