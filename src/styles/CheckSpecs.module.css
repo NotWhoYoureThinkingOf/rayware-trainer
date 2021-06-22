@@ -85,6 +85,14 @@
   cursor: pointer;
 }
 
+.checkSpecs__windowsSteps {
+  position: absolute;
+  color: white;
+  width: 25%;
+  margin: 2rem;
+  font-size: 1.5rem;
+}
+
 .checkSpecs__windowsModalClose p {
   background: #111;
   color: white;

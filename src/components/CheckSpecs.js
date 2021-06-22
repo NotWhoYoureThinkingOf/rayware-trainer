@@ -7,6 +7,8 @@ import gsap, { Power4 } from "gsap";
 
 const CheckSpecs = () => {
   const [windowsModal, setWindowsModal] = useState(false);
+  const [step1, setStep1] = useState(true)
+  const [step2, setStep2] = useState(false)
   const [macModal, setMacModal] = useState(false);
   const [dxDiagWindow, setDxDiagWindow] = useState(false);
   const [activeTab, setActiveTab] = useState("system");
@@ -40,6 +42,25 @@ const CheckSpecs = () => {
     setInput("");
     setDxDiagWindow(true);
   };
+
+  const windowsStep2 = () => {
+    setStep1(false)
+    setStep2(true)
+    openDxdiag()
+  }
+
+  const closeDxdiag = () => {
+    setStep1(true)
+    setStep2(false)
+    setDxDiagWindow(false)
+  }
+
+  const closeWindowsModal = () => {
+    setStep1(true)
+    setStep2(false)
+    setDxDiagWindow(false)
+    setWindowsModal(false)
+  }
 
   console.log("windowsModal", windowsModal);
 
@@ -92,9 +113,25 @@ const CheckSpecs = () => {
           <div className={styles.checkSpecs__windowsModalContainer}>
             <div
               className={styles.checkSpecs__windowsModalClose}
-              onClick={() => setWindowsModal(false)}
+              onClick={closeWindowsModal}
             >
               <p>close</p>
+            </div>
+            <div className={styles.checkSpecs__windowsSteps}>
+              {step1 && (<p>Type "dxdiag" in search bar below. This will locate the DirectX Diagnostic Tool. Click "dxdiag" to open it up.</p>)}
+              {step2 && (
+                <>
+              <p>The DirectX Diagnostic Tool lists out the hardware you have on your computer.</p>
+              <p style={{margin: '1rem 0'}}>The System tab will list your Operating System, Processor, and Memory. The Display 1 (and sometimes Display 2) tab will list your Graphics Card under Name or Chip Type</p>
+              <div className={styles.checkSpecs__windowsSpecs}>
+                <p>Minimum System Requirements:</p>
+                <p>Windows 10 64-bit / MacOS 10.15 Catalina</p>
+                <p>Intel i5 / Ryzen 7000 Series CPU</p>
+                <p>Nvidia GTX 1060 6GB / Radeon 560</p>
+                <p>16GB DDR4 RAM</p>
+              </div>
+              
+              </>)}
             </div>
             <div className={styles.checkSpecs__windowsTaskbar}>
               <div className={styles.checkSpecs__windowsIcon}>
@@ -118,7 +155,7 @@ const CheckSpecs = () => {
                     <h4>Best Match</h4>
                     <div
                       className={styles.checkSpecs__searchDxContainer}
-                      onClick={openDxdiag}
+                      onClick={windowsStep2}
                     >
                       <div className={styles.checkSpecs__searchDxIcon}>
                         <Image src="/dxdiag-icon.png" width={40} height={40} />
@@ -139,7 +176,7 @@ const CheckSpecs = () => {
                   <Image src="/dxdiag-icon.png" width={20} height={20} />
                   <p>DirectX Diagnostic Tool</p>
                   <Close
-                    onClick={() => setDxDiagWindow(false)}
+                    onClick={closeDxdiag}
                     style={{ cursor: "pointer", fontSize: "1.2rem" }}
                   />
                 </div>
@@ -276,7 +313,7 @@ const CheckSpecs = () => {
                     </div>
                   )}
                   <div className={styles.checkSpecs__dxDiagButtons}>
-                    <button onClick={() => setDxDiagWindow(false)}>Exit</button>
+                    <button onClick={closeDxdiag}>Exit</button>
                   </div>
                 </div>
               </div>
