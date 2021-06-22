@@ -96,8 +96,11 @@ const CheckSpecs = () => {
           <div
             className={styles.checkSpecs__windows}
             onClick={() => setWindowsModal(true)}
-          >
-            <Image src="/windows-icon.jpg" width={208.75} height={224.75} />
+          > 
+            <div className={styles.checkSpecs__windowsImage}>
+            <Image src="/windows-icon.jpg" layout="fill" objectFit="contain"  />
+            </div>
+            
             {/* <img src="/windows-icon.JPG" alt="" /> */}
             <h3>Windows</h3>
           </div>
@@ -105,7 +108,10 @@ const CheckSpecs = () => {
             className={styles.checkSpecs__mac}
             onClick={() => setMacModal(true)}
           >
-            <Image src="/apple-icon.jpg" width={206} height={238.75} />
+            <div className={styles.checkSpecs__macImage}>
+            <Image src="/apple-icon.jpg" layout="fill" objectFit="contain" />
+            </div>
+            
             <h3>Mac</h3>
           </div>
         </div>

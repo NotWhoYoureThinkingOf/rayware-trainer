@@ -50,12 +50,24 @@
   margin-top: 1rem;
 }
 
+.checkSpecs__windowsImage {
+  width: 15rem;
+  height: 15rem;
+  position: relative;
+}
+
 .checkSpecs__mac {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   cursor: pointer;
+}
+
+.checkSpecs__macImage {
+  width: 15rem;
+  height: 15rem;
+  position: relative;
 }
 
 .checkSpecs__mac h3 {
@@ -375,4 +387,24 @@
 .checkSpecs__macModal {
   position: absolute;
   /* opacity:0; put back on when gsap is set up */
+}
+
+@media screen and (max-width: 1950px) {
+  .checkSpecs__windowsSteps {
+    font-size: 1.2rem;
+  }
+
+  .checkSpecs__dxDiagWindow {
+    top: 5%;
+  }
+
+  .checkSpecs__windowsImage {
+    width: 10rem;
+    height: 10rem;
+  }
+
+  .checkSpecs__macImage {
+    width: 10rem;
+    height: 10rem;
+  }
 }

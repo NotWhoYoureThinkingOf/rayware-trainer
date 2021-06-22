@@ -17,6 +17,10 @@ Add:
   - diagnostic logs guide
   - rotation and translate model guide (after the issues are sorted out)
 
+  Regular screen size:
+    width: 1920
+    height: 937
+
   Laptop screen size:
     width: 1507.330
     height: 851.333
