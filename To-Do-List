@@ -6,7 +6,7 @@ Fix:
 
 Add:
   - delete model guide
-  - windows/mac compatability guides
+  - mac compatability guide
   - printing guide
   - print job settings guide
   - tools guide (sizing, premium, layout, duplicates, supports if possible)
@@ -16,7 +16,20 @@ Add:
   - menues at top
   - diagnostic logs guide
   - rotation and translate model guide (after the issues are sorted out)
-  - save information button on dxdiag window
+  - save information button on dxdiag window (per blake as it allows a notepad export of the info)
+  - login or dashboard
+
+Lessons:
+  - compatability
+  - importing model
+  - scan repair (fixing)
+  - free roam
+  - resin tank awareness (consummable, lifespan)
+  - tests
+  - calibrations
+  - cleaning glass
+  - optimizing graphics card (nvidia control panel)
+  - dashboard stuff like getting designed STL's and subscription level (will require leslie's help)
 
   Regular screen size:
     width: 1920
@@ -25,3 +38,5 @@ Add:
   Laptop screen size:
     width: 1507.330
     height: 851.333
+
+  Project originally mentioned by Leslie on 5/10/21 and bagan building on 5/11/21

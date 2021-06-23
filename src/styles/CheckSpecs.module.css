@@ -240,11 +240,11 @@
 .checkSpecs__dxDiagButtons {
   display: flex;
   justify-content: flex-end;
+  gap:.5rem;
 }
 
 .checkSpecs__dxDiagButtons button {
   font-size: .65rem;
-  padding: .25rem 3.5rem;
   margin: 1rem 0 0;
   cursor: pointer;
   background: #ddd;
@@ -256,6 +256,14 @@
 .checkSpecs__dxDiagButtons button:hover {
   background: #e7f0ff !important;
   border: 1px solid #26beea !important;
+}
+
+.checkSpecs__dxSave{
+  padding: .25rem .9rem;
+}
+
+.checkSpecs__dxExit{
+  padding: .25rem 3.5rem;
 }
 
 .checkSpecs__dxDisplayInfo {
@@ -387,6 +395,25 @@
 .checkSpecs__macModal {
   position: absolute;
   /* opacity:0; put back on when gsap is set up */
+}
+
+.checkSpecs__macModalContainer {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.checkSpecs__macModalClose {
+  position: absolute;
+  top: -2.7rem;
+  right: 0;
+  cursor: pointer;
+}
+
+.checkSpecs__macModalClose p {
+  background: #111;
+  color: white;
+  padding: .8rem;
 }
 
 @media screen and (max-width: 1950px) {
