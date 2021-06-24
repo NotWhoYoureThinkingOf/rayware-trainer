@@ -1,14 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../styles/AboutThisMac.module.css";
 import Image from "next/image";
+import { releaseMacAbout, selectMacAbout } from "../features/macAboutSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const AboutThisMac = () => {
+  const dispatch = useDispatch();
+
+  const closeMacAbout = () => {
+    dispatch(releaseMacAbout());
+  };
+
   return (
     <div className={styles.about}>
       <div className={styles.about__header}>
         <div className={styles.about__headerButtons}>
-          <div className={styles.about__headerExit}></div>
-          <div className={styles.about__headerDownsize}></div>
+          <div
+            className={styles.about__headerExit}
+            onClick={closeMacAbout}
+          ></div>
+          <div
+            className={styles.about__headerDownsize}
+            onClick={closeMacAbout}
+          ></div>
           <div className={styles.about__headerBlank}></div>
         </div>
         <div className={styles.about__headerTabs}>
@@ -37,9 +51,7 @@ const AboutThisMac = () => {
               </p>
             </div>
             <div className={styles.about__bodyCenter}>
-              <p>
-                <span>MacBook Pro</span> (13-inch, M1, 2020)
-              </p>
+              <span>MacBook Pro (13-inch, 2020)</span>
               <p>
                 <span>Processor</span> 2.8 GHz Quad-Core Intel Core i7
               </p>
@@ -63,8 +75,8 @@ const AboutThisMac = () => {
           </div>
         </div>
         <div className={styles.about__bodyBottom}>
-          <span>&trade;</span> and <span>&copy;</span> 1983-2021 Apple Inc. All
-          Rights Reserved. License and warranty.
+          <span>&trade;</span>&nbsp;and&nbsp;<span>&copy;</span>&nbsp;1983-2021
+          Apple Inc. All Rights Reserved. License and warranty.
         </div>
       </div>
     </div>

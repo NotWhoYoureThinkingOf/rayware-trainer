@@ -21,6 +21,7 @@ import modelImportedReducer from "../features/modelImportedSlice";
 import welcomeReducer from "../features/welcomeSlice";
 import importTrainingReducer from "../features/importTrainingSlice";
 import modelFixedReducer from "../features/modelFixedSlice";
+import macAboutReducer from "../features/macAboutSlice";
 
 export const store = configureStore({
   reducer: {
@@ -46,5 +47,6 @@ export const store = configureStore({
     welcome: welcomeReducer,
     importTraining: importTrainingReducer,
     modelFixed: modelFixedReducer,
+    macAbout: macAboutReducer,
   },
 });

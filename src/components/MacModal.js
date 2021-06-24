@@ -3,11 +3,15 @@ import styles from "../styles/MacModal.module.css";
 import Image from "next/image";
 import gsap, { Power4 } from "gsap";
 import AboutThisMac from "./AboutThisMac";
+import { grabMacAbout, selectMacAbout } from "../features/macAboutSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const MacModal = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [aboutOpen, setAboutOpen] = useState(false);
   const macMockup = useRef(null);
+  const macAboutMenu = useSelector(selectMacAbout);
+  const dispatch = useDispatch();
   const tl = gsap.timeline();
 
   useEffect(() => {
@@ -29,6 +33,7 @@ const MacModal = () => {
   const openAboutMenu = () => {
     setMenuOpen(false);
     setAboutOpen(true);
+    dispatch(grabMacAbout());
   };
 
   return (
@@ -74,7 +79,7 @@ const MacModal = () => {
           <span>12:00 PM</span>
         </div>
       </div>
-      {aboutOpen && <AboutThisMac />}
+      {macAboutMenu && <AboutThisMac />}
     </div>
   );
 };

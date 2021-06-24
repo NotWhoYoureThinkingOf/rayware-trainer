@@ -2,6 +2,7 @@
   width: fit-content;
   position: absolute;
   right: 5%;
+  top:25%;
 }
 
 .about__header{
@@ -111,13 +112,70 @@
 
 .about__bodyRight{
   flex:0.6;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .about__bodyTop h2{
   margin:0;
+  font-weight:700;
+}
+
+.about__bodyTop span{
+  font-weight: 400;
+}
+
+.about__bodyTop p{
+  font-size: .9rem;
+  font-weight: 500;
+}
+
+.about__bodyCenter p{
+  font-size: .9rem;
+  margin: .4rem 0;
+}
+
+.about__bodyCenter span{
+  font-weight:700;
+  font-size: .9rem;
+}
+
+.about__bodyCenter p span{
+  margin-right:.5rem;
+  font-weight:700;
+  font-size: .9rem;
 }
 
 .about__bodyButtons{
   display:flex;
+  gap: .75rem;
+  margin-top: 1.6rem;
 }
+
+.about__bodyButtons button{
+  padding: .2rem .6rem;
+  font-weight: 700;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  background: white;
+  box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.1);
+}
+
+.about__bodyBottom{
+  display: flex;
+  justify-content: center;
+  font-size:.85rem;
+  color: #b5b5b5;
+  font-size: .85rem;
+  padding-bottom:.5rem;
+}
+
+@media screen and (max-width: 1950px) {
+  .about{
+    transform: scale(.9);
+    top:17%;
+  }
+}
+
 
