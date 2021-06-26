@@ -88,4 +88,12 @@
   pointer-events: none;
 }
 
-@media screen and (max-width: 1950px) {}
+@media screen and (max-width: 1950px) {
+  .welcome {
+    padding: 2rem 0 0;
+  }
+
+  .welcome__content {
+    padding-bottom: 2rem;
+  }
+}
