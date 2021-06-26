@@ -98,12 +98,29 @@ const Welcome = () => {
               className={`${styles.welcome__specs} ${styles.welcome__tutorial}`}
               onClick={checkSpecs}
             >
-              <Image
-                src="/compat.png"
-                width={376.4}
-                height={198.5}
-              />
+              <Image src="/compat.png" width={376.4} height={198.5} />
               <h3>Checking compatibility with your Computer</h3>
+            </div>
+            <div
+              className={`${styles.welcome__optimize} ${styles.welcome__tutorial} ${styles.welcome__TBD}`}
+              // onClick={}
+            >
+              <Image src="/optimizecard.png" width={376.4} height={198.5} />
+              <h3>Optimizing your Graphics Card (TBD)</h3>
+            </div>
+            <div
+              className={`${styles.welcome__optimize} ${styles.welcome__tutorial} ${styles.welcome__TBD}`}
+              // onClick={}
+            >
+              <Image src="/connection-issue.png" width={376.4} height={198.5} />
+              <h3>Common Connection Fixes (TBD)</h3>
+            </div>
+            <div
+              className={`${styles.welcome__loggingIn} ${styles.welcome__tutorial} ${styles.welcome__TBD}`}
+              // onClick={}
+            >
+              <Image src="/login.png" width={376.4} height={198.5} />
+              <h3>Logging into Dashboard (TBD)</h3>
             </div>
             <div
               className={`${styles.welcome__import} ${styles.welcome__tutorial}`}
@@ -113,11 +130,11 @@ const Welcome = () => {
               <h3>Importing a Model</h3>
             </div>
             <div
-              className={`${styles.welcome__fixModel} ${styles.welcome__tutorial}`}
+              className={`${styles.welcome__fixModel} ${styles.welcome__tutorial} ${styles.welcome__TBD}`}
               onClick={startFixTraining}
             >
               <Image src="/fix-model.JPG" width={376.4} height={198.5} />
-              <h3>Scan Repair (Fixing a Model)</h3>
+              <h3>Scan Repair (Fixing a Model) (TBD)</h3>
             </div>
             <div
               className={`${styles.welcome__justLooking} ${styles.welcome__tutorial}`}
@@ -129,6 +146,20 @@ const Welcome = () => {
                 height={198.5}
               />
               <h3>Free Roam</h3>
+            </div>
+            <div
+              className={`${styles.welcome__printPreview} ${styles.welcome__tutorial} ${styles.welcome__TBD}`}
+              // onClick={freeRoam}
+            >
+              <Image src="/print-preview.png" width={376.4} height={198.5} />
+              <h3>Print Preview (Checking Total Layers) (TBD)</h3>
+            </div>
+            <div
+              className={`${styles.welcome__logs} ${styles.welcome__tutorial} ${styles.welcome__TBD}`}
+              // onClick={freeRoam}
+            >
+              <Image src="/diagnostic-logs.PNG" width={376.4} height={198.5} />
+              <h3>Downloading your Diagnostic Logs (TBD)</h3>
             </div>
           </div>
         </div>

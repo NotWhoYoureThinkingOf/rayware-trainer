@@ -75,10 +75,16 @@
 
 .welcome__tutorial {
   cursor: pointer;
+  position:relative;
 }
 
 .welcome__import {
   position: relative;
+}
+
+.welcome__TBD{
+  opacity: 0.1;
+  pointer-events: none;
 }
 
 @media screen and (max-width: 1950px) {}
