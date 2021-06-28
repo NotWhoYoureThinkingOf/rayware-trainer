@@ -10,15 +10,19 @@ import { useDispatch, useSelector } from "react-redux";
 import { grabModelImported } from "../features/modelImportedSlice";
 import gsap, { Power4 } from "gsap";
 import CheckSpecs from "./CheckSpecs";
+import Common from "./Common";
 import { ArrowBack, Close } from "@material-ui/icons";
 
 const Welcome = () => {
   const [checkCompat, setCheckCompat] = useState(false);
   const [backFromSpecs, setBackFromSpecs] = useState(false);
+  const [checkCommon, setCheckCommon] = useState(false);
+  const [backFromCommon, setBackFromCommon] = useState(false);
   const dispatch = useDispatch();
   const tl = gsap.timeline();
   const lessons = useRef(null);
   const checkSpecsRef = useRef(null);
+  const commonRef = useRef(null);
 
   useEffect(() => {
     if (checkCompat) {
@@ -42,7 +46,29 @@ const Welcome = () => {
         onComplete: setBackFromSpecs(false),
       });
     }
-  }, [checkCompat, backFromSpecs]);
+
+    if (checkCommon) {
+      tl.to(lessons.current, 0.9, {
+        x: "-100vw",
+        ease: Power4.easeInOut,
+      }).to(commonRef.current, 0.9, {
+        x: "0",
+        ease: Power4.easeInOut,
+        onComplete: setCheckCommon(false),
+      });
+    }
+
+    if (backFromCommon) {
+      tl.to(commonRef.current, 0.9, {
+        x: "100vw",
+        duration: 0.9,
+        ease: Power4.easeInOut,
+      }).to(lessons.current, 0.9, {
+        x: "0",
+        onComplete: setBackFromCommon(false),
+      });
+    }
+  }, [checkCompat, backFromSpecs, checkCommon, backFromCommon]);
 
   const returnToWelcome = () => {
     setBackFromSpecs(true);
@@ -50,6 +76,14 @@ const Welcome = () => {
 
   const checkSpecs = () => {
     setCheckCompat(true);
+  };
+
+  const returnToWelcomeFromCommon = () => {
+    setBackFromCommon(true);
+  };
+
+  const commonIssues = () => {
+    setCheckCommon(true);
   };
 
   const backToWelcome = () => {
@@ -89,6 +123,15 @@ const Welcome = () => {
 
           <CheckSpecs />
         </div>
+        <div ref={commonRef} className={styles.welcome__common}>
+          <div
+            className={styles.welcome__commonBack}
+            onClick={returnToWelcomeFromCommon}
+          >
+            <Close style={{ fontSize: "2.8rem", display: "flex" }} />
+          </div>
+          <Common />
+        </div>
         <div ref={lessons} className={styles.welcome__body}>
           <h2 className={styles.welcome__bodyTitle}>
             What do you want to learn?
@@ -109,8 +152,8 @@ const Welcome = () => {
               <h3>Optimizing your Graphics Card (TBD)</h3>
             </div>
             <div
-              className={`${styles.welcome__optimize} ${styles.welcome__tutorial} ${styles.welcome__TBD}`}
-              // onClick={}
+              className={`${styles.welcome__commonIssues} ${styles.welcome__tutorial}`}
+              onClick={commonIssues}
             >
               <Image src="/connection-issue.png" width={376.4} height={198.5} />
               <h3>Common Connection Fixes (TBD)</h3>

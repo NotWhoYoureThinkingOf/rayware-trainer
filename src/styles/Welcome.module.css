@@ -64,6 +64,27 @@
   cursor: pointer;
 }
 
+.welcome__common {
+  width: 80%;
+  position: absolute;
+  top: 20%;
+  transform: translateX(100vw);
+  width: 80%;
+  position: absolute;
+  height: 79.5%;
+  top: 20%;
+  overflow: hidden;
+}
+
+.welcome__commonBack {
+  position: absolute;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+}
+
 .welcome__bodyTitle {
   margin-bottom: 2rem;
 }

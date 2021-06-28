@@ -1,0 +1,48 @@
+.common__content {
+  padding: 2rem 0;
+}
+
+.common__factors{
+  padding: .5rem 0;
+}
+
+.common__factors ul li{
+  transform:translateX(1rem)
+}
+
+.common__factors p{
+  padding: .5rem 0 0;
+}
+
+.common__firewallMessage{
+  padding:1rem 0;
+}
+
+.common__windowsModal {
+  position: absolute;
+  top: 88%;
+  transform: translateY(0%);
+  background: #111;
+  width: 100%;
+  min-height: 83%;
+  opacity: 0;
+}
+
+.common__windowsModalContainer {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.common__windowsModalClose {
+  position: absolute;
+  top: -2.7rem;
+  right: 0;
+  cursor: pointer;
+}
+
+.common__windowsModalClose p {
+  background: #111;
+  color: white;
+  padding: .8rem;
+}

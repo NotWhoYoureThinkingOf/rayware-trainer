@@ -1,0 +1,79 @@
+.firewallModal__windowsTaskbar {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  width: 100%;
+}
+
+.firewallModal__windowsIcon {
+  border-top: 1px solid white;
+  border-right: 1px solid white;
+  padding: .45rem 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.firewallModal__windowsSearch {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.firewallModal__windowsSearch input {
+  background: #444;
+  color: #ccc;
+  width: 100%;
+  border-top: 1px solid #eee;
+  border-right: 1px solid #eee;
+  padding: 0.8rem 4rem 0.8rem 3rem;
+}
+
+.firewallModal__windowsPrograms {
+  border-top: 1px solid white;
+  width: 100%;
+}
+
+.firewallModal__searchFW {
+  position: absolute;
+  background: white;
+  bottom: 100%;
+  width: 119%;
+  height: 17rem;
+  padding: 0.5rem;
+}
+
+.firewallModal__searchFWContainer {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  margin-top: 1rem;
+  background: #c1f0ff;
+  cursor: pointer;
+  padding: 1.7rem .5rem;
+}
+
+.firewallModal__searchFWIcon {
+  position: relative;
+  display: flex;
+}
+
+.firewallModal__searchFWText {
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+}
+
+.firewallModal__searchFWText p {
+  font-size: .8rem;
+}
+
+.firewallModal__windowsSteps {
+  position: absolute;
+  color: white;
+  width: 25%;
+  margin: 2rem;
+  font-size: 1.5rem;
+}
+
+.firewallModal__windowsFirewall{}
