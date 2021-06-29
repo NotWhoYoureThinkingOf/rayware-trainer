@@ -8,6 +8,7 @@ import {
 } from "../features/importTrainingSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { grabModelImported } from "../features/modelImportedSlice";
+import { grabLoginTraining } from "../features/loginTrainingSlice";
 import gsap, { Power4 } from "gsap";
 import CheckSpecs from "./CheckSpecs";
 import Common from "./Common";
@@ -100,6 +101,11 @@ const Welcome = () => {
     dispatch(grabModelImported());
   };
 
+  const startLoginTraining = () => {
+    dispatch(releaseWelcome());
+    dispatch(grabLoginTraining());
+  };
+
   const freeRoam = () => {
     dispatch(releaseWelcome());
   };
@@ -159,8 +165,8 @@ const Welcome = () => {
               <h3>Common Connection Fixes (TBD)</h3>
             </div>
             <div
-              className={`${styles.welcome__loggingIn} ${styles.welcome__tutorial} ${styles.welcome__TBD}`}
-              // onClick={}
+              className={`${styles.welcome__loggingIn} ${styles.welcome__tutorial}`}
+              onClick={startLoginTraining}
             >
               <Image src="/login.png" width={376.4} height={198.5} />
               <h3>Logging into Dashboard (TBD)</h3>

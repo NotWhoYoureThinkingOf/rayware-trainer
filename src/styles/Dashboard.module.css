@@ -73,6 +73,22 @@
   background:#777;
 }
 
+.dashboard__login{
+  position: absolute;
+  right:0;
+  bottom: -52px;
+  background: #00ad4e;
+  color: white;
+  padding: 1.08rem 4.2rem;
+  cursor:pointer;
+  transition: all .2s ease;
+  font-size: 1.1rem;
+}
+
+.dashboard__login:hover{
+  background:#00c454;
+}
+
 .dashboard__title h5, .dashboard__manage h5, .dashboard__logout h5{
   font-size:.9rem;
 }
@@ -94,4 +110,41 @@
 .dashboard__container span{
   font-weight: 700;
   color: black;
+}
+
+.dashboard__userInputs{
+  margin: .6rem 0 1rem;
+}
+
+.dashboard__info{
+  margin-bottom: 2.4rem !important;
+}
+
+.dashboard__inputs{
+  display:flex;
+  flex-direction:column;
+  gap: 1.2rem;
+}
+
+.dashboard__inputs input{
+  text-align: center;
+  padding: 1.2rem 0;
+  border-radius: 5px;
+  border: 1.5px solid #aaa;
+  font-size: .95rem;
+}
+
+.dashboard__loginOptions{
+  color:#666;
+  display:flex;
+  justify-content: space-between;
+  margin-top: 1.9rem;
+}
+
+.dashboard__loginOptions a h4{
+  transition: all .2s ease;
+}
+
+.dashboard__loginOptions a h4:hover{
+  color:black;
 }

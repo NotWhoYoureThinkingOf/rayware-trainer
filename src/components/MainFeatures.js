@@ -18,10 +18,7 @@ import Header from "./Header";
 import Platform from "./Platform";
 import Tools from "./Tools";
 import { grabWelcome, selectWelcome } from "../features/welcomeSlice";
-import {
-  releaseImportTraining,
-  selectImportTraining,
-} from "../features/importTrainingSlice";
+import { selectImportTraining } from "../features/importTrainingSlice";
 import { selectAddModel } from "../features/addModelSlice";
 import { grabViews, selectViewsMenu } from "../features/viewsSlice";
 import { grabPrintMenu, selectPrintMenu } from "../features/printMenuSlice";
@@ -33,10 +30,7 @@ import {
   grabDashboardMenu,
   selectDashboardMenu,
 } from "../features/dashboardSlice";
-import {
-  grabDiagnosticMenu,
-  selectDiagnosticMenu,
-} from "../features/diagnosticSlice";
+import { selectDiagnosticMenu } from "../features/diagnosticSlice";
 import { grabPrintjob, selectPrintJobMenu } from "../features/printjobSlice";
 import { selectPrintJobPrinter } from "../features/printJobPrinterSlice";
 import { selectPrintJobVendor } from "../features/printJobVendorSlice";
@@ -50,6 +44,8 @@ import {
   releaseModelFixed,
   selectModelFixed,
 } from "../features/modelFixedSlice";
+import { selectLoginTraining } from "../features/loginTrainingSlice";
+import { selectUser } from "../features/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Views from "./Views";
 import PrintJobSettings from "./PrintJobSettings";
@@ -59,7 +55,7 @@ import Dashboard from "./Dashboard";
 import DiagnosticMenu from "./DiagnosticMenu";
 import AddModel from "./AddModel";
 import Welcome from "./Welcome";
-// import { selectPrintJobMenu } from "../features/printJobSlice";
+import { LoginTraining } from "./LoginTraining";
 
 const MainFeatures = ({ children }) => {
   const [printJobIsOpen, setPrintJobIsOpen] = useState(false);
@@ -81,6 +77,8 @@ const MainFeatures = ({ children }) => {
   const diagnosticMenuOpen = useSelector(selectDiagnosticMenu);
   const modelIsImported = useSelector(selectModelImported);
   const modelIsFixed = useSelector(selectModelFixed);
+  const loginTrainingOpen = useSelector(selectLoginTraining);
+  const userLoggedIn = useSelector(selectUser);
 
   useEffect(() => {
     switch (printer) {
@@ -152,6 +150,7 @@ const MainFeatures = ({ children }) => {
 
   const openDashboardMenu = () => {
     dispatch(grabDashboardMenu());
+    // dispatch(releaseLoginTraining());
   };
 
   // console.log("import training", importTrainingOpen);
@@ -241,12 +240,31 @@ const MainFeatures = ({ children }) => {
         </div>
 
         <footer className={styles.mainFeatures__footer}>
+          {loginTrainingOpen && <LoginTraining />}
           <div
-            className={styles.mainFeatures__login}
+            className={`${
+              userLoggedIn
+                ? styles.mainFeatures__login
+                : styles.mainFeatures__logout
+            }`}
             onClick={openDashboardMenu}
           >
-            <AccountBox style={{ fontSize: "1.9rem", color: "#3399ff" }} />
-            <p>adam@sprintray.com</p>
+            <AccountBox
+              style={
+                userLoggedIn
+                  ? { fontSize: "1.9rem", color: "#3399ff" }
+                  : { fontSize: "1.9rem", color: "#666666" }
+              }
+            />
+            <p
+              className={`${
+                userLoggedIn
+                  ? styles.mainFeatures__loginText
+                  : styles.mainFeatures__logoutText
+              }`}
+            >
+              {!userLoggedIn ? "Sign in to account" : userLoggedIn.user}
+            </p>
           </div>
           <div className={styles.mainFeatures__process}>
             <div className={styles.mainFeatures__processLeft}>

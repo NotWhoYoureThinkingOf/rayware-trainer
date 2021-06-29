@@ -1,15 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../styles/Dashboard.module.css";
 import { releaseDashboardMenu } from "../features/dashboardSlice";
-import { useDispatch } from "react-redux";
+import { grabUser, releaseUser, selectUser } from "../features/userSlice";
+import { useDispatch, useSelector } from "react-redux";
 import { Close } from "@material-ui/icons";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
+  const userLoggedIn = useSelector(selectUser);
+  const [userName, setUserName] = useState("");
 
   const closeDashboardMenu = () => {
     dispatch(releaseDashboardMenu());
   };
+
+  const logUserIn = () => {
+    dispatch(grabUser({ user: userName }));
+    closeDashboardMenu();
+  };
+
+  const logUserOut = () => {
+    dispatch(releaseUser());
+  };
+
+  console.log(userLoggedIn);
 
   return (
     <div className={styles.dashboard}>
@@ -22,17 +36,59 @@ const Dashboard = () => {
           <Close style={{ fontSize: "1.8rem" }} />
         </div>
         <div className={styles.dashboard__manage}>
-          <h5>Manage Account</h5>
+          <h5>{userLoggedIn ? "Manage Account" : "Offline Mode"}</h5>
         </div>
-        <div className={styles.dashboard__logout} onClick={closeDashboardMenu}>
-          <h5>Log Out</h5>
+        <div
+          className={
+            userLoggedIn ? styles.dashboard__logout : styles.dashboard__login
+          }
+          onClick={userLoggedIn ? logUserOut : logUserIn}
+        >
+          <h5>{userLoggedIn ? "Log Out" : "Log In"}</h5>
         </div>
         {/* content */}
-        <h3 className={styles.dashboard__user}>adam@sprintray.com</h3>
-        <p>You are now logged in, all the features are unlocked</p>
-        <p>
-          Subscription level: <span>Pro</span>
-        </p>
+        {userLoggedIn ? (
+          <>
+            <h3 className={styles.dashboard__user}>{userLoggedIn.user}</h3>
+            <p>You are now logged in, all the features are unlocked</p>
+            <p>
+              Subscription level: <span>Pro</span>
+            </p>
+          </>
+        ) : (
+          <>
+            <h3 className={styles.dashboard__userInputs}>
+              Log in to your SprintRay Account
+            </h3>
+            <p className={styles.dashboard__info}>
+              You can use your SprintRay account to access Dashboard and paid
+              software services such as 3rd party resin support and Advanced
+              scan Repair.
+            </p>
+            <div className={styles.dashboard__inputs}>
+              <input
+                type="email"
+                placeholder="Username"
+                required
+                value={userName}
+                onChange={(e) => setUserName(e.target.value)}
+              />
+              <input type="text" placeholder="Password" />
+            </div>
+
+            <div className={styles.dashboard__loginOptions}>
+              <a target="_blank" href="http://dashboard.sprintray.com">
+                <h4>Create Account</h4>
+              </a>
+              <a
+                target="_blank"
+                href="https://account.sprintray.com/reset-password"
+              >
+                <h4>Forgot Password</h4>
+              </a>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

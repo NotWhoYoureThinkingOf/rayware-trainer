@@ -160,6 +160,7 @@
   justify-content: space-between;
   gap:.9rem;
   z-index:5;
+  position:relative;
 }
 
 .mainFeatures__login{
@@ -175,9 +176,28 @@
   transition: all .2s ease;
 }
 
-.mainFeatures__login p{
+.mainFeatures__loginText{
   font-size:1rem;
   font-weight:500;
+}
+
+.mainFeatures__logout{
+  background:#f2f2f2;
+  flex:0.19;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  gap:5px;
+  border:3px solid #666;
+  border-radius:7px;
+  cursor:pointer;
+  transition: all .2s ease;
+}
+
+.mainFeatures__logoutText{
+  font-size:1rem;
+  font-weight:500;
+  color:#666
 }
 
 .mainFeatures__process{

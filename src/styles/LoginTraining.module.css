@@ -1,0 +1,28 @@
+.loginTraining{
+  position: absolute;
+  bottom: 7rem;
+  left: 3%;
+  width: 17rem;
+  padding: 1rem;
+  border: 5px solid black;
+  border-radius: 10px;
+  background: white;
+}
+
+.loginTraining p{
+  margin-top:.5rem;
+}
+
+.loginTraining__close{
+  position:absolute;
+  right: .5rem;
+    top: .5rem;
+    cursor:pointer;
+}
+
+.loginTraining__arrow{
+  position:absolute;
+  left: 6rem;
+  bottom: -3.5rem;
+  display:flex;
+}

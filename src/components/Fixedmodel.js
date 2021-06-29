@@ -88,19 +88,9 @@ export default function Model(props) {
 
   return (
     <group ref={group} {...props} dispose={null}>
-      <TransformControls
-        ref={transform}
-        position={[0, -0.4, 0]}
-        // onPointerOver={() => console.log("controls")}
-        // onPointerDown={() => console.log("pointer down")}
-      >
+      <TransformControls ref={transform} position={[0, -0.4, 0]}>
         <a.mesh
           onClick={chooseModel}
-          // onPointerEnter={() => setPointerOver(true)}
-          // onPointerLeave={() => setPointerOver(false)}
-          // onPointerDown={() =>
-          //   setPointerOver(transform.current.mode === "rotate" ? false : true)
-          // }
           position={position}
           {...bind()}
           ref={fixedModel}
