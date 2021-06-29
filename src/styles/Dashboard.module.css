@@ -148,3 +148,26 @@
 .dashboard__loginOptions a h4:hover{
   color:black;
 }
+
+.dashboard__loginTraining{
+  position: absolute;
+  top: 43%;
+  left: 10%;
+  width: 20rem;
+  padding: 1rem;
+  border: 5px solid black;
+  border-radius: 10px;
+  background: white;
+}
+
+.dashboard__loginTraining p{
+  margin-top:.5rem;
+  max-width: 95%;
+}
+
+.dashboard__loginTrainingClose{
+  position:absolute;
+  right: .5rem;
+  top: .5rem;
+  cursor:pointer;
+}

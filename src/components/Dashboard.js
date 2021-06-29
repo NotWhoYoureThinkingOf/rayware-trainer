@@ -2,12 +2,17 @@ import React, { useState } from "react";
 import styles from "../styles/Dashboard.module.css";
 import { releaseDashboardMenu } from "../features/dashboardSlice";
 import { grabUser, releaseUser, selectUser } from "../features/userSlice";
+import {
+  releaseLoginTraining,
+  selectLoginTraining,
+} from "../features/loginTrainingSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { Close } from "@material-ui/icons";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
   const userLoggedIn = useSelector(selectUser);
+  const loginTrainingOpen = useSelector(selectLoginTraining);
   const [userName, setUserName] = useState("");
 
   const closeDashboardMenu = () => {
@@ -17,13 +22,16 @@ const Dashboard = () => {
   const logUserIn = () => {
     dispatch(grabUser({ user: userName }));
     closeDashboardMenu();
+    dispatch(releaseLoginTraining());
   };
 
   const logUserOut = () => {
     dispatch(releaseUser());
   };
 
-  console.log(userLoggedIn);
+  const closeLoginTraining = () => {
+    dispatch(releaseLoginTraining());
+  };
 
   return (
     <div className={styles.dashboard}>
@@ -88,6 +96,25 @@ const Dashboard = () => {
               </a>
             </div>
           </>
+        )}
+        {loginTrainingOpen && (
+          <div className={styles.dashboard__loginTraining}>
+            <p>
+              From here you can log in to your account, go to the "Create
+              Account" page on the Dashboard website, access the "Forgot
+              Password" page, or set RayWare to Offline Mode.
+            </p>
+            <p>
+              After you've filled in your username and password, click "Log In"
+              to have access to your Dashboard features and RayWare.
+            </p>
+            <div
+              className={styles.dashboard__loginTrainingClose}
+              onClick={closeLoginTraining}
+            >
+              <Close style={{ fontSize: "1.5rem" }} />
+            </div>
+          </div>
         )}
       </div>
     </div>

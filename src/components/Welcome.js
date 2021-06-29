@@ -169,7 +169,7 @@ const Welcome = () => {
               onClick={startLoginTraining}
             >
               <Image src="/login.png" width={376.4} height={198.5} />
-              <h3>Logging into Dashboard (TBD)</h3>
+              <h3>Logging into Dashboard</h3>
             </div>
             <div
               className={`${styles.welcome__import} ${styles.welcome__tutorial}`}
