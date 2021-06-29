@@ -1,0 +1,206 @@
+.firewallModal__windowsFirewall{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.firewallModal__container{
+  height:100%;
+  display:flex;
+}
+
+.firewallModal__left{
+  flex:0.4
+}
+
+.firewallModal__right{
+  flex:0.6
+}
+
+.firewallModal__window{
+  background: white;
+  position: absolute;
+  right: 5%;
+  top: 15%;
+  width: 45.4rem;
+  display: flex;
+  flex-direction: column;
+  font-size: .75rem;
+}
+
+.firewallModal__windowHeader{
+  display:flex;
+  align-items:center;
+  background: #111;
+  color: #7f7f72;
+  padding: .3rem .4rem;
+}
+
+.firewallModal__windowHeaderIcon{
+  margin-right: .25rem;
+}
+
+.firewallModal__windowHeader p{
+  flex:1;
+}
+
+.firewallModal__bodyTop{
+  display: flex;
+  gap: 1rem;
+  padding: .15rem .5rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.firewallModal__bodyBottom{
+  display:flex;
+}
+
+.firewallModal__bodyLeft{
+  flex:0.32;
+  padding-left: .3rem;
+}
+
+.firewallModal__bodyLeftTop{
+  display:flex;
+  gap: .4rem;
+  align-items: center;
+  padding: 1.2rem 0;
+}
+
+.firewallModal__bodyLeftTop span{
+  width:17px;
+}
+
+.firewallModal__bodyLeftCenter{
+  margin-bottom: 10rem;
+}
+
+.firewallModal__bodyLeftOption{
+  display:flex;
+  gap: .4rem;
+  align-items: center;
+  margin: .5rem 0;
+}
+
+.firewallModal__bodyLeftOption span{
+  width:17px;
+}
+
+.firewallModal__bodyLeftBottom{
+  display:flex;
+  flex-direction:column;
+  gap: .4rem;
+  padding: 1.2rem 0;
+}
+
+.firewallModal__bodyLeftBottomOption{
+  display:flex;
+  gap: .4rem;
+  align-items: center;
+  margin: .2rem 0;
+}
+
+.firewallModal__bodyLeftBottomOption span{
+  width:17px;
+}
+
+.firewallModal__bodyLeft p{
+  width:68%;
+}
+
+.firewallModal__bodyRight{
+  flex:0.68;
+  padding-top: .3rem;
+  padding-right: 1.2rem;
+}
+
+.firewallModal__bodyRight h3{
+  color: #003399;
+  font-weight: 400;
+  font-size:1rem;
+}
+
+.firewallModal__bodyRight p {
+  margin: 1rem 0;
+  color: #222;
+  font-size: .75rem;
+}
+
+.firewallModal__private, .firewallModal__privateLeft, .firewallModal__privateRight, .firewallModal__privateIcon{
+  display:flex;
+  align-items:center;
+}
+
+.firewallModal__public, .firewallModal__publicLeft, .firewallModal__publicRight, .firewallModal__publicIcon{
+  display:flex;
+  align-items:center;
+}
+
+.firewallModal__privateIcon, .firewallModal__publicIcon{
+  margin:0 .3rem;
+}
+
+.firewallModal__privateRightIcon, .firewallModal__publicRightIcon{
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  height: 22px;
+  align-items: center;
+  width: 22px;
+  margin: 0 .3rem 0 .4rem;
+}
+
+.firewallModal__private, .firewallModal__public{
+  border: 1px solid #abafda;
+  justify-content: space-between;
+}
+
+.firewallModal__private{
+  margin: .5rem 0;  
+}
+
+.firewallModal__privateGradient{
+  width: 1.3rem;
+  height: 1.9rem;
+  background: linear-gradient(to bottom, #167614 0%,#3ead3a 100%);
+}
+
+.firewallModal__publicGradient{
+  width: 1.3rem;
+  height: 1.9rem;
+  background: linear-gradient(to bottom, #167614 0%,#3ead3a 100%);
+}
+
+/* --------- step2 -------- */
+
+.firewallWindow__step2Options{
+  display:flex;
+}
+
+.firewallWindow__changeButton{
+  display:flex;
+}
+
+.firewallWindow__changeIcon{
+  position:relative;
+}
+
+.firewallWindow__apps{
+  border: 1px solid blue;
+}
+
+.firewallWindow__appsHeader{
+  display:flex;
+}
+
+.firewallWindow__appsBody{
+  border: 1px solid blue;
+    max-height: 16rem;
+    overflow-y: scroll;
+}
+
+.firewallWindow__app{
+  display:flex;
+}
+

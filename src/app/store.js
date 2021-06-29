@@ -24,6 +24,7 @@ import modelFixedReducer from "../features/modelFixedSlice";
 import macAboutReducer from "../features/macAboutSlice";
 import loginTrainingReducer from "../features/loginTrainingSlice";
 import userReducer from "../features/userSlice";
+import firewallWindowReducer from "../features/firewallWindowSlice";
 
 export const store = configureStore({
   reducer: {
@@ -52,5 +53,6 @@ export const store = configureStore({
     macAbout: macAboutReducer,
     loginTraining: loginTrainingReducer,
     user: userReducer,
+    firewallWindow: firewallWindowReducer,
   },
 });

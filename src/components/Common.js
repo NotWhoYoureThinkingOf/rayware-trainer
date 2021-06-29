@@ -2,11 +2,14 @@ import React, { useRef, useEffect, useState } from "react";
 import styles from "../styles/Common.module.css";
 import { Close, Search } from "@material-ui/icons";
 import FirewallModal from "./FirewallModal";
+import { releaseFirewallWindow } from "../features/firewallWindowSlice";
 import gsap, { Power4 } from "gsap";
+import { useDispatch } from "react-redux";
 
 const Common = () => {
   const [firewallModal, setFirewallModal] = useState(false);
   const firewallMockup = useRef(null);
+  const dispatch = useDispatch();
   const tl = gsap.timeline();
 
   useEffect(() => {
@@ -27,6 +30,7 @@ const Common = () => {
 
   const closeFirewallModal = () => {
     setFirewallModal(false);
+    dispatch(releaseFirewallWindow());
   };
 
   return (

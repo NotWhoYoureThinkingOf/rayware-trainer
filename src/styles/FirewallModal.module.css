@@ -1,3 +1,7 @@
+.firewallModal{
+  height:100%;
+}
+
 .firewallModal__windowsTaskbar {
   position: absolute;
   bottom: 0;
@@ -37,7 +41,7 @@
   position: absolute;
   background: white;
   bottom: 100%;
-  width: 119%;
+  width: 122%;
   height: 17rem;
   padding: 0.5rem;
 }
@@ -76,4 +80,7 @@
   font-size: 1.5rem;
 }
 
-.firewallModal__windowsFirewall{}
+
+/* 167614 to 3ead3a */
+
+/* background: linear-gradient(to bottom, #167614 0%,#3ead3a 100%); */

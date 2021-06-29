@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react";
 import styles from "../styles/FirewallModal.module.css";
 import Image from "next/image";
-import { Close, Search } from "@material-ui/icons";
+import { FirewallWindow } from "./FirewallWindow";
+import { Close, KeyboardArrowDown, Search } from "@material-ui/icons";
+import {
+  grabFirewallWindow,
+  selectFirewallWindow,
+} from "../features/firewallWindowSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const FirewallModal = () => {
   const [input, setInput] = useState("");
@@ -9,6 +15,9 @@ const FirewallModal = () => {
   const [step2, setStep2] = useState(false);
   const [step3, setStep3] = useState(false);
   const [FWWindow, setFWWindow] = useState(false);
+  const [controlPanel, setControlPanel] = useState(false);
+  const firewallIsOpen = useSelector(selectFirewallWindow);
+  const dispatch = useDispatch();
 
   const openFW = () => {
     setInput("");
@@ -18,14 +27,23 @@ const FirewallModal = () => {
   const FWStep2 = () => {
     setStep1(false);
     setStep2(true);
+    setControlPanel(true);
     openFW();
+    dispatch(grabFirewallWindow());
   };
 
   const closeFW = () => {
     setStep1(true);
     setStep2(false);
+    setStep3(false);
     setFWWindow(false);
   };
+
+  useEffect(() => {
+    if (!firewallIsOpen) {
+      closeFW();
+    }
+  }, [firewallIsOpen]);
 
   return (
     <div className={styles.firewallModal}>
@@ -56,7 +74,9 @@ const FirewallModal = () => {
       </div>
 
       {FWWindow && (
-        <div className={styles.firewallModal__windowsFirewall}></div>
+        <div className={styles.firewallModal__windowsFirewall}>
+          <FirewallWindow />
+        </div>
       )}
 
       <div className={styles.firewallModal__windowsTaskbar}>
