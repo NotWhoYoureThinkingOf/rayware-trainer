@@ -73,7 +73,7 @@ const Dashboard = () => {
                 value={userName}
                 onChange={(e) => setUserName(e.target.value)}
               />
-              <input type="text" placeholder="Password" />
+              <input type="password" placeholder="Password" />
             </div>
 
             <div className={styles.dashboard__loginOptions}>
