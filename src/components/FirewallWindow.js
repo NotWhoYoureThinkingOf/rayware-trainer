@@ -187,7 +187,9 @@ export const FirewallWindow = () => {
                   </div>
                 </div>
                 <div className={styles.firewallWindow__appsContainer}>
-                  <p>Allowed apps and features:</p>
+                  <p className={styles.firewallWindow__allowed}>
+                    Allowed apps and features:
+                  </p>
                   <div className={styles.firewallWindow__apps}>
                     <div className={styles.firewallWindow__appsHeader}>
                       <p>Name</p>
@@ -204,10 +206,10 @@ export const FirewallWindow = () => {
                         </div>
                       ))}
                     </div>
-                    <div className={styles.firewallWindow__appsButtons}>
-                      <button>Details...</button>
-                      <button>Remove</button>
-                    </div>
+                  </div>
+                  <div className={styles.firewallWindow__appsButtons}>
+                    <button>Details...</button>
+                    <button>Remove</button>
                   </div>
                 </div>
                 <div className={styles.firewallWindow__button}>
