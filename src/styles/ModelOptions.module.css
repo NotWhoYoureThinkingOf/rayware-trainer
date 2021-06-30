@@ -83,5 +83,20 @@
   background: #00ad4e;
 }
 
+.fixTraining{
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  position: absolute;
+  left: 18rem;
+  top: -7rem;
+  background: white;
+  border: 3px solid black;
+  border-radius: 5px;
+  color: black;
+  min-width: 14rem;
+  padding: .75rem;
+}
+
 
 

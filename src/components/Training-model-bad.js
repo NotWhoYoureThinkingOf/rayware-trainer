@@ -19,9 +19,13 @@ import {
   releaseModelImported,
   selectModelImported,
 } from "../features/modelImportedSlice";
+import {
+  releaseFixTraining,
+  selectFixTraining,
+} from "../features/fixTrainingSlice";
 import { grabModelFixed, selectModelFixed } from "../features/modelFixedSlice";
 import { Html } from "@react-three/drei";
-import { ThumbDown } from "@material-ui/icons";
+import { Close, ThumbDown } from "@material-ui/icons";
 
 export default function Model(props) {
   const [selected, setSelected] = useState(false);
@@ -29,6 +33,7 @@ export default function Model(props) {
   const dispatch = useDispatch();
   const selectedModel = useSelector(selectModelSelected);
   const importedModel = useSelector(selectModelImported);
+  const fixTraining = useSelector(selectFixTraining);
   const orbit = useRef();
   const group = useRef();
   const badModel = useRef();
@@ -134,6 +139,28 @@ export default function Model(props) {
                   FIX
                 </p>
               </div>
+            </div>
+          </Html>
+        )}
+        {fixTraining && (
+          <Html style={{ pointerEvents: "none" }}>
+            <div className={styles.fixTraining}>
+              <h3>Scan Repair</h3>
+              <Close
+                style={{
+                  position: "absolute",
+                  right: ".5rem",
+                  top: ".5rem",
+                  cursor: "pointer",
+                  pointerEvents: "auto",
+                }}
+                onClick={() => dispatch(releaseFixTraining())}
+              />
+              <p>
+                Click on the model to select it and RayWare will let you know if
+                it detects an issue with the model's printability. If it does,
+                press the "Fix" button to use the Scan Repair feature.
+              </p>
             </div>
           </Html>
         )}

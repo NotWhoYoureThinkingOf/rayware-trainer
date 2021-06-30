@@ -9,6 +9,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { grabModelImported } from "../features/modelImportedSlice";
 import { grabLoginTraining } from "../features/loginTrainingSlice";
+import { grabFixTraining } from "../features/fixTrainingSlice";
 import gsap, { Power4 } from "gsap";
 import CheckSpecs from "./CheckSpecs";
 import Common from "./Common";
@@ -99,6 +100,7 @@ const Welcome = () => {
   const startFixTraining = () => {
     dispatch(releaseWelcome());
     dispatch(grabModelImported());
+    dispatch(grabFixTraining());
   };
 
   const startLoginTraining = () => {
@@ -179,7 +181,7 @@ const Welcome = () => {
               <h3>Importing a Model</h3>
             </div>
             <div
-              className={`${styles.welcome__fixModel} ${styles.welcome__tutorial} ${styles.welcome__TBD}`}
+              className={`${styles.welcome__fixModel} ${styles.welcome__tutorial} `}
               onClick={startFixTraining}
             >
               <Image src="/fix-model.JPG" width={376.4} height={198.5} />

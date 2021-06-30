@@ -24,3 +24,18 @@
   background:black;
   color:white;
 }
+
+.fixTraining{
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  position: absolute;
+  left: 18rem;
+  top: -10rem;
+  background: white;
+  border: 3px solid black;
+  border-radius: 5px;
+  color: black;
+  min-width: 14rem;
+  padding: .75rem;
+}

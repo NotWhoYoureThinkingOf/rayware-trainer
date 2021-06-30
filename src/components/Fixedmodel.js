@@ -19,11 +19,17 @@ import {
   releaseModelImported,
   selectModelImported,
 } from "../features/modelImportedSlice";
+import {
+  releaseFixTraining,
+  selectFixTraining,
+} from "../features/fixTrainingSlice";
 import { Html } from "@react-three/drei";
+import { Close } from "@material-ui/icons";
 
 export default function Model(props) {
   const [selected, setSelected] = useState(false);
   const [pointerOver, setPointerOver] = useState(false);
+  const fixTraining = useSelector(selectFixTraining);
   const dispatch = useDispatch();
   const orbit = useRef();
   const group = useRef();
@@ -110,6 +116,33 @@ export default function Model(props) {
               <p>RESET</p>
               <p onClick={() => setPointerOver(false)}>MOVE</p>
               <p onClick={() => setPointerOver(true)}>ROTATE</p>
+            </div>
+          </Html>
+        )}
+        {fixTraining && (
+          <Html style={{ pointerEvents: "none" }}>
+            <div className={styles.fixTraining}>
+              <h3>Scan Repair</h3>
+              <Close
+                style={{
+                  position: "absolute",
+                  right: ".5rem",
+                  top: ".5rem",
+                  cursor: "pointer",
+                  pointerEvents: "auto",
+                }}
+                onClick={() => dispatch(releaseFixTraining())}
+              />
+              <p>
+                Scan Repair has fixed the model and RayWare will be able to
+                display the "Printable" status.
+              </p>
+              <p>
+                In the desktop application of RayWare, this process will take a
+                moment and display a progress bar. It may still also detect that
+                the model needs supports which can be applied by pressing the
+                "Fix" button again or generating them in teh supports menu.
+              </p>
             </div>
           </Html>
         )}
