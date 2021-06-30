@@ -171,7 +171,7 @@ export const FirewallWindow = () => {
                 <h3>
                   Allow apps to communicate through Windows Defender Firewall
                 </h3>
-                <p>
+                <p className={styles.firewallWindow__step2Info}>
                   To add, change, or remove allowed apps and ports, click Change
                   settings.
                 </p>
@@ -192,17 +192,30 @@ export const FirewallWindow = () => {
                   </p>
                   <div className={styles.firewallWindow__apps}>
                     <div className={styles.firewallWindow__appsHeader}>
-                      <p>Name</p>
-                      <p>Private</p>
-                      <p>Public</p>
+                      <p className={styles.firewallWindow__appsName}>Name</p>
+                      <p className={styles.firewallWindow__appsPrivate}>
+                        Private
+                      </p>
+                      <p className={styles.firewallWindow__appsPublic}>
+                        Public
+                      </p>
                     </div>
                     <div className={styles.firewallWindow__appsBody}>
                       {apps.map((app) => (
                         <div className={styles.firewallWindow__app}>
-                          <input type="checkbox" />
+                          <input
+                            type="checkbox"
+                            className={styles.firewallWindow__check1}
+                          />
                           <p>{app.name}</p>
-                          <input type="checkbox" />
-                          <input type="checkbox" />
+                          <input
+                            type="checkbox"
+                            className={styles.firewallWindow__check2}
+                          />
+                          <input
+                            type="checkbox"
+                            className={styles.firewallWindow__check3}
+                          />
                         </div>
                       ))}
                     </div>
