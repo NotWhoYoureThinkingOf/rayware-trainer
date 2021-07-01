@@ -325,3 +325,70 @@
   left: 0;
   top: 0;
 }
+
+@media screen and (max-width:1950px){
+
+  .mainFeatures__top{
+    transform: translateY(-1rem);
+  }
+
+  .mainFeatures__logo{
+    transform: scale(.75) translateX(-2rem);
+  }
+
+  .mainFeatures__version{
+    /* transform: translateY(-1rem); */
+  }
+
+  .mainFeatures__printSettings{
+    transform: scale(.75);
+  }
+  
+  .mainFeatures__options{
+    transform: scale(.75) translateX(1.5rem)
+  }
+
+  .mainFeatures__tools{
+    transform: scale(.75) translateX(-0.5rem);
+  }
+
+  .mainFeatures__printMenu{
+    transform: scale(.75) translateX(.5rem);
+  }
+
+  .mainFeatures__footer{
+    height: 2.7rem;
+    transform: translateY(.5rem);
+  }
+
+  .mainFeatures__loginText, .mainFeatures__logoutText{
+    transform:scale(.75);
+    margin: -.5rem;
+  }
+
+  .mainFeatures__logout{
+    gap:0;
+  }
+
+  .mainFeatures__logout > svg, .mainFeatures__login > svg {
+    font-size:1.4rem !important;
+  }
+
+  .mainFeatures__processLeft > svg, .mainFeatures__processRight > svg {
+    font-size:1.4rem !important;
+  } 
+
+  .mainFeatures__processLeft > p, .mainFeatures__processRight > p {
+    transform:scale(.75);
+    margin: -.5rem;
+  } 
+
+  .mainFeatures__failure > svg, .mainFeatures__printable > svg {
+    font-size:1.4rem !important;
+  }
+
+  .mainFeatures__failure > p, .mainFeatures__printable > p {
+    transform:scale(.85);
+    margin: -.5rem;
+  }
+}

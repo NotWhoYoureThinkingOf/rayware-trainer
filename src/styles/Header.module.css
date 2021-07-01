@@ -102,4 +102,34 @@
   .header__logsTraining{
     left: 27%;
   }
+
+  .header__file, .header__model, .header__view, .header__print, .header__help{
+    font-size:.75rem;
+    padding: 4px 6px;
+  }
+
+  .header__file ul, .header__model ul, .header__view ul, .header__print ul, .header__help ul{
+    left: -2px;
+    top: 100%;
+  }
+
+  .header__file ul{
+    width:15rem;
+  }
+
+  .header__model ul{
+    width: 15rem;
+  }
+
+  .header__view ul{
+    width: 10rem;
+  }
+
+  .header__print ul{
+    width: 13rem;
+  }
+
+  .header__help ul{
+    width: 10rem;
+  }
 }
