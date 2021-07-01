@@ -13,6 +13,7 @@ import {
   Visibility,
   ZoomIn,
   ZoomOut,
+  Close,
 } from "@material-ui/icons";
 import Header from "./Header";
 import Platform from "./Platform";
@@ -56,6 +57,13 @@ import DiagnosticMenu from "./DiagnosticMenu";
 import AddModel from "./AddModel";
 import Welcome from "./Welcome";
 import { LoginTraining } from "./LoginTraining";
+import {
+  grabPreviewStep2,
+  releasePreviewStep1,
+  releasePreviewTraining,
+  selectPreviewStep1,
+  selectPreviewTraining,
+} from "../features/logsAndPreviewSlice";
 
 const MainFeatures = ({ children }) => {
   const [printJobIsOpen, setPrintJobIsOpen] = useState(false);
@@ -79,6 +87,8 @@ const MainFeatures = ({ children }) => {
   const modelIsFixed = useSelector(selectModelFixed);
   const loginTrainingOpen = useSelector(selectLoginTraining);
   const userLoggedIn = useSelector(selectUser);
+  const previewTrainingOpen = useSelector(selectPreviewTraining);
+  const previewStep1 = useSelector(selectPreviewStep1);
 
   useEffect(() => {
     switch (printer) {
@@ -142,6 +152,10 @@ const MainFeatures = ({ children }) => {
 
   const openPrintMenu = () => {
     dispatch(grabPrintMenu());
+    dispatch(releasePreviewStep1());
+    if (previewTrainingOpen) {
+      dispatch(grabPreviewStep2());
+    }
   };
 
   const openPrintableMenu = () => {
@@ -151,6 +165,11 @@ const MainFeatures = ({ children }) => {
   const openDashboardMenu = () => {
     dispatch(grabDashboardMenu());
     // dispatch(releaseLoginTraining());
+  };
+
+  const closePreviewTraining = () => {
+    dispatch(releasePreviewTraining());
+    dispatch(releasePreviewStep1());
   };
 
   // console.log("import training", importTrainingOpen);
@@ -226,6 +245,22 @@ const MainFeatures = ({ children }) => {
           </div>
         </div>
         <div className={styles.mainFeatures__centerRight}>
+          {previewTrainingOpen && previewStep1 && (
+            <div className={styles.mainFeatures__previewTraining}>
+              <Close
+                style={{
+                  position: "absolute",
+                  right: ".5rem",
+                  top: ".5rem",
+                  cursor: "pointer",
+                  pointerEvents: "auto",
+                }}
+                onClick={closePreviewTraining}
+              />
+              <h3>Print Preview</h3>
+              <p>Click on the green printer button to open the Print menu.</p>
+            </div>
+          )}
           <div
             className={styles.mainFeatures__printMenu}
             onClick={openPrintMenu}

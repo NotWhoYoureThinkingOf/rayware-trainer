@@ -14,6 +14,7 @@ import {
   grabLogsStep1,
   grabLogsTraining,
   grabPreviewTraining,
+  grabPreviewStep1,
 } from "../features/logsAndPreviewSlice";
 import gsap, { Power4 } from "gsap";
 import CheckSpecs from "./CheckSpecs";
@@ -119,6 +120,12 @@ const Welcome = () => {
     dispatch(grabLogsStep1());
   };
 
+  const startPreviewTraining = () => {
+    dispatch(releaseWelcome());
+    dispatch(grabPreviewTraining());
+    dispatch(grabPreviewStep1());
+  };
+
   const freeRoam = () => {
     dispatch(releaseWelcome());
   };
@@ -210,8 +217,8 @@ const Welcome = () => {
               <h3>Free Roam</h3>
             </div>
             <div
-              className={`${styles.welcome__printPreview} ${styles.welcome__tutorial} ${styles.welcome__TBD}`}
-              // onClick={freeRoam}
+              className={`${styles.welcome__printPreview} ${styles.welcome__tutorial}`}
+              onClick={startPreviewTraining}
             >
               <Image src="/print-preview.png" width={376.4} height={198.5} />
               <h3>Print Preview (Checking Total Layers) (TBD)</h3>

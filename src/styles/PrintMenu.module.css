@@ -49,6 +49,7 @@
   padding: .8rem 2.3rem;
   cursor:pointer;
   transition:all .2s ease;
+  transform: translateY(-1px);
 }
 
 .printMenu__manage:hover{
@@ -61,6 +62,7 @@
   padding: .8rem 4rem;
   cursor:pointer;
   transition:all .2s ease;
+  transform: translateY(-1px);
 }
 
 .printMenu__history:hover{
@@ -83,7 +85,7 @@
   letter-spacing: .3px;
 }
 
-.printMenu__save h5, .printMenu__preview h5, .printMenu__queue h5, .printMenu__printButton h5{
+.printMenu__save h5, .printMenu__preview h5{
   font-weight:500;
   font-size: .9rem;
   letter-spacing: .3px;
@@ -129,9 +131,15 @@
 }
 
 .printMenu__queue, .printMenu__printButton{
-  background: #666;
+  background: #00a454;
   color:white;
   padding: .8rem 2rem;
+  transition:all .2s ease;
+  cursor:pointer;
+}
+
+.printMenu__queue:hover, .printMenu__printButton:hover{
+  background: #00c454;
 }
 
 .printMenu__printButton{
@@ -303,6 +311,24 @@
   margin-top:1.5rem;
 }
 
+.printMenu__printVolume{
+  display:flex;
+  align-items:center;
+  gap: 1rem;
+}
+
+.printMenu__printVolume span{
+  background: #00a454;
+  color: white;
+  padding: .7rem .6rem;
+  border-radius: 3px;
+  font-weight: 500;
+}
+
+.printMenu__totalTime span{
+  font-weight: 900;
+}
+
 .printMenu__printability, .printMenu__layerThickness, .printMenu__volume{
   border-bottom:1.5px solid rgba(0,0,0,.15);
   margin-bottom: 1.5rem;
@@ -334,5 +360,44 @@
 .selected{
   filter:invert(1);
   background:white;
+}
+
+.printMenu__previewTraining{
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  position: absolute;
+  left: -20rem;
+  bottom: 40%;
+  background: white;
+  border: 3px solid black;
+  border-radius: 5px;
+  color: black;
+  min-width: 13rem;
+  max-width: 17rem;
+  padding: .75rem;
+}
+
+.modelLoadedButton{
+  transition: all .2s ease;
+  cursor:pointer;
+}
+
+.modelLoadedButton:hover{
+  background:#777;
+}
+
+.modelLoadedText{
+  color:white !important;  
+}
+
+@media screen and (max-width:1950px){
+  .printMenu__bottomLeft{
+    transform: translateY(1px);
+  }
+  
+  .printMenu__bottomRight{
+    transform: translateY(1px);
+  }
 }
 

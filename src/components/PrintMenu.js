@@ -9,8 +9,16 @@ import {
   ThumbUp,
 } from "@material-ui/icons";
 import { grabPrintMenu, releasePrintMenu } from "../features/printMenuSlice";
+import {
+  releasePreviewStep2,
+  releasePreviewTraining,
+  selectPreviewStep2,
+  selectPreviewTraining,
+} from "../features/logsAndPreviewSlice";
 import { useDispatch, useSelector } from "react-redux";
 import ManagePrinters from "./ManagePrinters";
+import { selectModelImported } from "../features/modelImportedSlice";
+import { selectModelFixed } from "../features/modelFixedSlice";
 
 const PrintMenu = () => {
   const [printerSelected, setPrinterSelected] = useState(false);
@@ -18,10 +26,15 @@ const PrintMenu = () => {
   const [print, setPrint] = useState(true);
   const [managePrinters, setManagePrinters] = useState(false);
   const [history, setHistory] = useState(false);
+  const previewTrainingOpen = useSelector(selectPreviewTraining);
+  const previewStep2 = useSelector(selectPreviewStep2);
+  const modelIsImported = useSelector(selectModelImported);
+  const fixedModelImported = useSelector(selectModelFixed);
   const dispatch = useDispatch();
 
   const closePrintMenu = () => {
     dispatch(releasePrintMenu());
+    closePreviewTraining();
   };
 
   const openPrint = () => {
@@ -40,6 +53,11 @@ const PrintMenu = () => {
     setPrint(false);
     setManagePrinters(false);
     setHistory(true);
+  };
+
+  const closePreviewTraining = () => {
+    dispatch(releasePreviewTraining());
+    dispatch(releasePreviewStep2());
   };
 
   console.log("history", history);
@@ -169,21 +187,62 @@ const PrintMenu = () => {
                     <h2>Master Volume Required</h2>
                     <p>Check resin tank to ensure sufficient material.</p>
                   </div>
-                  <p>N/A</p>
+                  {modelIsImported || fixedModelImported ? (
+                    <div className={styles.printMenu__printVolume}>
+                      <p>8 mL</p>
+                      <span>MIN</span>
+                    </div>
+                  ) : (
+                    <p>N/A</p>
+                  )}
                 </div>
                 <div className={styles.printMenu__totalTime}>
                   <h2>Total Print Time</h2>
-                  <p>1</p>
+                  {modelIsImported || fixedModelImported ? (
+                    <p>
+                      <span>1</span> hr <span>11</span> min
+                    </p>
+                  ) : (
+                    <p></p>
+                  )}
                 </div>
               </div>
             </div>
             {/* Bottom */}
             <div className={styles.printMenu__bottomLeft}>
-              <div className={styles.printMenu__save}>
-                <h5>Save Print Job</h5>
+              <div
+                className={`${styles.printMenu__save} ${
+                  modelIsImported || fixedModelImported
+                    ? styles.modelLoadedButton
+                    : ""
+                }`}
+              >
+                <h5
+                  className={`${
+                    modelIsImported || fixedModelImported
+                      ? styles.modelLoadedText
+                      : ""
+                  }`}
+                >
+                  Save Print Job
+                </h5>
               </div>
-              <div className={styles.printMenu__preview}>
-                <h5>Print Preview</h5>
+              <div
+                className={`${styles.printMenu__preview} ${
+                  modelIsImported || fixedModelImported
+                    ? styles.modelLoadedButton
+                    : ""
+                }`}
+              >
+                <h5
+                  className={`${
+                    modelIsImported || fixedModelImported
+                      ? styles.modelLoadedText
+                      : ""
+                  }`}
+                >
+                  Print Preview
+                </h5>
               </div>
             </div>
             <div className={styles.printMenu__bottomRight}>
@@ -265,6 +324,25 @@ const PrintMenu = () => {
           </>
         )}
         {managePrinters && <ManagePrinters />}
+        {previewTrainingOpen && previewStep2 && (
+          <div className={styles.printMenu__previewTraining}>
+            <Close
+              style={{
+                position: "absolute",
+                right: ".5rem",
+                top: ".5rem",
+                cursor: "pointer",
+                pointerEvents: "auto",
+              }}
+              onClick={closePreviewTraining}
+            />
+            <h3>Print Preview</h3>
+            <p>
+              The "Print Preview" button is located at the bottom left of the
+              Print menu. Click it to open up the Print Preview menu.
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );

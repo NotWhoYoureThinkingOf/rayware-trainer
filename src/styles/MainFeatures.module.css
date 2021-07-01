@@ -139,6 +139,21 @@
   right:2rem;
 }
 
+.mainFeatures__previewTraining{
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  position: absolute;
+  right: 6rem;
+  top: 34%;
+  background: white;
+  border: 3px solid black;
+  border-radius: 5px;
+  color: black;
+  min-width: 13rem;
+  padding: .75rem;
+}
+
 .mainFeatures__printMenu{
   /* background:green; */
   width:55px;
