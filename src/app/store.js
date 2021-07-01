@@ -26,6 +26,7 @@ import loginTrainingReducer from "../features/loginTrainingSlice";
 import userReducer from "../features/userSlice";
 import firewallWindowReducer from "../features/firewallWindowSlice";
 import fixTrainingReducer from "../features/fixTrainingSlice";
+import logsAndPreviewReducer from "../features/logsAndPreviewSlice";
 
 export const store = configureStore({
   reducer: {
@@ -56,5 +57,6 @@ export const store = configureStore({
     user: userReducer,
     firewallWindow: firewallWindowReducer,
     fixTraining: fixTrainingReducer,
+    logsAndPreview: logsAndPreviewReducer,
   },
 });

@@ -10,6 +10,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { grabModelImported } from "../features/modelImportedSlice";
 import { grabLoginTraining } from "../features/loginTrainingSlice";
 import { grabFixTraining } from "../features/fixTrainingSlice";
+import {
+  grabLogsStep1,
+  grabLogsTraining,
+  grabPreviewTraining,
+} from "../features/logsAndPreviewSlice";
 import gsap, { Power4 } from "gsap";
 import CheckSpecs from "./CheckSpecs";
 import Common from "./Common";
@@ -106,6 +111,12 @@ const Welcome = () => {
   const startLoginTraining = () => {
     dispatch(releaseWelcome());
     dispatch(grabLoginTraining());
+  };
+
+  const startLogsTraining = () => {
+    dispatch(releaseWelcome());
+    dispatch(grabLogsTraining());
+    dispatch(grabLogsStep1());
   };
 
   const freeRoam = () => {
@@ -206,11 +217,11 @@ const Welcome = () => {
               <h3>Print Preview (Checking Total Layers) (TBD)</h3>
             </div>
             <div
-              className={`${styles.welcome__logs} ${styles.welcome__tutorial} ${styles.welcome__TBD}`}
-              // onClick={freeRoam}
+              className={`${styles.welcome__logs} ${styles.welcome__tutorial}`}
+              onClick={startLogsTraining}
             >
               <Image src="/diagnostic-logs.PNG" width={376.4} height={198.5} />
-              <h3>Downloading your Diagnostic Logs (TBD)</h3>
+              <h3>Downloading your Diagnostic Logs</h3>
             </div>
           </div>
         </div>

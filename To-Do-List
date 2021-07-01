@@ -16,6 +16,7 @@ Add:
   - rotation and translate model guide (after the issues are sorted out)
   - login or dashboard (color is #666, border is #c6c6c6)
   - rayware does export the model with supports so that model can be added in as well for supports lesson
+  - about sprintray component
 
 Lessons:
   - compatability

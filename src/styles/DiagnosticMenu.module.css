@@ -219,3 +219,18 @@
 .selectPtiner__ready{
   flex:0.125;
 }
+
+.diagnosticMenu__logsTraining{
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  position: absolute;
+  left: -55%;
+  top: 10%;
+  background: white;
+  border: 3px solid black;
+  border-radius: 5px;
+  color: black;
+  width: 25rem;
+  padding: .75rem;
+}

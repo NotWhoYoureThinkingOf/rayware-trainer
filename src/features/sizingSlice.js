@@ -7,12 +7,15 @@ export const sizingSlice = createSlice({
   },
   reducers: {
     grab: (state) => {
-      state.sizingMenuOpen = !state.sizingMenuOpen;
+      state.sizingMenuOpen = true;
+    },
+    release: (state) => {
+      state.sizingMenuOpen = false;
     },
   },
 });
 
-export const { grab } = sizingSlice.actions;
+export const { grab, release } = sizingSlice.actions;
 
 export const selectSizingMenu = (state) => state.sizing.sizingMenuOpen;
 

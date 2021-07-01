@@ -2,7 +2,7 @@
   display:flex;
   background:white;
   padding:0px .7rem;
-  /* gap:.5rem; */
+  position:relative;
 }
 
 .header__file, .header__model, .header__view, .header__print, .header__help{
@@ -80,4 +80,26 @@
 
 .header hr{
   margin: .2rem 5px .2rem 2rem;
+}
+
+.header__logsTraining{
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  position: absolute;
+  left: 20%;
+  top: 145%;
+  background: white;
+  border: 3px solid black;
+  border-radius: 5px;
+  color: black;
+  min-width: 14rem;
+  max-width: 20rem;
+  padding: .75rem;
+}
+
+@media screen and (max-width:1950px){
+  .header__logsTraining{
+    left: 27%;
+  }
 }

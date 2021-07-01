@@ -2,15 +2,29 @@ import React, { useState } from "react";
 import Image from "next/image";
 import styles from "../styles/DiagnosticMenu.module.css";
 import { releaseDiagnosticMenu } from "../features/diagnosticSlice";
-import { useDispatch } from "react-redux";
+import {
+  releaseLogsTraining,
+  releaseLogsStep2,
+  selectLogsTraining,
+  selectLogsStep2,
+} from "../features/logsAndPreviewSlice";
+import { useDispatch, useSelector } from "react-redux";
 import { ChevronLeft, Close, KeyboardArrowDown } from "@material-ui/icons";
 
 const DiagnosticMenu = () => {
   const dispatch = useDispatch();
   const [selectPrinter, setSelectPrinter] = useState(false);
+  const logsTraining = useSelector(selectLogsTraining);
+  const logsStep2 = useSelector(selectLogsStep2);
+
+  const closeLogsTraining = () => {
+    dispatch(releaseLogsTraining());
+    dispatch(releaseLogsStep2());
+  };
 
   const closeDiagnosticMenu = () => {
     dispatch(releaseDiagnosticMenu());
+    closeLogsTraining();
   };
 
   return (
@@ -81,6 +95,39 @@ const DiagnosticMenu = () => {
             </div>
             <button>Download</button>
           </div>
+          {logsTraining && logsStep2 && (
+            <div className={styles.diagnosticMenu__logsTraining}>
+              <Close
+                style={{
+                  position: "absolute",
+                  right: ".5rem",
+                  top: ".5rem",
+                  cursor: "pointer",
+                  pointerEvents: "auto",
+                }}
+                onClick={closeLogsTraining}
+              />
+              <h3>Downloading your Diagnostic Logs</h3>
+              <p>
+                This menu will give let you download the RayWare Diagnostics
+                Report and the Printer Diagnostics Report. For troubleshooting
+                purposes, you'll always want to download both of them.
+              </p>
+              <p>
+                When you click the "Download" button, a file explorer will be
+                brought up and will let you save the logs on your computer
+                wherever you choose to save them.
+              </p>
+              <p>
+                Typically, both of these together, will give you 4 files:
+                RayWare_LogFile, Config, CalibrationHistory, and LogFile.
+                Sometimes, there can be more files that look like a random
+                assortment of numbers. These are .dmp files that give extra
+                information. Send those in along with the rest of the logs you
+                just downloaded.
+              </p>
+            </div>
+          )}
         </div>
       ) : (
         <div className={styles.selectPrinter__container}>
@@ -117,6 +164,39 @@ const DiagnosticMenu = () => {
               <p className={styles.selectPtiner__ready}>Ready</p>
             </div>
           </div>
+          {logsTraining && logsStep2 && (
+            <div className={styles.diagnosticMenu__logsTraining}>
+              <Close
+                style={{
+                  position: "absolute",
+                  right: ".5rem",
+                  top: ".5rem",
+                  cursor: "pointer",
+                  pointerEvents: "auto",
+                }}
+                onClick={closeLogsTraining}
+              />
+              <h3>Downloading your Diagnostic Logs</h3>
+              <p>
+                This menu will give let you download the RayWare Diagnostics
+                Report and the Printer Diagnostics Report. For troubleshooting
+                purposes, you'll always want to download both of them.
+              </p>
+              <p>
+                When you click the "Download" button, a file explorer will be
+                brought up and will let you save the logs on your computer
+                wherever you choose to save them.
+              </p>
+              <p>
+                Typically, both of these together, will give you 4 files:
+                RayWare_LogFile, Config, CalibrationHistory, and LogFile.
+                Sometimes, there can be more files that look like a random
+                assortment of numbers. These are .dmp files that give extra
+                information. Send those in along with the rest of the logs you
+                just downloaded.
+              </p>
+            </div>
+          )}
         </div>
       )}
     </div>

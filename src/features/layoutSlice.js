@@ -7,12 +7,15 @@ export const layoutSlice = createSlice({
   },
   reducers: {
     grabLayout: (state) => {
-      state.layoutMenuOpen = !state.layoutMenuOpen;
+      state.layoutMenuOpen = true;
+    },
+    releaseLayout: (state) => {
+      state.layoutMenuOpen = false;
     },
   },
 });
 
-export const { grabLayout } = layoutSlice.actions;
+export const { grabLayout, releaseLayout } = layoutSlice.actions;
 
 export const selectLayoutMenu = (state) => state.layout.layoutMenuOpen;
 

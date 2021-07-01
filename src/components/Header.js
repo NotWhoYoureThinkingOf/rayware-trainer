@@ -1,4 +1,4 @@
-import { ChevronRight } from "@material-ui/icons";
+import { ChevronRight, Close } from "@material-ui/icons";
 import React from "react";
 import styles from "../styles/Header.module.css";
 import { grab } from "../features/sizingSlice";
@@ -11,6 +11,15 @@ import {
   selectModelSelected,
 } from "../features/modelSelectedSlice";
 import { grabAddModel, selectAddModel } from "../features/addModelSlice";
+import {
+  grabLogsTraining,
+  grabLogsStep1,
+  grabLogsStep2,
+  selectLogsTraining,
+  selectLogsStep1,
+  releaseLogsTraining,
+  releaseLogsStep1,
+} from "../features/logsAndPreviewSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { releaseModelFixed } from "../features/modelFixedSlice";
 
@@ -18,9 +27,13 @@ const Header = () => {
   const dispatch = useDispatch();
   const addModelWindow = useSelector(selectAddModel);
   const modelIsSelected = useSelector(selectModelSelected);
+  const logsTraining = useSelector(selectLogsTraining);
+  const logsStep1 = useSelector(selectLogsStep1);
 
   const openDiagnosticMenu = () => {
     dispatch(grabDiagnosticMenu());
+    dispatch(releaseLogsStep1());
+    dispatch(grabLogsStep2());
   };
 
   const openSizingMenu = () => {
@@ -45,6 +58,11 @@ const Header = () => {
       dispatch(releaseModelSelected());
       dispatch(releaseModelFixed());
     }
+  };
+
+  const closeLogsTraining = () => {
+    dispatch(releaseLogsTraining());
+    dispatch(releaseLogsStep1());
   };
 
   return (
@@ -193,6 +211,30 @@ const Header = () => {
           </li>
         </ul>
       </div>
+      {logsTraining && logsStep1 && (
+        <div className={styles.header__logsTraining}>
+          <Close
+            style={{
+              position: "absolute",
+              right: ".5rem",
+              top: ".5rem",
+              cursor: "pointer",
+              pointerEvents: "auto",
+            }}
+            onClick={closeLogsTraining}
+          />
+          <h3>Downloading your Diagnostic Logs</h3>
+          <p>
+            The diagnostic logs are used to give extra backend information about
+            RayWare and your printer. These are important when troubleshooting
+            is necessary.
+          </p>
+          <p>
+            To download your logs, click on the "Help" menu and then click on
+            "Get Diagnostics".
+          </p>
+        </div>
+      )}
     </div>
   );
 };

@@ -7,12 +7,15 @@ export const premiumSlice = createSlice({
   },
   reducers: {
     grabPremium: (state) => {
-      state.premiumMenuOpen = !state.premiumMenuOpen;
+      state.premiumMenuOpen = true;
+    },
+    releasePremium: (state) => {
+      state.premiumMenuOpen = false;
     },
   },
 });
 
-export const { grabPremium } = premiumSlice.actions;
+export const { grabPremium, releasePremium } = premiumSlice.actions;
 
 export const selectPremiumMenu = (state) => state.premium.premiumMenuOpen;
 

@@ -141,7 +141,7 @@ export default function Model(props) {
                 In the desktop application of RayWare, this process will take a
                 moment and display a progress bar. It may still also detect that
                 the model needs supports which can be applied by pressing the
-                "Fix" button again or generating them in teh supports menu.
+                "Fix" button again or generating them in the supports menu.
               </p>
             </div>
           </Html>

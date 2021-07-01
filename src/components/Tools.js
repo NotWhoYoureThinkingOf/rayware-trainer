@@ -2,11 +2,20 @@ import React from "react";
 import styles from "../styles/Tools.module.css";
 import Image from "next/image";
 import { grabAddModel, selectAddModel } from "../features/addModelSlice";
-import { grab, selectSizingMenu } from "../features/sizingSlice";
-import { grabPremium, selectPremiumMenu } from "../features/premiumSlice";
-import { grabLayout, selectLayoutMenu } from "../features/layoutSlice";
+import { grab, release, selectSizingMenu } from "../features/sizingSlice";
+import {
+  grabPremium,
+  releasePremium,
+  selectPremiumMenu,
+} from "../features/premiumSlice";
+import {
+  grabLayout,
+  releaseLayout,
+  selectLayoutMenu,
+} from "../features/layoutSlice";
 import {
   grabSupportsMenu,
+  releaseSupportsMenu,
   selectSupportsMenu,
 } from "../features/supportsMenuSlice";
 import { selectImportTraining } from "../features/importTrainingSlice";
@@ -28,22 +37,54 @@ const Tools = () => {
 
   const openAddModel = () => {
     dispatch(grabAddModel());
+    dispatch(release());
+    dispatch(releaseLayout());
+    dispatch(releasePremium());
+    dispatch(releaseSupportsMenu());
   };
 
   const openSizingMenu = () => {
-    dispatch(grab());
+    if (!sizingMenuOpen) {
+      dispatch(grab());
+    } else {
+      dispatch(release());
+    }
+    dispatch(releaseLayout());
+    dispatch(releasePremium());
+    dispatch(releaseSupportsMenu());
   };
 
   const openPremiumMenu = () => {
-    dispatch(grabPremium());
+    if (!premiumMenuOpen) {
+      dispatch(grabPremium());
+    } else {
+      dispatch(releasePremium());
+    }
+    dispatch(release());
+    dispatch(releaseLayout());
+    dispatch(releaseSupportsMenu());
   };
 
   const openLayoutMenu = () => {
-    dispatch(grabLayout());
+    if (!layoutMenuOpen) {
+      dispatch(grabLayout());
+    } else {
+      dispatch(releaseLayout());
+    }
+    dispatch(release());
+    dispatch(releasePremium());
+    dispatch(releaseSupportsMenu());
   };
 
   const openSupportsMenu = () => {
-    dispatch(grabSupportsMenu());
+    if (!supportsMenuOpen) {
+      dispatch(grabSupportsMenu());
+    } else {
+      dispatch(releaseSupportsMenu());
+    }
+    dispatch(release());
+    dispatch(releasePremium());
+    dispatch(releaseLayout());
   };
 
   // console.log("add model window", addModelOpen);

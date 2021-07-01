@@ -7,12 +7,16 @@ export const supportsMenuSlice = createSlice({
   },
   reducers: {
     grabSupportsMenu: (state) => {
-      state.supportsMenuOpen = !state.supportsMenuOpen;
+      state.supportsMenuOpen = true;
+    },
+    releaseSupportsMenu: (state) => {
+      state.supportsMenuOpen = false;
     },
   },
 });
 
-export const { grabSupportsMenu } = supportsMenuSlice.actions;
+export const { grabSupportsMenu, releaseSupportsMenu } =
+  supportsMenuSlice.actions;
 
 export const selectSupportsMenu = (state) =>
   state.supportsMenu.supportsMenuOpen;
