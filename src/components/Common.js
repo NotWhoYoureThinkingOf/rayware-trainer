@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
+import Image from "next/image";
 import styles from "../styles/Common.module.css";
 import { Close, Search } from "@material-ui/icons";
 import FirewallModal from "./FirewallModal";
@@ -62,7 +63,13 @@ const Common = () => {
           block it based on security rules. On PC, Windows Defender Firewall
           performs this role.{" "}
         </h3>
-        <h3 onClick={() => setFirewallModal(true)}>firewall</h3>
+        <div
+          className={styles.common__firewallImage}
+          onClick={() => setFirewallModal(true)}
+        >
+          <Image src="/firewall.png" layout="fill" objectFit="contain" />
+          <h3>firewall</h3>
+        </div>
         <div ref={firewallMockup} className={styles.common__windowsModal}>
           <div className={styles.common__windowsModalContainer}>
             <div
