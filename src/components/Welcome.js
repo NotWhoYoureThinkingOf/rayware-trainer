@@ -167,67 +167,106 @@ const Welcome = () => {
               className={`${styles.welcome__specs} ${styles.welcome__tutorial}`}
               onClick={checkSpecs}
             >
-              <Image src="/compat.png" width={376.4} height={198.5} />
+              <div className={styles.welcome__specsContainer}>
+                <Image src="/compat.png" layout="fill" objectFit="contain" />
+              </div>
               <h3>Checking compatibility with your Computer</h3>
             </div>
             <div
               className={`${styles.welcome__optimize} ${styles.welcome__tutorial} ${styles.welcome__TBD}`}
               // onClick={}
             >
-              <Image src="/optimizecard.png" width={376.4} height={198.5} />
+              <div className={styles.welcome__optimizeContainer}>
+                <Image
+                  src="/optimizecard.png"
+                  layout="fill"
+                  objectFit="contain"
+                />
+              </div>
+
               <h3>Optimizing your Graphics Card (TBD)</h3>
             </div>
             <div
               className={`${styles.welcome__commonIssues} ${styles.welcome__tutorial}`}
               onClick={commonIssues}
             >
-              <Image src="/connection-issue.png" width={376.4} height={198.5} />
+              <div className={styles.welcome__commonContainer}>
+                <Image
+                  src="/connection-issue.png"
+                  layout="fill"
+                  objectFit="contain"
+                />
+              </div>
               <h3>Common Connection Fixes (TBD)</h3>
             </div>
             <div
               className={`${styles.welcome__loggingIn} ${styles.welcome__tutorial}`}
               onClick={startLoginTraining}
             >
-              <Image src="/login.png" width={376.4} height={198.5} />
+              <div className={styles.welcome__loggingContainer}>
+                <Image src="/login.png" layout="fill" objectFit="contain" />
+              </div>
               <h3>Logging into Dashboard</h3>
             </div>
             <div
               className={`${styles.welcome__import} ${styles.welcome__tutorial}`}
               onClick={startImportTraining}
             >
-              <Image src="/import-model.JPG" width={376.4} height={198.5} />
+              <div className={styles.welcome__importContainer}>
+                <Image
+                  src="/import-model.JPG"
+                  layout="fill"
+                  objectFit="contain"
+                />
+              </div>
               <h3>Importing a Model</h3>
             </div>
             <div
               className={`${styles.welcome__fixModel} ${styles.welcome__tutorial} `}
               onClick={startFixTraining}
             >
-              <Image src="/fix-model.JPG" width={376.4} height={198.5} />
+              <div className={styles.welcome__fixContainer}>
+                <Image src="/fix-model.JPG" layout="fill" objectFit="contain" />
+              </div>
               <h3>Scan Repair (Fixing a Model) (TBD)</h3>
             </div>
             <div
               className={`${styles.welcome__justLooking} ${styles.welcome__tutorial}`}
               onClick={freeRoam}
             >
-              <Image
-                src="/rayware-trainer-just-looking.JPG"
-                width={376.4}
-                height={198.5}
-              />
+              <div className={styles.welcome__justContainer}>
+                <Image
+                  src="/rayware-trainer-just-looking.JPG"
+                  layout="fill"
+                  objectFit="contain"
+                />
+              </div>
               <h3>Free Roam</h3>
             </div>
             <div
               className={`${styles.welcome__printPreview} ${styles.welcome__tutorial}`}
               onClick={startPreviewTraining}
             >
-              <Image src="/print-preview.png" width={376.4} height={198.5} />
+              <div className={styles.welcome__previewContainer}>
+                <Image
+                  src="/print-preview.png"
+                  layout="fill"
+                  objectFit="contain"
+                />
+              </div>
               <h3>Print Preview (Checking Total Layers) (TBD)</h3>
             </div>
             <div
               className={`${styles.welcome__logs} ${styles.welcome__tutorial}`}
               onClick={startLogsTraining}
             >
-              <Image src="/diagnostic-logs.PNG" width={376.4} height={198.5} />
+              <div className={styles.welcome__logsContainer}>
+                <Image
+                  src="/diagnostic-logs.PNG"
+                  layout="fill"
+                  objectFit="contain"
+                />
+              </div>
               <h3>Downloading your Diagnostic Logs</h3>
             </div>
           </div>

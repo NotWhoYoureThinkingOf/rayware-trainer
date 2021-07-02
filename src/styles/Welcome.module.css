@@ -100,8 +100,17 @@
   position:relative;
 }
 
-.welcome__import {
-  position: relative;
+.welcome__specs, .welcome__import, .welcome__optimize, .welcome__commonIssues, .welcome__loggingIn, .welcome__fixModel, .welcome__justLooking, .welcome__printPreview, .welcome__logs {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.welcome__specsContainer, .welcome__importContainer, .welcome__fixContainer, .welcome__optimizeContainer, .welcome__commonContainer, .welcome__loggingContainer, .welcome__justContainer, .welcome__previewContainer, .welcome__logsContainer {
+  width: 23rem;
+  height: 12rem;
+  position:relative;
 }
 
 .welcome__TBD{
@@ -110,11 +119,36 @@
 }
 
 @media screen and (max-width: 1950px) {
-  .welcome {
-    padding: 2rem 0 0;
+  .welcome__container{
+    gap: 0rem;
+  }
+
+  .welcome__header h2 {
+    font-size:1.3rem;
+  }
+
+  .welcome__header h1 {
+    font-size:2.4rem;
+  }
+
+  .welcome__header h3 {
+    font-size:1rem;
   }
 
   .welcome__content {
     padding-bottom: 2rem;
+  }
+
+  .welcome__bodyTitle{
+    font-size:1.4rem;
+  }
+
+  .welcome__specsContainer, .welcome__importContainer, .welcome__fixContainer, .welcome__optimizeContainer, .welcome__commonContainer, .welcome__loggingContainer, .welcome__justContainer, .welcome__previewContainer, .welcome__logsContainer {
+    width: 18rem;
+    height: 10rem;
+  }
+
+  .welcome__specs h3, .welcome__import h3, .welcome__fixModel h3, .welcome__optimize h3, .welcome__commonIssues h3, .welcome__loggingIn h3, .welcome__justLooking h3, .welcome__printPreview h3, .welcome__logs h3 {
+    width:100%
   }
 }
