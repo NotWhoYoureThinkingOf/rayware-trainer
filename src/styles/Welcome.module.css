@@ -149,6 +149,6 @@
   }
 
   .welcome__specs h3, .welcome__import h3, .welcome__fixModel h3, .welcome__optimize h3, .welcome__commonIssues h3, .welcome__loggingIn h3, .welcome__justLooking h3, .welcome__printPreview h3, .welcome__logs h3 {
-    width:100%
+    /* width:100% */
   }
 }

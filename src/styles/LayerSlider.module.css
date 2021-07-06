@@ -1,0 +1,9 @@
+.layerSlider__up, .layerSlider__down{
+  display:flex;
+  cursor:pointer;
+  transition:all .2s ease
+}
+
+.layerSlider__up:hover, .layerSlider__down:hover{
+  transform:scale(1.25)
+}

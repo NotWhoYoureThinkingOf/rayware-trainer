@@ -49,10 +49,10 @@ export const logsAndPreviewSlice = createSlice({
       state.previewStep2 = false;
     },
     grabPreviewStep3: (state) => {
-      state.previewStep2 = true;
+      state.previewStep3 = true;
     },
     releasePreviewStep3: (state) => {
-      state.previewStep2 = false;
+      state.previewStep3 = false;
     },
   },
 });

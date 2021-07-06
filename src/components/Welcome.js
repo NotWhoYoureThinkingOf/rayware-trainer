@@ -122,6 +122,7 @@ const Welcome = () => {
 
   const startPreviewTraining = () => {
     dispatch(releaseWelcome());
+    dispatch(grabModelImported());
     dispatch(grabPreviewTraining());
     dispatch(grabPreviewStep1());
   };

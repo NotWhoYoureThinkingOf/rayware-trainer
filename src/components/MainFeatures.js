@@ -258,7 +258,10 @@ const MainFeatures = ({ children }) => {
                 onClick={closePreviewTraining}
               />
               <h3>Print Preview</h3>
-              <p>Click on the green printer button to open the Print menu.</p>
+              <p>
+                Once a model has been loaded in, click on the green printer
+                button to open the Print menu.
+              </p>
             </div>
           )}
           <div

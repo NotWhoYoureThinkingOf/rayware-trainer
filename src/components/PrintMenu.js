@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "../styles/PrintMenu.module.css";
 import Image from "next/image";
+import VerticalSlider from "./LayerSlider";
 import {
   ChevronRight,
   Close,
@@ -10,9 +11,14 @@ import {
 } from "@material-ui/icons";
 import { grabPrintMenu, releasePrintMenu } from "../features/printMenuSlice";
 import {
+  grabPreviewStep2,
+  grabPreviewStep3,
+  releasePreviewStep1,
   releasePreviewStep2,
+  releasePreviewStep3,
   releasePreviewTraining,
   selectPreviewStep2,
+  selectPreviewStep3,
   selectPreviewTraining,
 } from "../features/logsAndPreviewSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -26,8 +32,10 @@ const PrintMenu = () => {
   const [print, setPrint] = useState(true);
   const [managePrinters, setManagePrinters] = useState(false);
   const [history, setHistory] = useState(false);
+  const [previewGenerated, setPreviewGenerated] = useState(false);
   const previewTrainingOpen = useSelector(selectPreviewTraining);
   const previewStep2 = useSelector(selectPreviewStep2);
+  const previewStep3 = useSelector(selectPreviewStep3);
   const modelIsImported = useSelector(selectModelImported);
   const fixedModelImported = useSelector(selectModelFixed);
   const dispatch = useDispatch();
@@ -55,14 +63,27 @@ const PrintMenu = () => {
     setHistory(true);
   };
 
+  const openPreview = () => {
+    dispatch(releasePreviewStep2());
+    dispatch(grabPreviewStep3());
+  };
+
+  const backToStep2 = () => {
+    setPreviewGenerated(false);
+    dispatch(releasePreviewStep3());
+    dispatch(grabPreviewStep2());
+  };
+
   const closePreviewTraining = () => {
     dispatch(releasePreviewTraining());
     dispatch(releasePreviewStep2());
+    dispatch(releasePreviewStep3());
   };
 
-  console.log("history", history);
+  console.log("step2", previewStep2);
+  console.log("step3", previewStep3);
 
-  return (
+  return !previewStep3 ? (
     <div className={styles.printMenu}>
       <div className={styles.printMenu__container}>
         <div className={styles.printMenu__topLeft}>
@@ -240,6 +261,7 @@ const PrintMenu = () => {
                       ? styles.modelLoadedText
                       : ""
                   }`}
+                  onClick={openPreview}
                 >
                   Print Preview
                 </h5>
@@ -343,6 +365,59 @@ const PrintMenu = () => {
             </p>
           </div>
         )}
+      </div>
+    </div>
+  ) : (
+    <div className={styles.previewMenu}>
+      <div className={styles.previewMenu__container}>
+        <div className={styles.previewMenu__top}>
+          <div className={styles.previewMenu__print}>
+            <h5>Print Preview</h5>
+          </div>
+
+          <div className={styles.previewMenu__close} onClick={closePrintMenu}>
+            <Close style={{ fontSize: "1.8rem", color: "white" }} />
+          </div>
+        </div>
+        <div className={styles.previewMenu__content}>
+          <div className={styles.previewMenu__contentTop}>
+            <p className={styles.previewMenu__jobTitle}></p>
+            <div className={styles.previewMenu__contentTopRight}>
+              <Layers />
+              <p>100 µm</p>
+            </div>
+          </div>
+          <div className={styles.previewMenu__body}>
+            <div
+              className={`${styles.previewMenu__bodyLeft} ${
+                previewGenerated && styles.previewMenu__generated
+              }`}
+            >
+              {!previewGenerated ? (
+                <div className={styles.previewMenu__bodyLeftContainer}>
+                  <h3>Print Preview</h3>
+                  <p>
+                    This print job is not processed yet, therefore preview is
+                    not available. Hit "Generate Preview" if you wish to see the
+                    preview of print layers. Generating Preview may take up to a
+                    few minutes.
+                  </p>
+                  <button onClick={() => setPreviewGenerated(true)}>
+                    Generate Preview
+                  </button>
+                </div>
+              ) : (
+                <div></div>
+              )}
+            </div>
+            <div className={styles.previewMenu__bodyRight}>
+              {previewGenerated && <VerticalSlider />}
+            </div>
+          </div>
+        </div>
+        <div className={styles.previewMenu__back} onClick={backToStep2}>
+          <h5>Back</h5>
+        </div>
       </div>
     </div>
   );
