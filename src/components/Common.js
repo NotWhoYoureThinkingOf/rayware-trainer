@@ -64,12 +64,15 @@ const Common = () => {
           performs this role.{" "}
         </h3>
         <div
-          className={styles.common__firewallImage}
+          className={styles.common__firewall}
           onClick={() => setFirewallModal(true)}
         >
-          <Image src="/firewall.png" layout="fill" objectFit="contain" />
-          <h3>firewall</h3>
+          <div className={styles.common__firewallImage}>
+            <Image src="/firewall.png" layout="fill" objectFit="contain" />
+          </div>
+          <h3>Windows Defender Firewall</h3>
         </div>
+
         <div ref={firewallMockup} className={styles.common__windowsModal}>
           <div className={styles.common__windowsModalContainer}>
             <div
