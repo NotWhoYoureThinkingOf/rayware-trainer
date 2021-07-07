@@ -20,17 +20,21 @@ import gsap, { Power4 } from "gsap";
 import CheckSpecs from "./CheckSpecs";
 import Common from "./Common";
 import { ArrowBack, Close } from "@material-ui/icons";
+import { Optimizing } from "./Optimizing";
 
 const Welcome = () => {
   const [checkCompat, setCheckCompat] = useState(false);
   const [backFromSpecs, setBackFromSpecs] = useState(false);
   const [checkCommon, setCheckCommon] = useState(false);
   const [backFromCommon, setBackFromCommon] = useState(false);
+  const [checkOptimizing, setCheckOptimizing] = useState(false);
+  const [backFromOptimizing, setBackFromOptimizing] = useState(false);
   const dispatch = useDispatch();
   const tl = gsap.timeline();
   const lessons = useRef(null);
   const checkSpecsRef = useRef(null);
   const commonRef = useRef(null);
+  const optimizingRef = useRef(null);
 
   useEffect(() => {
     if (checkCompat) {
@@ -76,7 +80,36 @@ const Welcome = () => {
         onComplete: setBackFromCommon(false),
       });
     }
-  }, [checkCompat, backFromSpecs, checkCommon, backFromCommon]);
+
+    if (checkOptimizing) {
+      tl.to(lessons.current, 0.9, {
+        x: "-100vw",
+        ease: Power4.easeInOut,
+      }).to(optimizingRef.current, 0.9, {
+        x: "0",
+        ease: Power4.easeInOut,
+        onComplete: setCheckOptimizing(false),
+      });
+    }
+
+    if (backFromOptimizing) {
+      tl.to(optimizingRef.current, 0.9, {
+        x: "100vw",
+        duration: 0.9,
+        ease: Power4.easeInOut,
+      }).to(lessons.current, 0.9, {
+        x: "0",
+        onComplete: setBackFromOptimizing(false),
+      });
+    }
+  }, [
+    checkCompat,
+    backFromSpecs,
+    checkCommon,
+    backFromCommon,
+    checkOptimizing,
+    backFromOptimizing,
+  ]);
 
   const returnToWelcome = () => {
     setBackFromSpecs(true);
@@ -88,6 +121,14 @@ const Welcome = () => {
 
   const returnToWelcomeFromCommon = () => {
     setBackFromCommon(true);
+  };
+
+  const optimizingCard = () => {
+    setCheckOptimizing(true);
+  };
+
+  const returnToWelcomeFromOptimizing = () => {
+    setBackFromOptimizing(true);
   };
 
   const commonIssues = () => {
@@ -159,6 +200,15 @@ const Welcome = () => {
           </div>
           <Common />
         </div>
+        <div ref={optimizingRef} className={styles.welcome__optimizing}>
+          <div
+            className={styles.welcome__optimizingBack}
+            onClick={returnToWelcomeFromOptimizing}
+          >
+            <Close style={{ fontSize: "2.8rem", display: "flex" }} />
+          </div>
+          <Optimizing />
+        </div>
         <div ref={lessons} className={styles.welcome__body}>
           <h2 className={styles.welcome__bodyTitle}>
             What do you want to learn?
@@ -174,8 +224,8 @@ const Welcome = () => {
               <h3>Checking compatibility with your Computer</h3>
             </div>
             <div
-              className={`${styles.welcome__optimize} ${styles.welcome__tutorial} ${styles.welcome__TBD}`}
-              // onClick={}
+              className={`${styles.welcome__optimize} ${styles.welcome__tutorial}`}
+              onClick={optimizingCard}
             >
               <div className={styles.welcome__optimizeContainer}>
                 <Image
