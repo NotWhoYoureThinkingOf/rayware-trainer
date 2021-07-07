@@ -7,6 +7,7 @@ import { store } from "../app/store";
 import PlatformRaised from "./Platform-raised";
 import BadModel from "./Training-model-bad";
 import FixedModel from "./Fixedmodel";
+import SupportsModel from "./Supportsmodel";
 import {
   grabModelImported,
   selectModelImported,
@@ -54,6 +55,7 @@ const Platform = () => {
             {modelLoaded && <BadModel />}
             {modelIsFixed && <FixedModel />}
             {!modelLoaded && !modelIsFixed && <OrbitControls />}
+            {/* <SupportsModel /> */}
           </Provider>
         </Suspense>
       </Canvas>

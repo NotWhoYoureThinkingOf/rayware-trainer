@@ -19,7 +19,10 @@ import Header from "./Header";
 import Platform from "./Platform";
 import Tools from "./Tools";
 import { grabWelcome, selectWelcome } from "../features/welcomeSlice";
-import { selectImportTraining } from "../features/importTrainingSlice";
+import {
+  releaseImportTraining,
+  selectImportTraining,
+} from "../features/importTrainingSlice";
 import { selectAddModel } from "../features/addModelSlice";
 import { grabViews, selectViewsMenu } from "../features/viewsSlice";
 import { grabPrintMenu, selectPrintMenu } from "../features/printMenuSlice";
@@ -45,7 +48,10 @@ import {
   releaseModelFixed,
   selectModelFixed,
 } from "../features/modelFixedSlice";
-import { selectLoginTraining } from "../features/loginTrainingSlice";
+import {
+  releaseLoginTraining,
+  selectLoginTraining,
+} from "../features/loginTrainingSlice";
 import { selectUser } from "../features/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Views from "./Views";
@@ -58,6 +64,7 @@ import AddModel from "./AddModel";
 import Welcome from "./Welcome";
 import { LoginTraining } from "./LoginTraining";
 import {
+  releaseLogsTraining,
   grabPreviewStep2,
   releasePreviewStep1,
   releasePreviewTraining,
@@ -140,6 +147,10 @@ const MainFeatures = ({ children }) => {
     dispatch(grabWelcome());
     dispatch(releaseModelImported());
     dispatch(releaseModelFixed());
+    dispatch(releaseLoginTraining());
+    dispatch(releaseImportTraining());
+    dispatch(releaseLogsTraining());
+    dispatch(releasePreviewTraining());
   };
 
   const openViewsMenu = () => {
