@@ -5,15 +5,28 @@ import { FirewallWindow } from "./FirewallWindow";
 import { Close, KeyboardArrowDown, Search } from "@material-ui/icons";
 import {
   grabFirewallWindow,
+  releaseFirewallWindow,
+  grabFirewallStep1,
+  grabFirewallStep2,
+  grabFirewallStep3,
+  grabFirewallStep4,
+  releaseFirewallStep1,
+  releaseFirewallStep2,
+  releaseFirewallStep3,
+  releaseFirewallStep4,
   selectFirewallWindow,
+  selectFirewallStep1,
+  selectFirewallStep2,
+  selectFirewallStep3,
+  selectFirewallStep4,
 } from "../features/firewallWindowSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 const FirewallModal = () => {
   const [input, setInput] = useState("");
-  const [step1, setStep1] = useState(true);
-  const [step2, setStep2] = useState(false);
-  const [step3, setStep3] = useState(false);
+  const step1 = useSelector(selectFirewallStep1);
+  const step2 = useSelector(selectFirewallStep2);
+  const step3 = useSelector(selectFirewallStep3);
   const [FWWindow, setFWWindow] = useState(false);
   const [controlPanel, setControlPanel] = useState(false);
   const firewallIsOpen = useSelector(selectFirewallWindow);
@@ -25,17 +38,18 @@ const FirewallModal = () => {
   };
 
   const FWStep2 = () => {
-    setStep1(false);
-    setStep2(true);
+    dispatch(releaseFirewallStep1());
+    dispatch(grabFirewallStep2());
     setControlPanel(true);
     openFW();
     dispatch(grabFirewallWindow());
   };
 
   const closeFW = () => {
-    setStep1(true);
-    setStep2(false);
-    setStep3(false);
+    dispatch(grabFirewallStep1());
+    dispatch(releaseFirewallStep2());
+    dispatch(releaseFirewallStep3());
+    dispatch(releaseFirewallStep4());
     setFWWindow(false);
   };
 
@@ -62,14 +76,24 @@ const FirewallModal = () => {
           </p>
         )}
         {step3 && (
-          <p>
-            This box shows an alphabetical list of all the programs that the
-            firewall is interacting with, either to allow or deny access to
-            them. Scroll down to RayWare and check all the boxes to allow it
-            access through the firewall. If it's not listed, select the "Change
-            settings" button at the top, then the "Allow another app..." button
-            below.
-          </p>
+          <div className={styles.firewallModal__step3}>
+            <p>
+              This box shows an alphabetical list of all the programs that the
+              firewall is interacting with, either to allow or deny access to
+              them.
+            </p>
+            <p>
+              Scroll down to "rayware". If it is on the list but some boxes for
+              it aren't checked, click on the "Change settings" button above and
+              then check off the boxes to the left of "rayware" as well as the
+              boxes in the Private and Public columns. Depending on your setup,
+              there may be 2 "rayware" listed. Check the boxes for both.
+            </p>
+            <p>
+              If it's not listed, select the "Change settings" button at the
+              top, then the "Allow another app..." button below.
+            </p>
+          </div>
         )}
       </div>
 

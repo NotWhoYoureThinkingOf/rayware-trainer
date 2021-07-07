@@ -282,6 +282,10 @@
   padding-left: 3px;
 }
 
+.firewallWindow__grayed{
+  opacity:0.5;
+}
+
 .firewallWindow__check2{
   /* height: 9px; */
   flex: 0.0925;

@@ -2,32 +2,47 @@ import React from "react";
 import styles from "../styles/FirewallWindow.module.css";
 import Image from "next/image";
 import { Close, KeyboardArrowDown, Search } from "@material-ui/icons";
-import { useDispatch } from "react-redux";
-import { releaseFirewallWindow } from "../features/firewallWindowSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  grabFirewallWindow,
+  releaseFirewallWindow,
+  grabFirewallStep1,
+  grabFirewallStep2,
+  grabFirewallStep3,
+  grabFirewallStep4,
+  releaseFirewallStep1,
+  releaseFirewallStep2,
+  releaseFirewallStep3,
+  releaseFirewallStep4,
+  selectFirewallWindow,
+  selectFirewallStep1,
+  selectFirewallStep2,
+  selectFirewallStep3,
+  selectFirewallStep4,
+} from "../features/firewallWindowSlice";
 import { useState, useEffect } from "react";
 import allApps from "../../firewall-app";
 
 export const FirewallWindow = () => {
-  const [step1, setStep1] = useState(true);
-  const [step2, setStep2] = useState(false);
-  const [apps, setApps] = useState(null);
+  const step1 = useSelector(selectFirewallStep1);
+  const step2 = useSelector(selectFirewallStep2);
+  const step3 = useSelector(selectFirewallStep3);
+  const [changeSettings, setChangeSettings] = useState(false);
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    setApps(allApps);
-  }, []);
 
   console.log("allApps", allApps);
 
   const closeFW = () => {
     dispatch(releaseFirewallWindow());
-    setStep1(true);
-    setStep2(false);
+    dispatch(grabFirewallStep1());
+    dispatch(releaseFirewallStep2());
+    dispatch(releaseFirewallStep3());
   };
 
   const goStep2 = () => {
-    setStep1(false);
-    setStep2(true);
+    dispatch(releaseFirewallStep1());
+    dispatch(releaseFirewallStep2());
+    dispatch(grabFirewallStep3());
   };
 
   return (
@@ -53,7 +68,7 @@ export const FirewallWindow = () => {
               <p>Tools</p>
             </div>
             {/* start of first window */}
-            {step1 && (
+            {step2 && (
               <div className={styles.firewallModal__bodyBottom}>
                 <div className={styles.firewallModal__bodyLeft}>
                   <div className={styles.firewallModal__bodyLeftTop}>
@@ -166,7 +181,7 @@ export const FirewallWindow = () => {
               </div>
             )}
             {/* end of first window */}
-            {step2 && (
+            {step3 && (
               <div className={styles.firewallWindow__step2}>
                 <h3>
                   Allow apps to communicate through Windows Defender Firewall
@@ -179,7 +194,10 @@ export const FirewallWindow = () => {
                   <p className={styles.firewallWindow__blue}>
                     What are the risks of allowing an app to communicate?
                   </p>
-                  <div className={styles.firewallWindow__changeButton}>
+                  <div
+                    className={styles.firewallWindow__changeButton}
+                    onClick={() => setChangeSettings(true)}
+                  >
                     <div className={styles.firewallWindow__changeIcon}>
                       <Image src="/shield-icon.png" width={17} height={17} />
                     </div>
@@ -201,13 +219,20 @@ export const FirewallWindow = () => {
                       </p>
                     </div>
                     <div className={styles.firewallWindow__appsBody}>
-                      {apps.map((app) => (
+                      {allApps.map((app) => (
                         <div className={styles.firewallWindow__app}>
                           <input
                             type="checkbox"
+                            defaultChecked
                             className={styles.firewallWindow__check1}
                           />
-                          <p>{app.name}</p>
+                          <p
+                            className={`${styles.firewallWindow__appName} ${
+                              !changeSettings && styles.firewallWindow__grayed
+                            }`}
+                          >
+                            {app.name}
+                          </p>
                           <input
                             type="checkbox"
                             className={styles.firewallWindow__check2}
@@ -222,15 +247,27 @@ export const FirewallWindow = () => {
                   </div>
                   <div className={styles.firewallWindow__appsButtons}>
                     <button>Details...</button>
-                    <button>Remove</button>
+                    {!changeSettings ? (
+                      <button disabled>Remove</button>
+                    ) : (
+                      <button>Remove</button>
+                    )}
                   </div>
                 </div>
                 <div className={styles.firewallWindow__button}>
-                  <button>Allow another app...</button>
+                  {!changeSettings ? (
+                    <button disabled>Allow another app...</button>
+                  ) : (
+                    <button>Allow another app...</button>
+                  )}
                 </div>
                 <div className={styles.firewallWindow__step2Buttons}>
-                  <button>OK</button>
-                  <button>Cancel</button>
+                  {!changeSettings ? (
+                    <button disabled>OK</button>
+                  ) : (
+                    <button>OK</button>
+                  )}
+                  <button onClick={closeFW}>Cancel</button>
                 </div>
               </div>
             )}
