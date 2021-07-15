@@ -1,0 +1,36 @@
+.optimizing h2 {
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+.optimizing__info{
+  display:flex;
+  flex-direction: column;
+}
+
+.optimizing__OS {
+  display: flex;
+  flex-direction:column;
+  align-items: flex-start;
+  gap: 5rem;
+  margin-top: 3rem;
+  gap: 2rem;
+}
+
+.optimizing__windows {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.optimizing__windows h3 {
+  margin-top: 1rem;
+}
+
+.optimizing__windowsImage {
+  width: 15rem;
+  height: 15rem;
+  position: relative;
+}
