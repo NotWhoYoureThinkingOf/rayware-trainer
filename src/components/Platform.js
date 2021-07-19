@@ -13,6 +13,7 @@ import {
   selectModelImported,
 } from "../features/modelImportedSlice";
 import { grabModelFixed, selectModelFixed } from "../features/modelFixedSlice";
+import { selectSupportsModel } from "../features/supportsModelSlice";
 
 useGLTF.preload("/platform.gltf");
 useGLTF.preload("/platform-raised.gltf");
@@ -20,6 +21,7 @@ useGLTF.preload("/platform-raised.gltf");
 const Platform = () => {
   const [modelLoaded, setModelLoaded] = useState(false);
   const modelIsFixed = useSelector(selectModelFixed);
+  const modelIsSupported = useSelector(selectSupportsModel);
 
   const modelIsImported = useSelector(selectModelImported);
 
@@ -54,8 +56,10 @@ const Platform = () => {
             <PlatformRaised />
             {modelLoaded && <BadModel />}
             {modelIsFixed && <FixedModel />}
-            {!modelLoaded && !modelIsFixed && <OrbitControls />}
-            {/* <SupportsModel /> */}
+            {modelIsSupported && <SupportsModel />}
+            {!modelLoaded && !modelIsFixed && !modelIsSupported && (
+              <OrbitControls />
+            )}
           </Provider>
         </Suspense>
       </Canvas>

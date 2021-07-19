@@ -121,14 +121,14 @@
   position:relative;
 }
 
-.welcome__specs, .welcome__import, .welcome__optimize, .welcome__commonIssues, .welcome__loggingIn, .welcome__fixModel, .welcome__justLooking, .welcome__printPreview, .welcome__logs {
+.welcome__specs, .welcome__import, .welcome__optimize, .welcome__commonIssues, .welcome__loggingIn, .welcome__fixModel,.welcome__addSupports, .welcome__justLooking, .welcome__printPreview, .welcome__logs {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
 }
 
-.welcome__specsContainer, .welcome__importContainer, .welcome__fixContainer, .welcome__optimizeContainer, .welcome__commonContainer, .welcome__loggingContainer, .welcome__justContainer, .welcome__previewContainer, .welcome__logsContainer {
+.welcome__specsContainer, .welcome__importContainer, .welcome__fixContainer, .welcome__optimizeContainer, .welcome__commonContainer,.welcome__addContainer, .welcome__loggingContainer, .welcome__justContainer, .welcome__previewContainer, .welcome__logsContainer {
   width: 23rem;
   height: 12rem;
   position:relative;
@@ -164,7 +164,7 @@
     font-size:1.4rem;
   }
 
-  .welcome__specsContainer, .welcome__importContainer, .welcome__fixContainer, .welcome__optimizeContainer, .welcome__commonContainer, .welcome__loggingContainer, .welcome__justContainer, .welcome__previewContainer, .welcome__logsContainer {
+  .welcome__specsContainer, .welcome__importContainer, .welcome__fixContainer, .welcome__optimizeContainer, .welcome__commonContainer,.welcome__addContainer,  .welcome__loggingContainer, .welcome__justContainer, .welcome__previewContainer, .welcome__logsContainer {
     width: 18rem;
     height: 10rem;
   }

@@ -22,6 +22,7 @@ import {
 } from "../features/logsAndPreviewSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { releaseModelFixed } from "../features/modelFixedSlice";
+import { releaseSupportsModel } from "../features/supportsModelSlice";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -57,6 +58,7 @@ const Header = () => {
       dispatch(releaseModelImported());
       dispatch(releaseModelSelected());
       dispatch(releaseModelFixed());
+      dispatch(releaseSupportsModel());
     }
   };
 

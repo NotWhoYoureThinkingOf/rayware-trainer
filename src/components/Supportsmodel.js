@@ -77,10 +77,11 @@ export default function Model(props) {
           material={nodes["Training-Model-Supports"].material}
           material-color={modelProps.color}
           material-roughness={0.65}
-          position={[2.41, 0, 0]}
+          position={[0, -0.88, 0.6]}
+          rotation={[-1.57, 3.15, 3.8]}
+          scale={[1 / 17, 1 / 17, 1 / 17]}
           {...bind()}
           ref={supportsModel}
-          scale={0.25}
         />
         {selected && (
           <Html style={{ pointerEvents: "none" }}>

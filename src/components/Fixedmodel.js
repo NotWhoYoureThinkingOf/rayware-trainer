@@ -19,17 +19,24 @@ import {
   releaseModelImported,
   selectModelImported,
 } from "../features/modelImportedSlice";
+import { releaseModelFixed } from "../features/modelFixedSlice";
 import {
   releaseFixTraining,
   selectFixTraining,
 } from "../features/fixTrainingSlice";
+import {
+  grabSupportsModel,
+  releaseAddSupportsTraining,
+  selectSupportsTraining,
+} from "../features/supportsModelSlice";
 import { Html } from "@react-three/drei";
-import { Close } from "@material-ui/icons";
+import { Close, ThumbDown } from "@material-ui/icons";
 
 export default function Model(props) {
   const [selected, setSelected] = useState(false);
   const [pointerOver, setPointerOver] = useState(false);
   const fixTraining = useSelector(selectFixTraining);
+  const supportsTraining = useSelector(selectSupportsTraining);
   const dispatch = useDispatch();
   const orbit = useRef();
   const group = useRef();
@@ -79,6 +86,11 @@ export default function Model(props) {
     }
   };
 
+  const addTheSupports = () => {
+    dispatch(releaseModelFixed());
+    dispatch(grabSupportsModel());
+  };
+
   useEffect(() => {
     if (transform.current) {
       const controls = transform.current;
@@ -104,8 +116,8 @@ export default function Model(props) {
           material={nodes["Training-Model-Fixed"].material}
           material-color={modelProps.color}
           material-roughness={0.65}
-          position={[2.5, -0.8, 3.3]}
-          rotation={[-1.6, 3.15, 3.8]}
+          position={[2.5, -0.9, 3.3]}
+          rotation={[-1.57, 3.15, 3.8]}
           scale={[1 / 17, 1 / 17, 1 / 17]}
         ></a.mesh>
         {selected && (
@@ -117,6 +129,23 @@ export default function Model(props) {
               <p onClick={() => setPointerOver(false)}>MOVE</p>
               <p onClick={() => setPointerOver(true)}>ROTATE</p>
             </div>
+            {supportsTraining && (
+              <div className={styles.addSupports}>
+                <ThumbDown style={{ color: "#cf142b", fontSize: "1rem" }} />
+                <p className={styles.addSupports__text}>
+                  Insufficient base detected. Support structure required.
+                </p>
+                <div className={styles.addSupports__buttons}>
+                  <p className={styles.addSupports__help}>HELP</p>
+                  <p
+                    className={styles.addSupports__fix}
+                    onClick={addTheSupports}
+                  >
+                    FIX
+                  </p>
+                </div>
+              </div>
+            )}
           </Html>
         )}
         {fixTraining && (

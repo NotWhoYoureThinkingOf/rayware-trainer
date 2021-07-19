@@ -71,6 +71,7 @@ import {
   selectPreviewStep1,
   selectPreviewTraining,
 } from "../features/logsAndPreviewSlice";
+import { releaseSupportsModel } from "../features/supportsModelSlice";
 
 const MainFeatures = ({ children }) => {
   const [printJobIsOpen, setPrintJobIsOpen] = useState(false);
@@ -151,6 +152,7 @@ const MainFeatures = ({ children }) => {
     dispatch(releaseImportTraining());
     dispatch(releaseLogsTraining());
     dispatch(releasePreviewTraining());
+    dispatch(releaseSupportsModel());
   };
 
   const openViewsMenu = () => {

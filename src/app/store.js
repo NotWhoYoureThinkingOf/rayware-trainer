@@ -27,6 +27,7 @@ import userReducer from "../features/userSlice";
 import firewallWindowReducer from "../features/firewallWindowSlice";
 import fixTrainingReducer from "../features/fixTrainingSlice";
 import logsAndPreviewReducer from "../features/logsAndPreviewSlice";
+import supportsModelReducer from "../features/supportsModelSlice";
 
 export const store = configureStore({
   reducer: {
@@ -58,5 +59,6 @@ export const store = configureStore({
     firewallWindow: firewallWindowReducer,
     fixTraining: fixTrainingReducer,
     logsAndPreview: logsAndPreviewReducer,
+    supportsModel: supportsModelReducer,
   },
 });

@@ -25,6 +25,63 @@
   color:white;
 }
 
+.addSupports{
+  display:flex;
+  align-items:center;
+  position: absolute;
+  left: -75%;
+  top: 430%;
+  background:black;
+  border:3px solid white;
+  border-radius:5px;
+  color:white;
+  gap: 6px;
+  padding: 3px 4px;
+  pointer-events:auto;
+}
+
+.addSupports__text{
+  font-size: .75rem;
+  font-weight: 300;
+}
+
+.addSupports__buttons{
+  display:flex;
+  align-items:center;
+  gap:5px;
+  
+}
+
+.addSupports__help{
+  background: #3399ff;
+  color:white;
+  font-weight:500;
+  font-size:.75rem;
+  padding: 5px 7px;
+  border-radius: 5px;
+  cursor:pointer;
+  transition: all .2s ease;
+}
+
+.addSupports__help:hover{
+  background: #5daeff;
+}
+
+.addSupports__fix{
+  background: #666666;
+  color:white;
+  font-weight:500;
+  font-size:.75rem;
+  padding: 5px 8px;
+  border-radius: 5px;
+  cursor:pointer;
+  transition: all .2s ease;
+}
+
+.addSupports__fix:hover{
+  background: #00ad4e;
+}
+
 .fixTraining{
   display: flex;
   flex-direction: column;

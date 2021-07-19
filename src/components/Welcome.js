@@ -16,11 +16,13 @@ import {
   grabPreviewTraining,
   grabPreviewStep1,
 } from "../features/logsAndPreviewSlice";
+import { grabAddSupportsTraining } from "../features/supportsModelSlice";
 import gsap, { Power4 } from "gsap";
 import CheckSpecs from "./CheckSpecs";
 import Common from "./Common";
 import { ArrowBack, Close } from "@material-ui/icons";
 import { Optimizing } from "./Optimizing";
+import { grabModelFixed } from "../features/modelFixedSlice";
 
 const Welcome = () => {
   const [checkCompat, setCheckCompat] = useState(false);
@@ -148,6 +150,12 @@ const Welcome = () => {
     dispatch(releaseWelcome());
     dispatch(grabModelImported());
     dispatch(grabFixTraining());
+  };
+
+  const startSupportsTraining = () => {
+    dispatch(grabAddSupportsTraining());
+    dispatch(grabModelFixed());
+    dispatch(releaseWelcome());
   };
 
   const startLoginTraining = () => {
@@ -280,6 +288,19 @@ const Welcome = () => {
                 <Image src="/fix-model.JPG" layout="fill" objectFit="contain" />
               </div>
               <h3>Scan Repair (Fixing a Model) (TBD)</h3>
+            </div>
+            <div
+              className={`${styles.welcome__addSupports} ${styles.welcome__tutorial} ${styles.welcome__TBD}`}
+              onClick={startSupportsTraining}
+            >
+              <div className={styles.welcome__addContainer}>
+                <Image
+                  src="/rayware-supports.JPG"
+                  layout="fill"
+                  objectFit="contain"
+                />
+              </div>
+              <h3>Adding Supports (TBD)</h3>
             </div>
             <div
               className={`${styles.welcome__justLooking} ${styles.welcome__tutorial}`}
